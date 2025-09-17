@@ -145,69 +145,63 @@ public class Main {
 
 ```
 ## Builder
-Builder is a creational design pattern that allows for the step-by-step construction of complex objects using a clear and fluent interface.
-#### Step 1: Create the Product Class
+- Builder is a creational design pattern that allows for the step-by-step construction of complex objects using a clear and fluent interface.
+- Instead of passing a long list of parameters to a constructor (telescoping constructors problem), the Builder provides a readable, flexible way to create objects.
+- To create an object, you must pass all arguments, even if some are not needed
 ```java
-public class User {
+public class Test {
+    public static void main(String[] args) {
+        User user = new User.Builder()
+                .name("Satya")
+                .email("a@m.com")
+                .age(34)
+                .phone(122222)
+                .build();
+        System.out.println(user);
+    }
+}
+class User{
     private String name;
     private String email;
     private int age;
-    private String phone;
-
-    // Private constructor
-    private User(UserBuilder builder) {
+    private int phone;
+    private User(Builder builder){
         this.name = builder.name;
         this.email = builder.email;
         this.age = builder.age;
         this.phone = builder.phone;
     }
-
-    // Getters (optional)
-
-    public static class UserBuilder {
+    public static class Builder{
         private String name;
         private String email;
         private int age;
-        private String phone;
-
-        public UserBuilder(String name, String email) {
+        private int phone;
+        public  Builder name(String name) {
             this.name = name;
-            this.email = email;
+            return this;
         }
-
-        public UserBuilder age(int age) {
+        public Builder email(String email){
+            this.email = email;
+            return this;
+        }
+        public  Builder age(int age){
             this.age = age;
             return this;
         }
-
-        public UserBuilder phone(String phone) {
+        public  Builder phone(int phone){
             this.phone = phone;
             return this;
         }
-
-        public User build() {
+        public User build(){
             return new User(this);
         }
     }
 }
 ```
-#### Step 2: Use the Builder to Create Objects
-```java
-public class Main {
-    public static void main(String[] args) {
-        User user = new User.UserBuilder("Satyajeet", "satyajeet@example.com")
-                            .age(30)
-                            .phone("123-456-7890")
-                            .build();
-
-        System.out.println("User created: " + user);
-    }
-}
-```
 #### Real-World Use Cases
-- Creating configuration objects (e.g., HttpClient, DatabaseConfig)
-- UI component builders (e.g., AlertDialog.Builder in Android)
-- Fluent APIs in libraries like Lombok, Jackson, or Spring
+- StringBuilder (used to build strings step by step). 
+- Lombok’s @Builder annotation (auto-generates builder for you). 
+- Many frameworks (e.g., Spring, Jackson, Hibernate) internally use builder-like approaches.
 ## Prototype
 Prototype is a creational design pattern that allows for the cloning of existing objects to create new ones, rather than creating new instances from scratch. This is particularly useful when the cost of creating a new object is high.
 #### Step 1: Create a Prototype Interface
