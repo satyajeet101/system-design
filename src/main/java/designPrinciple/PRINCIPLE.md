@@ -134,10 +134,61 @@ class Ostrich implements Bird {
 ####  I – Interface Segregation Principle (ISP)
 - Clients should not be forced to depend on interfaces they do not use. 
 - Split large interfaces into smaller, more specific ones.
-- Bad Example (violates DIP)
+- Bad Example (violates ISP)
+```java
+interface Worker {
+    void work();
+    void eat();
+}
+class HumanWorker implements Worker {
+    public void work() {
+        System.out.println("Human working");
+    }
+
+    public void eat() {
+        System.out.println("Human eating");
+    }
+}
+class RobotWorker implements Worker {
+    public void work() {
+        System.out.println("Robot working");
+    }
+
+    public void eat() {
+        throw new UnsupportedOperationException("Robots don't eat!");
+    }
+}
+```
+- Problem:
+  - RobotWorker is forced to implement eat(), which it doesn’t need. 
+  - This violates ISP since clients (RobotWorker) depend on methods they don’t use.
+- Solution:
+```java
+interface Workable {
+    void work();
+}
+interface Eatable {
+    void eat();
+}
+class HumanWorker implements Workable, Eatable {
+    public void work() {
+        System.out.println("Human working");
+    }
+
+    public void eat() {
+        System.out.println("Human eating");
+    }
+}
+class RobotWorker implements Workable {
+    public void work() {
+        System.out.println("Robot working");
+    }
+}
+```
 #### D – Dependency Inversion Principle (DIP)
 - High-level modules should not depend on low-level modules. Both should depend on abstractions.
 - Use interfaces or abstract classes to decouple components.
+- Bad Example (violates DIP)
 ```java
 class MySqlDatabase {
     public void save(String data) {
