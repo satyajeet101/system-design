@@ -100,6 +100,7 @@ class Ostrich extends Bird {
 ```
 - Problem:
   - Ostrich is a Bird, but it breaks expectations: if client code calls fly(), it crashes.
+  - Subclass violates the contract of the parent class.
 - Solution:
 ```java
 interface Bird {
@@ -130,8 +131,6 @@ class Ostrich implements Bird {
   - Now, if the client expects something flyable, it uses Flyable interface. 
   - No subclass breaks parent behavior. 
   - Substitution works correctly: anywhere Bird is expected, Sparrow or Ostrich can be used safely.
-
-Subclass violates the contract of the parent class.
 ####  I – Interface Segregation Principle (ISP)
 - Clients should not be forced to depend on interfaces they do not use. 
 - Split large interfaces into smaller, more specific ones.
