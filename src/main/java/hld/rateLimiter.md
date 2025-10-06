@@ -3,6 +3,7 @@
 [Token Bucket Rate Limiter](#Token-Bucket) | [Leaky Bucket](#Leaky-Bucket) | [Fixed Window Counter](#Fixed-Window-Counter) | 
 [Sliding Window Log](#Sliding-Window-Log) | [Sliding Window Counter](#Sliding-Window-Counter)
 
+HTTP 429 : "To Many Reuests"
 ## Token Bucket
 - Bucket with a fixed capacity
 - Tokens are added to the bucket at a fixed rate
@@ -396,3 +397,4 @@ public class Main {
 - Customizations
   - Adjust maxRequests, windowSize, and subWindowCount based on your requirements.
   - For distributed systems, consider using a shared data store to maintain the sub-window counts across nodes.
+
