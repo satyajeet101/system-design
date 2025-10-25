@@ -1,0 +1,28 @@
+package features.reactiveApp.controller;
+
+import features.reactiveApp.dto.Customer;
+import features.reactiveApp.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
+
+import java.awt.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/customers")
+public class CustomerController {
+    @Autowired
+    CustomerService customerService;
+    @GetMapping("")
+    public List<Customer> getAllCustomer(){
+        return customerService.getCustomers();
+    }
+    @GetMapping(value = "/flux", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<Customer> getAllCustomersFlux(){
+        return customerService.getCustomersFlux();
+    }
+}
