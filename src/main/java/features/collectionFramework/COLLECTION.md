@@ -1,4 +1,4 @@
-![collectionHierarchy.png](../assets/collectionHierarchy.png)
+![collectionHierarchy.png](../../assets/collectionHierarchy.png)
 ## MAP internal working
 In Java 8, HashMap works internally by using an array of buckets, where each bucket can hold a Node or a TreeNode.
 1. Hashing and Bucket Calculation:

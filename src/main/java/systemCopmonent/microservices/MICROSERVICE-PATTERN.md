@@ -6,8 +6,8 @@
 
 ## EDA
 ### Event Driven Architecture
-![eda.png](../assets/eda.png)
-![edaWorkflow.png](../assets/edaWorkflow.png)
+![eda.png](../../assets/eda.png)
+![edaWorkflow.png](../../assets/edaWorkflow.png)
 
 ### Challenges
 - Event ordering 
@@ -24,11 +24,11 @@
      - Hystrix 
      - Resilience4j
 
-![fault.png](../assets/fault.png)
+![fault.png](../../assets/fault.png)
 
 ## Distributed-Transaction-ACID
 1. 2PC
-![twoPhaseCommit.png](../assets/twoPhaseCommit.png)
+![twoPhaseCommit.png](../../assets/twoPhaseCommit.png)
 - Zookeeper (A good example of coordinator)
 ### Challenges
  - Performance
@@ -39,27 +39,27 @@
    - network communication, error handling and coordination between multiple services. 
 ### Read/Write to Disk
 - The Coordinator does write the commit or abort message to disk before sending decision to other nodes, so in case it dies and recovers, it should know how to recover
-- ![recover.png](../assets/recover.png)
+- ![recover.png](../../assets/recover.png)
 - In case it does not recover services needs manual intervention
 - Google spanner does provide solution for this
-![googleSpanner.png](../assets/googleSpanner.png)
+![googleSpanner.png](../../assets/googleSpanner.png)
 
 2. SAGAS
 
-![orchestratedSaga.png](../assets/orchestratedSaga.png)
-![choreographedSaga.png](../assets/choreographedSaga.png)
-![choreographedSagaDetails.png](../assets/choreographedSagaDetails.png)
+![orchestratedSaga.png](../../assets/orchestratedSaga.png)
+![choreographedSaga.png](../../assets/choreographedSaga.png)
+![choreographedSagaDetails.png](../../assets/choreographedSagaDetails.png)
 
 ## Strangler-pattern
-![strangler.png](../assets/strangler.png)
+![strangler.png](../../assets/strangler.png)
 
 ## Database Per Service Pattern
 1. Private table per service
-![privateTablePerService.png](../assets/privateTablePerService.png)
+![privateTablePerService.png](../../assets/privateTablePerService.png)
 2. Schema per service
-![schemaPerService.png](../assets/schemaPerService.png)
+![schemaPerService.png](../../assets/schemaPerService.png)
 3. Database server per service
-![databaseServerPerService.png](../assets/databaseServerPerService.png)
+![databaseServerPerService.png](../../assets/databaseServerPerService.png)
 ### Challenges
 - Data consistency
 - Data duplication
@@ -68,9 +68,9 @@
 
 ## Service-discovery
 ### Client side discovery
-![clientSideDiscovery.png](../assets/clientSideDiscovery.png)
+![clientSideDiscovery.png](../../assets/clientSideDiscovery.png)
 ### Server side discovery
-![serverSideDiscovery.png](../assets/serverSideDiscovery.png)
+![serverSideDiscovery.png](../../assets/serverSideDiscovery.png)
 1. components of service discovery
 - Service Registry
   - Eureka
@@ -87,7 +87,7 @@
   
 2. Steps to set up
 - let's say we have two service Orders and User
-![serviceDiscoverySetup.png](../assets/serviceDiscoverySetup.png)
+![serviceDiscoverySetup.png](../../assets/serviceDiscoverySetup.png)
 - EUREKA SERVER—In main class @EnableUrekaServer, now this app is eureka server
   - as this is a server, In property file set
     - server.port=8761 
@@ -175,10 +175,10 @@
   - Queries → Operations that read data (Get, List, Search).
 - With One DB
 
-![cqrs1db.png](../assets/cqrs1db.png)
+![cqrs1db.png](../../assets/cqrs1db.png)
 - With 2 diff DB
 
-![cqrs2db.png](../assets/cqrs2db.png)
+![cqrs2db.png](../../assets/cqrs2db.png)
 - Advantages of CQRS 
     - Performance → Optimize read and write separately. 
     - Scalability → Scale read services independently. 

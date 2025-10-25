@@ -2,7 +2,7 @@
 [API Characteristics ](#API-Characteristics ) | [REST API](#REST-API) | [GraphQL](#GraphQL) | [gRPC](#gRPC) | [WebSocket](#WebSocket)
 
 ## API-Characteristics 
-![asets/apiCharacteristics.png](../assets/apiCharacteristics.png)
+![asets/apiCharacteristics.png](../../assets/apiCharacteristics.png)
 
 ## REST-API
 ### Methods

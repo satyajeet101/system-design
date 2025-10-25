@@ -18,11 +18,11 @@
     - Each Thread has its own stack memory
     - As soon as variable goes out of scope its deleted from stack
     - If stack is full StackOverFlow error
-![memoryHierarchy.png](../assets/memoryHierarchy.png)
+![memoryHierarchy.png](../../assets/memoryHierarchy.png)
    
 2. Heap
 
-    ![memoryDevision.png](../assets/memoryDevision.png)
+    ![memoryDevision.png](../../assets/memoryDevision.png)
    - Object will be added to eden
    - GC invoked 
      - Mark => object without reference will be marked for delete
