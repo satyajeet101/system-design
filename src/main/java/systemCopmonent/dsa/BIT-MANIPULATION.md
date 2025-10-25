@@ -1,0 +1,193 @@
+# Content
+## Bitwise XOR 
+- 1 ^ 1 = 0 
+- 1 ^ 0 = 1
+- 0 ^ 1 = 1
+- 0 ^ 0 = 0
+## One's complement 
+- ~n = -(n+1)
+- Steps to find 1's complement
+  - Convert number to binary
+  - Invert all bits (0 to 1 and 1 to 0)
+  - Convert back to decimal
+  - To convert a negative binary number(MSB is 1) to decimal, 
+    - find 2's complement 
+    - Convert to decimal
+    - Add negative sign
+    - To find the 2's complement, 
+      - Find 1's complement
+      - Add 1 to the least significant bit(LSB)
+- with the above steps
+  - ~0 = -1
+## Left Shift (<<)
+- n << k = n * 2^k
+- Shifts bits to the left by k positions
+- Fills the rightmost k bits with 0s
+## Right Shift (>>)
+- n >> k = n / 2^k
+- Shifts bits to the right by k positions
+- Fills the leftmost k bits with the sign bit (0 for positive, 1 for negative)
+- For unsigned right shift (>>>), fills the leftmost k bits with 0s
+## Common Bit Manipulation Tricks
+1. Check if a number is even or odd
+   - n & 1 == 0 → even
+   - n & 1 == 1 → odd
+   - How it works: 
+     - The least significant bit (LSB) of an even number is 0, and for an odd number, it is 1.
+     - By performing a bitwise AND with 1, we isolate the LSB.
+     - If the result is 0, the number is even; if it is 1, the number is odd.
+     - Example:
+       - 4 (binary 100) & 1 (binary 001) = 0 → even
+       - 5 (binary 101) & 1 (binary 001) = 1 → odd
+2. Get ith bit of a number n
+   - (n >> i) & 1
+   - How it works:
+     - Right shift the number n by i positions to bring the ith bit to the least significant position.
+     - Perform a bitwise AND with 1 to isolate the least significant bit.
+     - The result will be 0 if the ith bit is 0, and 1 if the ith bit is 1.
+     - Example:
+       - For n = 5 (binary 101) and i = 0: (5 >> 0) & 1 = 1 → ith bit is 1
+       - For n = 5 (binary 101) and i = 1: (5 >> 1) & 1 = 0 → ith bit is 0
+3. Set ith bit of a number n
+   - n | (1 << i)
+   - How it works:
+     - Create a mask by left shifting 1 by i positions, which results in a binary number with only the ith bit set to 1.
+     - Perform a bitwise OR between n and the mask. This sets the ith bit of n to 1, while leaving all other bits unchanged.
+     - Example:
+       - For n = 5 (binary 101) and i = 1: 5 | (1 << 1) = 5 | 2 = 7 (binary 111) → ith bit set to 1
+4. Clear ith bit of a number n
+   - n & ~(1 << i)
+   - How it works:
+     - Create a mask by left shifting 1 by i positions, which results in a binary number with only the ith bit set to 1.
+     - Invert the mask using the NOT operator (~), which results in a binary number with all bits set to 1 except for the ith bit, which is set to 0.
+     - Perform a bitwise AND between n and the inverted mask. This clears the ith bit of n (sets it to 0), while leaving all other bits unchanged.
+     - Example:
+       - For n = 5 (binary 101) and i = 0: 5 & ~(1 << 0) = 5 & ~1 = 5 & 14 = 4 (binary 100) → ith bit cleared to 0
+5. Toggle ith bit of a number n
+   - n ^ (1 << i)
+   - How it works:
+     - Create a mask by left shifting 1 by i positions, which results in a binary number with only the ith bit set to 1.
+     - Perform a bitwise XOR between n and the mask. This toggles the ith bit of n (if it is 0, it becomes 1; if it is 1, it becomes 0), while leaving all other bits unchanged.
+     - Example:
+       - For n = 5 (binary 101) and i = 0: 5 ^ (1 << 0) = 5 ^ 1 = 4 (binary 100) → ith bit toggled from 1 to 0
+       - For n = 5 (binary 101) and i = 1: 5 ^ (1 << 1) = 5 ^ 2 = 7 (binary 111) → ith bit toggled from 0 to 1
+6. Count number of set bits (1s) in a number n
+    - Brian Kernighan’s Algorithm
+    - How it works:
+      - Initialize a count variable to 0.
+      - While n is not 0, perform the operation n = n & (n - 1). This operation removes the rightmost set bit (1) from n.
+      - Increment the count variable each time the operation is performed.
+      - When n becomes 0, the count variable will contain the number of set bits in the original number.
+      - Example:
+         - For n = 13 (binary 1101):
+            - Iteration 1: n = 13 & (13 - 1) = 13 & 12 = 12 (binary 1100), count = 1
+            - Iteration 2: n = 12 & (12 - 1) = 12 & 11 = 8 (binary 1000), count = 2
+            - Iteration 3: n = 8 & (8 - 1) = 8 & 7 = 0 (binary 0000), count = 3
+            - Total set bits = 3
+7. Check if a number is a power of two
+    - (n > 0) && ((n & (n - 1)) == 0)
+    - How it works:
+      - A number n is a power of two if it has exactly one set bit (1) in its binary representation.
+      - The expression n & (n - 1) clears the rightmost set bit of n. If n is a power of two, this operation will result in 0.
+      - Additionally, we check if n is greater than 0 to exclude negative numbers and zero.
+      - Example:
+         - For n = 8 (binary 1000): (8 > 0) && (8 & (8 - 1)) = true && (8 & 7) = true && 0 = true → power of two
+         - For n = 10 (binary 1010): (10 > 0) && (10 & (10 - 1)) = true && (10 & 9) = true && 8 = false → not a power of two
+8. Find the only non-repeating element in an array where every other element repeats twice
+    - Use XOR operation
+    - How it works:
+      - Initialize a variable result to 0.
+      - Iterate through each element in the array and perform the XOR operation between result and the current element.
+      - Since x ^ x = 0 for any integer x, all elements that appear twice will cancel each other out, leaving only the non-repeating element in result.
+      - Example:
+         - For array [4, 1, 2, 1, 2]: 
+            - result = 0 ^ 4 = 4
+            - result = 4 ^ 1 = 5
+            - result = 5 ^ 2 = 7
+            - result = 7 ^ 1 = 6
+            - result = 6 ^ 2 = 4
+            - Non-repeating element = 4
+9. Find the two non-repeating elements in an array where every other element repeats twice
+    - Use XOR operation and bit manipulation
+    - How it works:
+      - Step 1: Perform XOR of all elements in the array. Let the result be xorResult. This will give us the XOR of the two non-repeating elements (let's call them a and b).
+      - Step 2: Find a set bit (1) in xorResult. This can be done by finding the rightmost set bit using the expression setBit = xorResult & -xorResult.
+      - Step 3: Divide the elements into two groups based on the set bit found in step 2. One group will have the set bit at that position, and the other group will not.
+      - Step 4: Perform XOR within each group separately. This will give us the two non-repeating elements a and b.
+      - Example:
+         - For array [4, 1, 2, 1, 2, 3]:
+            - Step 1: xorResult = 4 ^ 1 ^ 2 ^ 1 ^ 2 ^ 3 = 4 ^ 3 = 7 (binary 0111)
+            - Step 2: setBit = xorResult & -xorResult = 7 & -7 = 1 (binary 0001)
+            - Step 3: Divide into two groups:
+               - Group 1 (set bit at position): [1, 1, 3]
+               - Group 2 (no set bit at position): [4, 2, 2]
+            - Step 4: 
+               - a = 1 ^ 1 ^ 3 = 3
+               - b = 4 ^ 2 ^ 2 = 4
+            - Non-repeating elements = (3, 4)
+10. Find the missing number in an array of size n containing numbers from 0 to n
+    - Use XOR operation
+    - How it works:
+      - Step 1: Initialize a variable xorArray to 0 and another variable xorFull to 0.
+      - Step 2: Perform XOR of all elements in the array and store the result in xorArray.
+      - Step 3: Perform XOR of all numbers from 0 to n and store the result in xorFull.
+      - Step 4: The missing number will be the XOR of xorArray and xorFull (missingNumber = xorArray ^ xorFull).
+      - Example:
+         - For array [3, 0, 1] with n = 3:
+            - Step 1: xorArray = 0, xorFull = 0
+            - Step 2: xorArray = 3 ^ 0 ^ 1 = 2
+            - Step 3: xorFull = 0 ^ 1 ^ 2 ^ 3 = 0
+            - Step 4: missingNumber = xorArray ^ xorFull = 2 ^ 0 = 2
+            - Missing number = 2
+11. Find the two repeating elements in an array of size n+2 containing numbers from 1 to n
+    - Use XOR operation and bit manipulation
+    - How it works:
+      - Step 1: Perform XOR of all elements in the array. Let the result be xorResult. This will give us the XOR of the two repeating elements (let's call them a and b).
+      - Step 2: Perform XOR of all numbers from 1 to n and XOR it with xorResult. This will still give us a ^ b.
+      - Step 3: Find a set bit (1) in xorResult. This can be done by finding the rightmost set bit using the expression setBit = xorResult & -xorResult.
+      - Step 4: Divide the elements into two groups based on the set bit found in step 3. One group will have the set bit at that position, and the other group will not.
+      - Step 5: Perform XOR within each group separately. This will give us the two repeating elements a and b.
+      - Example:
+         - For array [4, 2, 4, 5, 2, 3] with n = 5:
+            - Step 1: xorResult = 4 ^ 2 ^ 4 ^ 5 ^ 2 ^ 3 = 5 (binary 0101)
+            - Step 2: xorResult = xorResult ^ (1 ^ 2 ^ 3 ^ 4 ^ 5) = 5 ^ (1 ^ 2 ^ 3 ^ 4 ^ 5) = 0
+            - Step 3: setBit = xorResult & -xorResult = 0 & -0 = 0 (binary 0000)
+            - Step 4: Divide into two groups:
+               - Group 1 (set bit at position): [4, 4]
+               - Group 2 (no set bit at position): [2, 5, 2, 3]
+            - Step 5: 
+               - a = 4 ^ 4 = 0
+               - b = 2 ^ 5 ^ 2 ^ 3 = 6
+            - Repeating elements = (4, 2)
+12. Fast exponentiation (x^n)
+    - Use bit manipulation
+    - How it works:
+      - Initialize result to 1.
+      - While n is greater than 0:
+        - If the least significant bit of n is 1 (n & 1 == 1), multiply result by x.
+        - Square x (x = x * x).
+        - Right shift n by 1 (n = n >> 1) to process the next bit.
+      - The final value of result will be x raised to the power n.
+      - Example:
+         - For x = 2 and n = 10:
+            - Iteration 1: n = 10 (binary 1010), result = 1, x = 2
+            - Iteration 2: n = 5 (binary 0101), result = 1 * 2 = 2, x = 4
+            - Iteration 3: n = 2 (binary 0010), result = 2, x = 16
+            - Iteration 4: n = 1 (binary 0001), result = 2 * 16 = 32, x = 256
+            - Iteration ends as n becomes 0
+            - Final result = 32
+13. Swap two numbers without using a temporary variable
+    - Use XOR operation
+    - How it works:
+      - Let the two numbers be a and b.
+      - Perform the following operations:
+        - a = a ^ b
+        - b = a ^ b (now b becomes the original value of a)
+        - a = a ^ b (now a becomes the original value of b)
+      - After these operations, the values of a and b will be swapped.
+      - Example:
+         - For a = 5 (binary 0101) and b = 3 (binary 0011):
+            - Step 1: a = 5 ^ 3 = 6 (binary 0110)
+            - Step 2: b = 6 ^ 3 = 5 (binary 0101)
+            - Step 3: a = 6 ^ 5 = 3 (binary 0011)
+            - Swapped values: a = 3, b = 5
