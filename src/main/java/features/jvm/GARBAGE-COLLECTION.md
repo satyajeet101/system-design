@@ -18,6 +18,7 @@
     - Each Thread has its own stack memory
     - As soon as variable goes out of scope its deleted from stack
     - If stack is full StackOverFlow error
+      
 ![memoryHierarchy.png](../../assets/memoryHierarchy.png)
    
 2. Heap
