@@ -10,8 +10,32 @@ Exception handling in Java is a powerful mechanism that allows developers to man
 ## Types-of-Exceptions
 Java exceptions can be broadly categorized into three types:
 1. **Checked Exceptions**: These are exceptions that are checked at compile-time. The compiler forces the programmer to handle these exceptions using `try-catch` blocks or by declaring them in the method signature with the `throws` keyword. Examples include `IOException`, `SQLException`, etc.
-2. **Unchecked Exceptions**: These exceptions are not checked at compile-time but at runtime. They are subclasses of `RuntimeException` and include exceptions like `NullPointerException`, `ArrayIndexOutOfBoundsException`, etc. Programmers are not required to handle these exceptions explicitly.
-3. **Errors**: Errors are serious issues that are not meant to be caught by applications. They are subclasses of the `Error` class and indicate problems that are typically outside the control of the application, such as `OutOfMemoryError`, `StackOverflowError`, etc.
+```java
+public void readFile() throws IOException {
+    FileReader reader = new FileReader("data.txt"); // IOException is checked
+}
+```
+3. **Unchecked Exceptions**: These exceptions are not checked at compile-time but at runtime. They are subclasses of `RuntimeException` and include exceptions like `NullPointerException`, `ArrayIndexOutOfBoundsException`, etc. Programmers are not required to handle these exceptions explicitly.
+```java
+public int divide(int a, int b) {
+    return a / b; // May throw ArithmeticException
+}
+```
+5. **Errors**: Errors are serious issues that are not meant to be caught by applications. They are subclasses of the `Error` class and indicate problems that are typically outside the control of the application, such as `OutOfMemoryError`, `StackOverflowError`, etc.
+```java
+public void recursiveCall() {
+    recursiveCall(); // May cause StackOverflowError
+}
+```
+
+| Aspect                | **Checked Exception**                  | **Unchecked Exception**                     | **Error**                                   |
+|----------------------|----------------------------------------|--------------------------------------------|--------------------------------------------|
+| **Compile-time check** | Yes                                   | No                                         | No                                         |
+| **Recoverable?**     | Yes (should handle gracefully)         | Sometimes (fix logic issues)              | No (system-level failure)                 |
+| **Must declare in method signature?** | Yes (`throws`)                      | No                                         | No                                         |
+| **Examples**         | `IOException`, `SQLException`          | `NullPointerException`, `ArithmeticException` | `OutOfMemoryError`, `StackOverflowError`  |
+| **Purpose**          | Anticipated external issues            | Programming errors                         | JVM/system failures                        |
+
 
 ![img_1.png](img_1.png)
 
@@ -81,43 +105,7 @@ In this example, the `divide` method throws an `ArithmeticException` if an attem
 - Use try-with-resources for automatic resource management when dealing with `AutoCloseable` resources.
 - Be cautious with checked exceptions; use them judiciously to avoid cluttering method signatures.
 - Provide meaningful error messages when throwing exceptions to aid in debugging.
-## Lambda Expressions and Checked Exceptions
-When using lambda expressions in Java, handling checked exceptions can be tricky since functional interfaces do not allow checked exceptions to be thrown directly. One common approach is to wrap the lambda expression in a try-catch block or create a custom functional interface that allows for checked exceptions.  
-```java
-import java.util.function.Consumer;
-public class LambdaExceptionHandling {
-    public static void main(String[] args) {
-        Consumer<String> consumer = wrapConsumer((String s) -> {
-            if (s.equals("error")) {
-                throw new IOException("Checked exception in lambda");
-            }
-            System.out.println(s);
-        });
 
-        try {
-            consumer.accept("Hello");
-            consumer.accept("error");
-        } catch (RuntimeException e) {
-            System.out.println("Caught exception: " + e.getCause().getMessage());
-        }
-    }
-
-    public static <T> Consumer<T> wrapConsumer(ConsumerWithException<T> consumer) {
-        return i -> {
-            try {
-                consumer.accept(i);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        };
-    }
-
-    @FunctionalInterface
-    public interface ConsumerWithException<T> {
-        void accept(T t) throws Exception;
-    }
-}
-```   
 ## Exception in inheritance
 When dealing with inheritance, it's important to understand how exceptions are handled in overridden methods. A subclass method can only throw the same exceptions or subclasses of the exceptions declared in the superclass method.  
 ```java
@@ -134,3 +122,4 @@ class SubClass extends SuperClass {
 } 
 ```
 In this example, the `SubClass` overrides the `display` method from `SuperClass` and is allowed to throw `FileNotFoundException`, which is a subclass of `IOException`. However, it cannot throw a broader exception than what is declared in the superclass method.
+
