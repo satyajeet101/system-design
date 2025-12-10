@@ -2,7 +2,7 @@
 
 - ✅ Collection Frameworks
 - 🅾️ Date and Time API
-- 🅾️ Exceptions Handling
+- ✅  Exceptions Handling
 - 🅾️ JDBC
 - 🅾️ Java I/O Streams
   - 🅾️ Json Handling
