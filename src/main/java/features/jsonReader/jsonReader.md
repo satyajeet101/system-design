@@ -167,14 +167,6 @@ public class FileCRUD {
     }
 }
 ```
-### FileWriter – writes to a file
-```java
-try (FileWriter writer = new FileWriter("output.txt")){
-    //The try-with-resources block ensures the writer is closed automatically
-}
-        
-```
-
 ### BufferedWriter – buffers output for efficiency
 ```java
 BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
@@ -198,11 +190,4 @@ userTasks.put("Bob", Arrays.asList(new Task("Code", true)));
 
 // Write to file
 mapper.writeValue(new File("tasks.json"), userTasks);
-```
-### Read JSON from a File
-```java
-Map<String, List<Task>> readTasks = mapper.readValue(
-    new File("tasks.json"),
-    new TypeReference<Map<String, List<Task>>>() {}
-);
 ```
