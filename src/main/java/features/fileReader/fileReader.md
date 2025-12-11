@@ -14,6 +14,8 @@
                     Resources should be loaded from the classpath to ensure portability and correct behavior after building the project.
              */
             String line = "";
+            // OR
+            //br.lines().forEach(System.out::println);
             while((line = br.readLine())!= null){
                 System.out.println(line);
             }
@@ -56,4 +58,5 @@
     }
 ```
 - Note: For reading resources in a Spring Boot/Maven project, use classpath resource loading methods instead of file system paths to ensure portability and correct behavior after building the project.
+
 
