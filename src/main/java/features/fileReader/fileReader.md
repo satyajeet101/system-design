@@ -44,19 +44,7 @@
         }
     }
 ```
-## Streams
-- Modern approach using Java 8 Streams API
-
-```java
-    public static void readFileWithStreams(){
-        try(Stream<String> lines = Files.lines(Paths.get("src/main/resources/io.txt"))) {
-            lines.forEach(System.out::println);
-        }
-        catch (IOException e){
-            System.out.println("Here is the exception !! "+e.getMessage());
-        }
-    }
-```
 - Note: For reading resources in a Spring Boot/Maven project, use classpath resource loading methods instead of file system paths to ensure portability and correct behavior after building the project.
+
 
 
