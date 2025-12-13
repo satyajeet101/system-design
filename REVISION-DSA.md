@@ -1,4 +1,4 @@
-Legend of Icons Used:  🔴 Pending Topic, 🟡 In Progress, 🟢 Completed Topic
+🔴 Pending Topic, 🟡 In Progress, 🟢 Completed Topic
 
 - 🟡 List
   - 🟡 ArrayList
