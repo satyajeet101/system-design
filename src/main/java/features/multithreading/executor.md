@@ -1,6 +1,6 @@
 # Contents
 [Executor](#Executor) | [ExecutorService](#ExecutorService) | [ScheduledExecutorService](#ScheduledExecutorService) | 
-[Executors](#Executors) | (CountDownLatch)(#CountDownLatch)
+[Executors](#Executors) | [CountDownLatch](#CountDownLatch)
 
 
 ## There are 3 main Interfaces
