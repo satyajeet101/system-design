@@ -1,6 +1,6 @@
 # Content
 [Thread](#Thread) | [Lock](#LOCK) | [Thread communicating](#Thread-communicating) |  
-[CompletableFuture](#CompletableFuture) | [Semaphore](#Semaphore)
+[CompletableFuture](#CompletableFuture) | [Semaphore](#Semaphore) | [Volatile](#Volatile) | [Atomic](#Atomic)
 # Thread
 ## Different ways to create Thread
 1. Implement Runnable in a class A
@@ -123,3 +123,6 @@ public class SemaphoreExample {
 - In this example, we create a Semaphore with a maximum of 3 concurrent threads. We then use an ExecutorService to simulate 10 threads trying to acquire permits from the semaphore. Each thread will acquire a permit, simulate some work by sleeping for 2 seconds, and then release the permit.
 - This ensures that at most 3 threads can access the shared resource simultaneously, demonstrating the use of a Semaphore for controlling concurrent access.
 - Semaphores are useful in scenarios where you need to limit the number of concurrent accesses to a resource, such as database connections, file handles, or network connections. They help prevent resource exhaustion and ensure that your application remains responsive under load.
+
+## Volatile
+## Atomic
