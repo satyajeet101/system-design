@@ -1,6 +1,6 @@
 # Content
 [Database](#Database) | [Table](#Table) | [WITH](#WITH) | [Fetch Ties](#Fetch-Ties) | [Arithmetic Operators](#Arithmetic-Operators) | 
-[Wildcard Characters](#Wildcard-Characters) | [UPDATE Statement](#UPDATE-Statement) |  [ALTER TABLE](# ALTER-TABLE)
+[Wildcard Characters](#Wildcard-Characters) | [UPDATE Statement](#UPDATE-Statement) |  [ALTER TABLE](#ALTER-TABLE)
 
 ## Database
 
@@ -224,3 +224,4 @@ RENAME COLUMN old_name TO new_name;
 ALTER TABLE table_name
 RENAME TO new_table_name;
 ```
+
