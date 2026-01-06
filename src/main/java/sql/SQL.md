@@ -399,6 +399,7 @@ WHERE a.ROLL_NO < b.ROLL_NO;
 
 ### INNER-LEFT-RIGHT-FULL-JOIN
 - ```INNER JOIN``` in SQL returns only the rows where there is a matching value in both tables. It combines records based on a related column and excludes non-matching rows
+
   <img src="image/inner.png" width="20%"/>
 ```sql
 SELECT StudentCourse.COURSE_ID, Student.NAME, Student.AGE FROM Student
@@ -407,6 +408,7 @@ ON Student.ROLL_NO = StudentCourse.ROLL_NO;
 ```
 - ```LEFT or LEFT OUTER JOIN``` returns all rows from the left table, along with matching rows from the right table. 
 - If there is no match, NULL values are returned for columns from the right table.
+
   <img src="image/left.png" width="20%"/>
 ```sql
 SELECT Student.NAME,StudentCourse.COURSE_ID 
@@ -416,6 +418,7 @@ ON StudentCourse.ROLL_NO = Student.ROLL_NO;
 ```
 - ```RIGHT or RIGHT OUTER JOIN``` returns all the rows of the table on the right side of the join and matching rows for the table on the left side of the join. 
 - If there is no matching row on the left side, the result-set will contain null.
+
   <img src="image/right.png" width="20%"/>
 ```sql
 SELECT Student.NAME,StudentCourse.COURSE_ID 
@@ -425,6 +428,7 @@ ON StudentCourse.ROLL_NO = Student.ROLL_NO;
 ```
 - ```FULL JOIN``` creates the result-set by combining results of both LEFT JOIN and RIGHT JOIN. The result-set will contain all the rows from both tables. 
 - For the rows for which there is no matching, the result-set will contain NULL values.
+
   <img src="image/full.png" width="20%"/>
 ```sql
 SELECT Student.NAME,StudentCourse.COURSE_ID 
@@ -435,4 +439,5 @@ ON StudentCourse.ROLL_NO = Student.ROLL_NO;
 - ```NATURAL JOIN``` is a type of INNER JOIN that automatically joins two tables based on columns with the same name and data type. It returns only the rows where the values in the common columns match.
   - It returns rows where the values in these common columns are the same in both tables. 
   - Common columns appear only once in the result, even if they exist in both tables. 
+
   - Unlike a CROSS JOIN, which creates all possible combinations of rows, a Natural Join only includes rows with matching values
