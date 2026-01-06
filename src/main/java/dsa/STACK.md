@@ -12,9 +12,10 @@
 | Next greater Right</br>Next greater Left</br>Next smaller Right</br>Next smaller left | https://www.geeksforgeeks.org/problems/next-larger-element-1587115620/1                                                                 | [Logic](#Next-Greater)                                      |
 | Valid Parentheses                                                                     | https://leetcode.com/problems/valid-parentheses/description/                                                                            |                                                             |
 | 🔴 Redundant Parentheses                                                              | https://www.geeksforgeeks.org/problems/redundant-parenthesis--170647/1 </br>  https://leetcode.com/problems/remove-invalid-parentheses/ |                                                             |
-| 🔴 Largest Rectangle in Histogram                                                     | https://leetcode.com/problems/largest-rectangle-in-histogram/description/                                                               |                                                             |
+| Largest Rectangle in Histogram                                                        | https://leetcode.com/problems/largest-rectangle-in-histogram/description/                                                               |                                                             |
 | 🔴 Simplify Path                                                                      | https://leetcode.com/problems/simplify-path/description/                                                                                |                                                             |
 | 🔴 Decode String                                                                      | https://leetcode.com/problems/decode-string/                                                                                            |                                                             |
+| Implement Stack using Queues                                                          | https://leetcode.com/problems/implement-stack-using-queues/description/                                                                 |                                                             |
 
 
 
