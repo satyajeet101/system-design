@@ -407,7 +407,7 @@ INNER JOIN StudentCourse
 ON Student.ROLL_NO = StudentCourse.ROLL_NO;
 ```
 - ```LEFT or LEFT OUTER JOIN``` returns all rows from the left table, along with matching rows from the right table. 
-- If there is no match, NULL values are returned for columns from the right table.
+    - If there is no match, NULL values are returned for columns from the right table.
 
   <img src="image/left.png" width="20%"/>
 ```sql
@@ -417,7 +417,7 @@ LEFT JOIN StudentCourse
 ON StudentCourse.ROLL_NO = Student.ROLL_NO;
 ```
 - ```RIGHT or RIGHT OUTER JOIN``` returns all the rows of the table on the right side of the join and matching rows for the table on the left side of the join. 
-- If there is no matching row on the left side, the result-set will contain null.
+    - If there is no matching row on the left side, the result-set will contain null.
 
   <img src="image/right.png" width="20%"/>
 ```sql
@@ -427,7 +427,7 @@ RIGHT JOIN StudentCourse
 ON StudentCourse.ROLL_NO = Student.ROLL_NO;
 ```
 - ```FULL JOIN``` creates the result-set by combining results of both LEFT JOIN and RIGHT JOIN. The result-set will contain all the rows from both tables. 
-- For the rows for which there is no matching, the result-set will contain NULL values.
+    - For the rows for which there is no matching, the result-set will contain NULL values.
 
   <img src="image/full.png" width="20%"/>
 ```sql
@@ -441,3 +441,4 @@ ON StudentCourse.ROLL_NO = Student.ROLL_NO;
   - Common columns appear only once in the result, even if they exist in both tables. 
 
   - Unlike a CROSS JOIN, which creates all possible combinations of rows, a Natural Join only includes rows with matching values
+
