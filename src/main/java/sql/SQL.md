@@ -343,6 +343,7 @@ WHERE ROWNUM <= value;
 
 ## Joins
 ### Union
+- The UNION operator is used to combine the result sets of two or more SELECT statements.
 - **Removes Duplicate Rows:** The UNION clause ensures that only distinct rows are returned in the result set.
 - **Includes Duplicates** with UNION ALL: The UNION ALL clause returns all rows, including duplicates.
 - **Compatible Data:** The columns in each SELECT query must have the same number, order, and data type.
@@ -399,51 +400,45 @@ WHERE a.ROLL_NO < b.ROLL_NO;
 
 ### INNER-LEFT-RIGHT-FULL-JOIN
 - ```INNER JOIN``` in SQL returns only the rows where there is a matching value in both tables. It combines records based on a related column and excludes non-matching rows
-
   <img src="image/inner.png" width="20%"/>
-  
-    ```sql
-    SELECT StudentCourse.COURSE_ID, Student.NAME, Student.AGE FROM Student
-    INNER JOIN StudentCourse
-    ON Student.ROLL_NO = StudentCourse.ROLL_NO;
-    ```
+```sql
+SELECT StudentCourse.COURSE_ID, Student.NAME, Student.AGE FROM Student
+INNER JOIN StudentCourse
+ON Student.ROLL_NO = StudentCourse.ROLL_NO;
+```
 - ```LEFT or LEFT OUTER JOIN``` returns all rows from the left table, along with matching rows from the right table. 
-    - If there is no match, NULL values are returned for columns from the right table.
-
+- If there is no match, NULL values are returned for columns from the right table.
   <img src="image/left.png" width="20%"/>
-  
-    ```sql
-    SELECT Student.NAME,StudentCourse.COURSE_ID 
-    FROM Student
-    LEFT JOIN StudentCourse
-    ON StudentCourse.ROLL_NO = Student.ROLL_NO;
-    ```
+```sql
+SELECT Student.NAME,StudentCourse.COURSE_ID 
+FROM Student
+LEFT JOIN StudentCourse
+ON StudentCourse.ROLL_NO = Student.ROLL_NO;
+```
 - ```RIGHT or RIGHT OUTER JOIN``` returns all the rows of the table on the right side of the join and matching rows for the table on the left side of the join. 
-    - If there is no matching row on the left side, the result-set will contain null.
-
+- If there is no matching row on the left side, the result-set will contain null.
   <img src="image/right.png" width="20%"/>
-  
-    ```sql
-    SELECT Student.NAME,StudentCourse.COURSE_ID 
-    FROM Student
-    RIGHT JOIN StudentCourse 
-    ON StudentCourse.ROLL_NO = Student.ROLL_NO;
-    ```
+```sql
+SELECT Student.NAME,StudentCourse.COURSE_ID 
+FROM Student
+RIGHT JOIN StudentCourse 
+ON StudentCourse.ROLL_NO = Student.ROLL_NO;
+```
 - ```FULL JOIN``` creates the result-set by combining results of both LEFT JOIN and RIGHT JOIN. The result-set will contain all the rows from both tables. 
-    - For the rows for which there is no matching, the result-set will contain NULL values.
-
+- For the rows for which there is no matching, the result-set will contain NULL values.
+- **SQL Does not support Full Join**
   <img src="image/full.png" width="20%"/>
-  
-    ```sql
-    SELECT Student.NAME,StudentCourse.COURSE_ID 
-    FROM Student
-    FULL JOIN StudentCourse 
-    ON StudentCourse.ROLL_NO = Student.ROLL_NO;
-    ```
+```sql
+SELECT Student.NAME,StudentCourse.COURSE_ID 
+FROM Student
+FULL JOIN StudentCourse 
+ON StudentCourse.ROLL_NO = Student.ROLL_NO;
+```
 - ```NATURAL JOIN``` is a type of INNER JOIN that automatically joins two tables based on columns with the same name and data type. It returns only the rows where the values in the common columns match.
   - It returns rows where the values in these common columns are the same in both tables. 
   - Common columns appear only once in the result, even if they exist in both tables. 
-
   - Unlike a CROSS JOIN, which creates all possible combinations of rows, a Natural Join only includes rows with matching values
+    All UBN22 and RHEL8 buildpacks have reached End of Life (EOL). Please migrate all Jenkins Core pipelines using UBN22 images to UBN24 images, RHEL8 images to RHEL9 images ASAP. The deadline to migrate to UBN24 and RHEL9 buildpacks is February 28, 2026.
+
 
 
