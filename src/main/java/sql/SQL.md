@@ -3,7 +3,7 @@
 [Wildcard Characters](#Wildcard-Characters) | [UPDATE Statement](#UPDATE-Statement) |  [ALTER TABLE](#ALTER-TABLE) | [CASE](#CASE) | 
 [EXISTS](#EXISTS) | [DISTINCT](#DISTINCT) | [Aggregate Functions](#Aggregate-Functions) | [ORDER BY](#ORDER-BY) | [All ANY](#ALL-ANY)
 [GROUP BY](#GROUP-BY) | [Joins](#Joins) | [Union](#Union) | [INTERSECT and EXCEPT](#INTERSECT-EXCEPT) | [CROSS SELF JOIN](#CROSS-SELF-JOIN) | 
-[INNER LEFT RIGHT FULL JOIN](#INNER-LEFT-RIGHT-FULL-JOIN)
+[INNER LEFT RIGHT FULL JOIN](#INNER-LEFT-RIGHT-FULL-JOIN) | [Database Normalization](#Database-Normalization)
 
 ## Database
 
@@ -439,6 +439,12 @@ ON StudentCourse.ROLL_NO = Student.ROLL_NO;
   - Common columns appear only once in the result, even if they exist in both tables. 
   - Unlike a CROSS JOIN, which creates all possible combinations of rows, a Natural Join only includes rows with matching values
     All UBN22 and RHEL8 buildpacks have reached End of Life (EOL). Please migrate all Jenkins Core pipelines using UBN22 images to UBN24 images, RHEL8 images to RHEL9 images ASAP. The deadline to migrate to UBN24 and RHEL9 buildpacks is February 28, 2026.
-
-
-
+## Database-Normalization
+- Database Normalization is the process of organizing the fields and tables of a relational database to minimize redundancy and dependency.
+- It involves decomposing a table into smaller tables and defining relationships between them to enhance data integrity and reduce data anomalies.
+- There are several normal forms (NFs) used to achieve different levels of normalization:
+  1. **First Normal Form (1NF):** Ensures that each column contains atomic values and that each record is unique.
+  2. **Second Normal Form (2NF):** Achieved when a table is in 1NF and all non-key attributes are fully functionally dependent on the primary key.
+  3. **Third Normal Form (3NF):** Achieved when a table is in 2NF and all attributes are only dependent on the primary key, eliminating transitive dependencies.
+  4. **Boyce-Codd Normal Form (BCNF):** A stronger version of 3NF where every determinant is a candidate key.
+- Normalization helps in reducing data redundancy, improving data integrity, and making the database more efficient for queries and updates.
