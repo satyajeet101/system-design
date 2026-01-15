@@ -401,6 +401,7 @@ WHERE a.ROLL_NO < b.ROLL_NO;
 ### INNER-LEFT-RIGHT-FULL-JOIN
 - ```INNER JOIN``` in SQL returns only the rows where there is a matching value in both tables. It combines records based on a related column and excludes non-matching rows
   <img src="image/inner.png" width="20%"/>
+
 ```sql
 SELECT StudentCourse.COURSE_ID, Student.NAME, Student.AGE FROM Student
 INNER JOIN StudentCourse
@@ -409,6 +410,7 @@ ON Student.ROLL_NO = StudentCourse.ROLL_NO;
 - ```LEFT or LEFT OUTER JOIN``` returns all rows from the left table, along with matching rows from the right table. 
 - If there is no match, NULL values are returned for columns from the right table.
   <img src="image/left.png" width="20%"/>
+
 ```sql
 SELECT Student.NAME,StudentCourse.COURSE_ID 
 FROM Student
@@ -418,6 +420,7 @@ ON StudentCourse.ROLL_NO = Student.ROLL_NO;
 - ```RIGHT or RIGHT OUTER JOIN``` returns all the rows of the table on the right side of the join and matching rows for the table on the left side of the join. 
 - If there is no matching row on the left side, the result-set will contain null.
   <img src="image/right.png" width="20%"/>
+
 ```sql
 SELECT Student.NAME,StudentCourse.COURSE_ID 
 FROM Student
@@ -428,6 +431,7 @@ ON StudentCourse.ROLL_NO = Student.ROLL_NO;
 - For the rows for which there is no matching, the result-set will contain NULL values.
 - **SQL Does not support Full Join**
   <img src="image/full.png" width="20%"/>
+
 ```sql
 SELECT Student.NAME,StudentCourse.COURSE_ID 
 FROM Student
@@ -448,3 +452,4 @@ ON StudentCourse.ROLL_NO = Student.ROLL_NO;
   3. **Third Normal Form (3NF):** Achieved when a table is in 2NF and all attributes are only dependent on the primary key, eliminating transitive dependencies.
   4. **Boyce-Codd Normal Form (BCNF):** A stronger version of 3NF where every determinant is a candidate key.
 - Normalization helps in reducing data redundancy, improving data integrity, and making the database more efficient for queries and updates.
+
