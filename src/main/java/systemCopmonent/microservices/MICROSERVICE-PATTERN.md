@@ -1,7 +1,7 @@
 # Contents
 [EDA](#EDA) | [Circuit Breaker](#Circuit-Breaker) | [Distributed Transaction](#Distributed-Transaction-ACID)
 | [Strangler Pattern](#Strangler-Pattern) | [Database Per Service Pattern](#Database-Per-Service-Pattern)
-| [Service Discovery](#Service-discovery) | [BFF](BFF) | [Aggregator Pattern](#Aggregator-Pattern)
+| [Service Discovery](#Service-discovery) | [BFF](#BFF) | [Aggregator Pattern](#Aggregator-Pattern)
 | [Sidecar Pattern](#Sidecar-Pattern) | [CQRS](#CQRS) | [Event Sourcing](#Event-sourcing) | [Full-Request-Response-Lifecycle](#Full-Request-Response-Lifecycle)
 
 ## EDA
