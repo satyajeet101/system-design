@@ -1,6 +1,11 @@
 # Content
-[Copy](Copy) | [Immutable Object](#Immutable-Object) | [JVM Internals](#JVM-Internals)
+[String](#String) | [Copy](#Copy) | [Immutable Object](#Immutable-Object) | [JVM Internals](#JVM-Internals)
 
+## String
+  - Immutable: Once created, cannot be changed
+  - String Pool: JVM optimizes memory by storing unique string literals
+  - Concatenation: Creates new string objects, can lead to performance issues
+  - Use `StringBuilder` or `StringBuffer` for mutable strings and better performance in loops
 ## COPY
 #### Shallow Copy
   - Creates a new object but copies references of nested objects
