@@ -24,7 +24,7 @@
 - [Basics](java/BASICS.md#String)
 - Design Patterns
   - 
-- [Design Principles](#designPrinciple/PRINCIPLE.md)
+- [Design Principles](#designPrinciple/PRINCIPLE.md#SOLID)
     - SOLID
     - DRY
     - KISS
