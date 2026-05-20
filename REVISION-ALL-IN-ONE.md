@@ -17,6 +17,7 @@
 ## Security
 
 ## System Design
+- [General Topics](design/hld/coreConcept/generalTopic.md)
 
 ## Project
 
@@ -24,7 +25,7 @@
 - [Basics](java/BASICS.md#String)
 - Design Patterns
   - 
-- [Design Principles](designPrinciple/PRINCIPLE.md#Content)
+- [Design Principles](design/lld/designPrinciple/PRINCIPLE.md#Content)
     - SOLID
     - DRY
     - KISS

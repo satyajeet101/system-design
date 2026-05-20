@@ -75,4 +75,4 @@
     - Increased Storage Requirements: Indexes require additional storage space, which can be a concern for large databases.
     - Slower Write Operations: Indexes can slow down write operations, such as inserts, updates, and deletes, as the index needs to be updated along with the data.
     - Maintenance Overhead: Indexes require ongoing maintenance to ensure they remain effective and up-to-date with changes to the underlying data.
-![indexing.png](indexing.png)
+![indexing.png](../../../assets/indexing.png)

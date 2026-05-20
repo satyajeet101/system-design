@@ -1,5 +1,5 @@
 # Content
-[OSI](#OSI) | [How TCP works](TCP) | [UDP](#UDP) | [HTTP](#HTTP) | [HTTPS](#HTTPS) | 
+[OSI](#OSI) | [A Simple Web Request](#Example) | [How TCP works](#TCP) | [UDP](#UDP) | [HTTP](#HTTP) | [HTTPS](#HTTPS) | 
 [GraphQl](#GraphQl) | [GRPC](#GRPC) | [SSE](#SSE) | [WebSocket](#WebSocket) | 
 [WebRTC](#WebRTC) | [Layer 4 Load Balancer](#Layer-4-Load-Balancer) | 
 [Layer 7 Load Balancer](#Layer-7-Load-Balancer) | [Retries Backoff Jitter](#Retries-Backoff-Jitter) | 
@@ -7,23 +7,20 @@
 ## OSI
 - Open Systems Interconnection model
 - 7 layers:
-![osiLayers.png](../assets/osiLayers.png)
+
+![osiLayers.png](../../../assets/osiLayers.png)
+![7layers.png](..%2F..%2F..%2Fassets%2F7layers.png)
+
+## Example
+- When you type a URL into your browser and hit enter, a series of events occur that involve multiple layers of the OSI model:
+  1. **DNS Resolution:** The client starts by resolving the domain name of the website to an IP address using DNS (Domain Name System).
+  2. **TCP Handshake:** The client initiates a TCP (Layer 4 Transport Layer) connection with the server using a three-way handshake:
+     **SYN:** The client sends a SYN (synchronize) packet to the server to request a connection.
+     **SYN-ACK:** The server responds with a SYN-ACK (synchronize-acknowledge) packet to acknowledge the request.
+     **ACK:** The client sends an ACK (acknowledge) packet to establish the connection.
 ## TCP
-- Transmission Control Protocol - Layer 4 (Transport Layer)
-  - Connection-oriented protocol
-  - Reliable data transfer
-  - Guaranteed delivery
-  - Ordered data transfer
-  - Congestion control
-  - Flow control
-  - Error detection and correction
-- TCP Handshake
-  - Three-way handshake
-    - SYN
-    - SYN-ACK
-    - ACK
-    
-     ![tcpHandShake.png](../assets/tcpHandShake.png)
+
+![tcpHandShake.png](../../../assets/tcpHandShake.png)
 
 ## UDP
 - User Datagram Protocol - Layer 4 (Transport Layer)
@@ -59,7 +56,7 @@
   - Ensures data integrity, confidentiality, and authentication
   - Uses certificates for authentication
   - Default port: 443
-  ![httpHandshake.png](../assets/httpHandshake.png)
+  ![httpHandshake.png](../../../assets/httpHandshake.png)
 - SSL vs TLS
   - SSL (Secure Sockets Layer): Older protocol, now deprecated
   - TLS (Transport Layer Security): Successor to SSL, more secure, widely used
@@ -131,7 +128,7 @@
   - Less support in older browsers
   - Potentially higher resource usage on the server due to persistent connections
   - Security considerations (e.g., cross-site WebSocket hijacking)
-  ![websocket.png](../assets/websocket.png)
+  ![websocket.png](../../../assets/websocket.png)
 ## WebRTC
 - WebRTC (Web Real-Time Communication) - Layer 7 (Application Layer)
   - Peer-to-peer communication protocol
