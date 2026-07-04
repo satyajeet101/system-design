@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satyajeet — 6-Month Interview Prep Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Satyajeet — 6-Month Interview Prep Tracker</h1>
+    <p>DSA &middot; System Design (HLD) &middot; LLD &middot; Code Review &middot; Machine Coding &middot; Behavioral &middot; Targets: Airbnb &amp; DoorDash</p>
+    <div class="legend">
+      <span class="leg"><span class="leg-dot" style="background:#1d4ed8"></span>DSA</span>
+      <span class="leg"><span class="leg-dot" style="background:#166534"></span>HLD System Design</span>
+      <span class="leg"><span class="leg-dot" style="background:#9f1239"></span>LLD</span>
+      <span class="leg"><span class="leg-dot" style="background:#9a3412"></span>Code Review</span>
+      <span class="leg"><span class="leg-dot" style="background:#0369a1"></span>Machine Coding</span>
+      <span class="leg"><span class="leg-dot" style="background:#92400e"></span>Behavioral</span>
+      <span class="leg"><span class="leg-dot" style="background:#6b21a8"></span>Mock Interview</span>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row" id="stats"></div>
+
+  <!-- Month tabs -->
+  <div class="tabs" id="tabs"></div>
+
+  <!-- Month complete banner -->
+  <div class="complete-banner" id="complete-banner">🎉 Month complete! Move to the next month.</div>
+
+  <!-- Month header -->
+  <div class="month-header">
+    <div>
+      <div class="month-title" id="month-title"></div>
+      <div class="month-goal"  id="month-goal"></div>
+    </div>
+    <div class="month-progress">
+      <div class="pct-label" id="pct-label">0% complete</div>
+      <div class="pbar"><div class="pbar-fill" id="pbar-fill" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <!-- Week cards -->
+  <div class="weeks" id="weeks"></div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <button class="nav-btn" id="prev-btn" onclick="goMonth(currentMonth - 1)">← Previous</button>
+    <button class="nav-btn" id="next-btn" onclick="goMonth(currentMonth + 1)">Next →</button>
+  </div>
+
+</div>
+
+<!-- Data first, then app logic -->
+<script src="data/plan.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
