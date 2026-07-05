@@ -76,13 +76,14 @@ Append a new object to the `PLAN` array following the existing month structure.
 
 ## Link types (`t` field)
 
-| Type  | Style       | Use for             |
-|-------|-------------|---------------------|
-| `lc`  | Blue pill   | LeetCode problems   |
-| `nc`  | Light blue  | Neetcode problems   |
-| `gh`  | Gray pill   | GitHub repos        |
-| `ref` | Subtle gray | Articles, docs, books|
-| `yt`  | Red pill    | YouTube videos      |
+| Type  | Style       | Use for                    |
+|-------|-------------|----------------------------|
+| `lc`  | Blue pill   | LeetCode problems          |
+| `nc`  | Light blue  | Neetcode problems          |
+| `gh`  | Gray pill   | GitHub repos               |
+| `ref` | Subtle gray | Articles, docs, books      |
+| `yt`  | Red pill    | YouTube videos             |
+| `hi`  | green pill  | Hello Interview reference  |
 
 ---
 
