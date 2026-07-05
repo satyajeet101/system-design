@@ -7,7 +7,7 @@
  *   • Add/remove a task    → add/remove an object in a week's `tasks` array
  *   • Add a link to a task → add an object to the task's `links` array
  *       link types: 'lc' (LeetCode), 'nc' (Neetcode), 'gh' (GitHub),
- *                   'ref' (reference/article), 'yt' (YouTube)
+ *                   'ref' (reference/article), 'yt' (YouTube), 'hi' (Hello Interview)
  *   • Add a resource       → add an object to a week's `resources` array
  *
  * BADGE KEYS (use in `badges` array):
@@ -33,7 +33,8 @@ const PLAN = [
             links: [
               { t: "lc",  label: "LC #1 Two Sum",         url: "https://leetcode.com/problems/two-sum/" },
               { t: "lc",  label: "LC #125 Valid Palindrome", url: "https://leetcode.com/problems/valid-palindrome/" },
-              { t: "lc",  label: "LC #15 3Sum",            url: "https://leetcode.com/problems/3sum/" }
+              { t: "lc",  label: "LC #15 3Sum",            url: "https://leetcode.com/problems/3sum/" },
+              { t: "hi",  label: "Hello Interview Overview", url: "https://www.hellointerview.com/learn/code/two-pointers/overview" }
             ]
           },
           {

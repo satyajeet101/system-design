@@ -164,6 +164,7 @@ body {
 .tlink-gh  { background: #1c2333; color: #8b949e; border: 1px solid #30363d; }  /* GitHub    */
 .tlink-ref { background: #1a1d27; color: #9ca3af; border: 1px solid #2a2d3a; }  /* Reference */
 .tlink-yt  { background: #3b0000; color: #f87171; border: 1px solid #7f1d1d; }  /* YouTube   */
+.tlink-hi  { background: #59b9b0; color: #FFFFFF; border: 1px solid #176b7e; }  /* Hello Interview */
 
 /* ── Week resources footer ── */
 .resources {

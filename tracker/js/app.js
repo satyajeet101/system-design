@@ -24,6 +24,7 @@ const LINK_CLS = {
   gh:  "tlink-gh",
   ref: "tlink-ref",
   yt:  "tlink-yt",
+  hi:  "tlink-hi",
 };
 
 // ─── State ──────────────────────────────────────────────────

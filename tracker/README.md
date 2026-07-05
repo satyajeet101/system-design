@@ -21,6 +21,7 @@ tracker/
 │   └── app.js          ← Rendering & state logic (rarely needs editing)
 ├── data/
 │   └── plan.js         ← ALL CONTENT LIVES HERE — edit this to update the tracker
+└── state.json          ← Optional: export/import tracker state (progress) from browser local storage
 └── README.md
 ```
 
