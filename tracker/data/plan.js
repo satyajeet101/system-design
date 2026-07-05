@@ -441,6 +441,13 @@ const PLAN = [
             ]
           },
           {
+            text: "[LLD] Apply Observer pattern for order status updates; Strategy pattern for delivery fee calculation",
+            links: [
+              { t: "ref", label: "Observer pattern — Refactoring.Guru", url: "https://refactoring.guru/design-patterns/observer" },
+              { t: "ref", label: "Strategy pattern — Refactoring.Guru", url: "https://refactoring.guru/design-patterns/strategy" }
+            ]
+          },
+          {
             text: "[HLD] System Design (1hr): Design a URL Shortener — hashing, DB schema, redirect flow, caching, analytics",
             links: [
               { t: "ref", label: "ByteByteGo — URL Shortener",  url: "https://bytebytego.com/courses/system-design-interview/design-a-url-shortener" },
@@ -526,6 +533,13 @@ const PLAN = [
             links: [
               { t: "gh",  label: "BookMyShow LLD — awesome-lld",    url: "https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/online-ticket-booking-system.md" },
               { t: "ref", label: "Optimistic Locking — Baeldung",    url: "https://www.baeldung.com/jpa-optimistic-locking" }
+            ]
+          },
+          {
+            text: "[LLD] Key challenge: concurrent seat booking — use optimistic locking or synchronized blocks in Java",
+            links: [
+              { t: "ref", label: "Java Optimistic Locking", url: "https://www.baeldung.com/jpa-optimistic-locking" },
+              { t: "ref", label: "Thread safety in Java",    url: "https://www.baeldung.com/java-thread-safety" }
             ]
           },
           {
@@ -630,6 +644,13 @@ const PLAN = [
             ]
           },
           {
+            text: "[LLD] Key: how does RankingEngine rank listings? Use Strategy pattern for ranking criteria",
+            links: [
+              { t: "ref", label: "Strategy pattern — Refactoring.Guru", url: "https://refactoring.guru/design-patterns/strategy" },
+              { t: "ref", label: "Ranking algorithms for search",       url: "https://medium.com/airbnb-engineering/search-ranking-at-airbnb-f1570f6c8f8b" }
+            ]
+          },
+          {
             text: "[HLD] System Design (1.5hr): Airbnb search & listing — availability, geo-search, caching, ranking, idempotent booking",
             links: [
               { t: "ref", label: "ByteByteGo — Hotel Reservation",        url: "https://bytebytego.com/courses/system-design-interview/design-a-hotel-reservation-system" },
@@ -668,6 +689,13 @@ const PLAN = [
             links: [
               { t: "gh",  label: "Food Delivery LLD reference", url: "https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/food-delivery-service.md" },
               { t: "ref", label: "DoorDash Engineering Blog",   url: "https://doordash.engineering/" }
+            ]
+          },
+          {
+            text: "[Machine Coding] Add real-time status updates via Observer pattern; implement driver assignment via Strategy",
+            links: [
+              { t: "ref", label: "Observer pattern — Refactoring.Guru", url: "https://refactoring.guru/design-patterns/observer" },
+              { t: "ref", label: "Strategy pattern — Refactoring.Guru", url: "https://refactoring.guru/design-patterns/strategy" }
             ]
           },
           {
@@ -754,6 +782,13 @@ const PLAN = [
             links: [
               { t: "gh",  label: "awesome-low-level-design",        url: "https://github.com/ashishps1/awesome-low-level-design" },
               { t: "ref", label: "Idempotency — Stripe Engineering", url: "https://stripe.com/blog/idempotency" }
+            ]
+          },
+          {
+            text: "[LLD] Key challenge: idempotency — how do you prevent double charges? Implement idempotency key pattern",
+            links: [
+              { t: "ref", label: "Idempotency key pattern", url: "https://stripe.com/blog/idempotency" },
+              { t: "ref", label: "Exactly-once semantics",      url: "https://en.wikipedia.org/wiki/Exactly-once_delivery" }
             ]
           },
           {
