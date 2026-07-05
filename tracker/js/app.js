@@ -28,36 +28,66 @@ const LINK_CLS = {
 };
 
 // ─── State ──────────────────────────────────────────────────
+const CATEGORIES = [
+  { id: "tech", label: "Tech Prep" },
+  { id: "ai",   label: "AI Prep" }
+];
+
+let currentCategory = "tech";
 let currentMonth = 0;
 let checked = {};
 
 (function loadState() {
   try {
-    const saved = localStorage.getItem("dsa_tracker_v5");
-    if (saved) checked = JSON.parse(saved);
+    const saved = localStorage.getItem("prep_tracker_v2") || localStorage.getItem("dsa_tracker_v5");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      checked = {};
+      for (const key in parsed) {
+        if (!Object.prototype.hasOwnProperty.call(parsed, key)) continue;
+        const parts = key.split("_");
+        if (parts.length === 3) {
+          checked[`tech_${key}`] = parsed[key];
+        } else {
+          checked[key] = parsed[key];
+        }
+      }
+    }
   } catch (e) { /* ignore */ }
 })();
 
 function saveState() {
-  try { localStorage.setItem("dsa_tracker_v5", JSON.stringify(checked)); }
+  try { localStorage.setItem("prep_tracker_v2", JSON.stringify(checked)); }
   catch (e) { /* ignore */ }
 }
 
 // ─── Helpers ────────────────────────────────────────────────
-function totalAll() {
-  return PLAN.reduce((a, m) => a + m.weeks.reduce((b, w) => b + w.tasks.length, 0), 0);
+function getPlan() {
+  return currentCategory === "ai" ? AI_PLAN : PLAN;
 }
 
-function doneAll() {
-  return Object.values(checked).filter(Boolean).length;
+function totalAll(plan) {
+  return plan.reduce((a, m) => a + m.weeks.reduce((b, w) => b + w.tasks.length, 0), 0);
 }
 
-function monthStats(mi) {
+function doneAll(plan) {
+  let done = 0;
+  plan.forEach((m, mi) => {
+    m.weeks.forEach((w, wi) => {
+      w.tasks.forEach((_, ti) => {
+        if (checked[`${currentCategory}_${mi}_${wi}_${ti}`]) done++;
+      });
+    });
+  });
+  return done;
+}
+
+function monthStats(plan, mi) {
   let total = 0, done = 0;
-  PLAN[mi].weeks.forEach((w, wi) => {
+  plan[mi].weeks.forEach((w, wi) => {
     w.tasks.forEach((_, ti) => {
       total++;
-      if (checked[`${mi}_${wi}_${ti}`]) done++;
+      if (checked[`${currentCategory}_${mi}_${wi}_${ti}`]) done++;
     });
   });
   return { total, done };
@@ -70,8 +100,17 @@ function toggle(key) {
   render();
 }
 
+function switchCategory(category) {
+  if (currentCategory === category) return;
+  currentCategory = category;
+  currentMonth = 0;
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function goMonth(i) {
-  if (i < 0 || i >= PLAN.length) return;
+  const plan = getPlan();
+  if (i < 0 || i >= plan.length) return;
   currentMonth = i;
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -102,7 +141,7 @@ function renderWeek(w, wi) {
   }).join("");
 
   const tasks = w.tasks.map((task, ti) => {
-    const key    = `${currentMonth}_${wi}_${ti}`;
+    const key    = `${currentCategory}_${currentMonth}_${wi}_${ti}`;
     const isDone = !!checked[key];
     return `
       <div class="task">
@@ -128,9 +167,11 @@ function renderWeek(w, wi) {
 
 // ─── Main render ─────────────────────────────────────────────
 function render() {
-  const ta = totalAll(), da = doneAll();
-  const { total: mt, done: md } = monthStats(currentMonth);
-  const weeksLeft = PLAN.length * 4 - currentMonth * 4;
+  const plan = getPlan();
+  const ta = totalAll(plan);
+  const da = doneAll(plan);
+  const { total: mt, done: md } = monthStats(plan, currentMonth);
+  const weeksLeft = plan.length * 4 - currentMonth * 4;
 
   // Stats
   document.getElementById("stats").innerHTML = `
@@ -140,9 +181,16 @@ function render() {
     <div class="stat"><div class="stat-num">${weeksLeft}</div><div class="stat-lbl">Weeks left</div></div>
     <div class="stat"><div class="stat-num">${ta - da}</div><div class="stat-lbl">Remaining</div></div>`;
 
-  // Tabs
-  document.getElementById("tabs").innerHTML = PLAN.map((_, i) => {
-    const { total, done } = monthStats(i);
+  // Category tabs
+  document.getElementById("category-tabs").innerHTML = CATEGORIES.map(c => {
+    let cls = "tab";
+    if (c.id === currentCategory) cls += " active";
+    return `<button class="${cls}" onclick="switchCategory('${c.id}')">${c.label}</button>`;
+  }).join("");
+
+  // Month tabs
+  document.getElementById("tabs").innerHTML = plan.map((_, i) => {
+    const { total, done } = monthStats(plan, i);
     const full = done === total && total > 0;
     let cls = "tab";
     if (i === currentMonth) cls += " active";
@@ -151,7 +199,7 @@ function render() {
   }).join("");
 
   // Month header
-  const m = PLAN[currentMonth];
+  const m = plan[currentMonth];
   const pct = mt ? Math.round(md / mt * 100) : 0;
   document.getElementById("month-title").textContent = m.title;
   document.getElementById("month-goal").textContent  = m.goal;
@@ -160,14 +208,14 @@ function render() {
 
   // Complete banner
   const banner = document.getElementById("complete-banner");
-  banner.style.display = (pct === 100 && currentMonth < PLAN.length - 1) ? "block" : "none";
+  banner.style.display = (pct === 100 && currentMonth < plan.length - 1) ? "block" : "none";
 
   // Weeks
   document.getElementById("weeks").innerHTML = m.weeks.map((w, wi) => renderWeek(w, wi)).join("");
 
   // Nav buttons
   document.getElementById("prev-btn").disabled = currentMonth === 0;
-  document.getElementById("next-btn").disabled = currentMonth === PLAN.length - 1;
+  document.getElementById("next-btn").disabled = currentMonth === plan.length - 1;
 }
 
 // ─── Boot ────────────────────────────────────────────────────
