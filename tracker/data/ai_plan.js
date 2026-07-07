@@ -304,7 +304,7 @@ const AI_PLAN = [
     weeks: [
       {
         label: "Week 9",
-        title: "Prompt design fundamentals",
+        title: "Prompt design fundamentals + versioning",
         badges: ["sd"],
         tasks: [
           {
@@ -326,6 +326,13 @@ const AI_PLAN = [
             ]
           },
           {
+            text: "[AI] Learn prompt versioning and rollback strategies for production LLMs",
+            links: [
+              { t: "ref", label: "Prompt versioning guide", url: "https://www.promptingguide.ai/" },
+              { t: "ref", label: "LLMOps best practices", url: "https://www.gpt-is.ai/build-better-llm-apps/" }
+            ]
+          },
+          {
             text: "[AI] Review how prompt structure affects model output consistency",
             links: [
               { t: "ref", label: "Prompt structure", url: "https://learnprompting.org/docs" }
@@ -339,7 +346,7 @@ const AI_PLAN = [
       },
       {
         label: "Week 10",
-        title: "LLM safety, bias, and evaluation",
+        title: "LLM safety, bias, and experiment tracking",
         badges: ["sd"],
         tasks: [
           {
@@ -355,15 +362,23 @@ const AI_PLAN = [
             ]
           },
           {
+            text: "[AI] Study experiment tracking for LLMs: A/B testing prompts, model variants, and guardrails",
+            links: [
+              { t: "ref", label: "Experiment tracking guide", url: "https://www.weights-and-biases.com/" },
+              { t: "ref", label: "MLflow experiments", url: "https://www.mlflow.org/docs/latest/tracking.html" }
+            ]
+          },
+          {
             text: "[AI] Read a short guide on responsible AI and design guardrails",
             links: [
               { t: "ref", label: "Responsible AI", url: "https://www.microsoft.com/en-us/ai/responsible-ai" }
             ]
           },
           {
-            text: "[AI] Practice explaining how you would detect a bad model prediction in production",
+            text: "[AI] Practice explaining how to detect and mitigate hallucinations in production",
             links: [
-              { t: "ref", label: "AI monitoring intro", url: "https://www.oreilly.com/library/view/ai-systems/9781492098422/" }
+              { t: "ref", label: "Hallucination detection", url: "https://arxiv.org/abs/2211.15355" },
+              { t: "ref", label: "RAG for grounding", url: "https://www.pinecone.io/learn/retrieval-augmented-generation/" }
             ]
           }
         ],
@@ -374,7 +389,7 @@ const AI_PLAN = [
       },
       {
         label: "Week 11",
-        title: "Retrieval-augmented generation",
+        title: "RAG: chunking, LangChain, and enterprise grounding",
         badges: ["sd"],
         tasks: [
           {
@@ -384,21 +399,30 @@ const AI_PLAN = [
             ]
           },
           {
-            text: "[AI] Study vector databases, embeddings, and similarity search",
+            text: "[AI] Study vector databases (Pinecone, Weaviate, Azure AI Search, Elasticsearch) and similarity search",
             links: [
-              { t: "ref", label: "Vector database overview", url: "https://www.pinecone.io/learn/vector-database/" }
+              { t: "ref", label: "Vector database overview", url: "https://www.pinecone.io/learn/vector-database/" },
+              { t: "ref", label: "Vector DB comparison", url: "https://www.infq.com/articles/vector-databases/" }
             ]
           },
           {
-            text: "[AI] Read about a real AI product that uses retrieval to ground responses",
+            text: "[AI] Learn chunking strategies: token-based, semantic, recursive chunking for long documents",
             links: [
-              { t: "ref", label: "RAG case study", url: "https://blog.pinecone.io/rag/" }
+              { t: "ref", label: "Chunking best practices", url: "https://www.pinecone.io/learn/chunking-strategies/" },
+              { t: "ref", label: "LangChain documentation", url: "https://python.langchain.com/docs/use_cases/question_answering/" }
             ]
           },
           {
-            text: "[AI] Practice explaining RAG in plain language for an interviewer",
+            text: "[AI] Study LangChain or Semantic Kernel frameworks for RAG orchestration",
             links: [
-              { t: "ref", label: "RAG explanation", url: "https://www.zdnet.com/article/what-is-rag-retrieval-augmented-generation-explained/" }
+              { t: "ref", label: "LangChain RAG", url: "https://python.langchain.com/" },
+              { t: "ref", label: "Semantic Kernel (Microsoft)", url: "https://learn.microsoft.com/en-us/semantic-kernel/" }
+            ]
+          },
+          {
+            text: "[AI] Practice designing a RAG system grounded with enterprise data (Slack, Confluence, S3)",
+            links: [
+              { t: "ref", label: "Enterprise RAG patterns", url: "https://www.databricks.com/blog/2023/09/18/rag-for-enterprise-data.html" }
             ]
           }
         ],
@@ -409,25 +433,35 @@ const AI_PLAN = [
       },
       {
         label: "Week 12",
-        title: "AI feature system design",
+        title: "AI architecture: agents, AWS Bedrock, cost & latency tradeoffs",
         badges: ["sd"],
         tasks: [
           {
-            text: "[AI] Study how to design an AI-powered assistant or search feature",
+            text: "[AI] Learn agent frameworks: what are AI agents and how to orchestrate them?",
             links: [
-              { t: "ref", label: "AI system design primer", url: "https://www.educative.io/courses/grokking-the-system-design-interview" }
+              { t: "ref", label: "AI agents guide", url: "https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/" },
+              { t: "ref", label: "LangChain agents", url: "https://python.langchain.com/docs/concepts/agents" }
             ]
           },
           {
-            text: "[AI] Learn the components: input, model, retrieval, output, monitoring",
+            text: "[AI] Study AWS Bedrock: managed foundation models and API-based inference",
             links: [
-              { t: "ref", label: "AI product architecture", url: "https://www.oreilly.com/library/view/architecting-modern-data/9781492085810/" }
+              { t: "ref", label: "AWS Bedrock overview", url: "https://aws.amazon.com/bedrock/" },
+              { t: "ref", label: "Bedrock vs alternatives", url: "https://www.infoq.com/articles/aws-bedrock/" }
             ]
           },
           {
-            text: "[AI] Review how latency, cost, and accuracy tradeoffs affect AI features",
+            text: "[AI] Learn cost management: per-token pricing, token usage optimization, batch processing",
             links: [
-              { t: "ref", label: "AI tradeoffs", url: "https://www.pinecone.io/learn/serving-ai-models/" }
+              { t: "ref", label: "LLM cost optimization", url: "https://www.mckinsey.com/capabilities/business-technology/our-insights/generative-ai-and-the-future-of-work" },
+              { t: "ref", label: "Token efficiency", url: "https://www.pinecone.io/learn/reduce-llm-costs/" }
+            ]
+          },
+          {
+            text: "[AI] Review how to choose the right model and balance latency vs cost vs accuracy",
+            links: [
+              { t: "ref", label: "Model selection guide", url: "https://www.databricks.com/blog/2023/04/05/model-selection.html" },
+              { t: "ref", label: "Model tradeoffs", url: "https://www.pinecone.io/learn/serving-ai-models/" }
             ]
           },
           {
@@ -450,7 +484,7 @@ const AI_PLAN = [
     weeks: [
       {
         label: "Week 13",
-        title: "ML pipeline and data ops",
+        title: "ML/LLMOps pipeline: Databricks, experiment tracking, model auditing",
         badges: ["sd"],
         tasks: [
           {
@@ -460,21 +494,31 @@ const AI_PLAN = [
             ]
           },
           {
-            text: "[AI] Study data versioning and feature stores at a high level",
+            text: "[AI] Study Databricks and Apache Spark for large-scale data processing and model training",
             links: [
-              { t: "ref", label: "Feature store intro", url: "https://docs.vertex.ai/featurestore" }
+              { t: "ref", label: "Databricks ML Platform", url: "https://www.databricks.com/product/machine-learning" },
+              { t: "ref", label: "Spark ML", url: "https://spark.apache.org/mllib/" }
             ]
           },
           {
-            text: "[AI] Read a short guide on model governance and reproducibility",
+            text: "[AI] Learn experiment tracking with MLflow: versioning, metrics, reproducibility",
             links: [
-              { t: "ref", label: "Model governance", url: "https://www.databricks.com/blog/2020/12/08/machine-learning-governance-model-ops.html" }
+              { t: "ref", label: "MLflow experiments", url: "https://www.mlflow.org/" },
+              { t: "ref", label: "Experiment tracking best practices", url: "https://www.wandb.com/" }
             ]
           },
           {
-            text: "[AI] Practice describing the difference between data ops and model ops",
+            text: "[AI] Study model auditing and governance: versioning, compliance, accountability",
             links: [
-              { t: "ref", label: "MLOps overview", url: "https://aws.amazon.com/mlops/" }
+              { t: "ref", label: "Model auditing", url: "https://www.databricks.com/blog/model-governance.html" },
+              { t: "ref", label: "Model card documentation", url: "https://arxiv.org/abs/1810.03993" }
+            ]
+          },
+          {
+            text: "[AI] Practice describing the difference between data ops, model ops, and LLMOps",
+            links: [
+              { t: "ref", label: "MLOps overview", url: "https://aws.amazon.com/mlops/" },
+              { t: "ref", label: "LLMOps guide", url: "https://www.gpt-is.ai/build-better-llm-apps/" }
             ]
           }
         ],
@@ -485,7 +529,7 @@ const AI_PLAN = [
       },
       {
         label: "Week 14",
-        title: "Model serving and inference",
+        title: "Model serving: cloud vs self-hosted, latency reduction",
         badges: ["sd"],
         tasks: [
           {
@@ -495,19 +539,28 @@ const AI_PLAN = [
             ]
           },
           {
-            text: "[AI] Study latency, throughput, and model batching tradeoffs",
+            text: "[AI] Study cloud vs self-hosted deployment: cost, control, maintenance tradeoffs",
             links: [
-              { t: "ref", label: "Serving tradeoffs", url: "https://www.pinecone.io/learn/model-deployment/" }
+              { t: "ref", label: "Cloud vs on-premise", url: "https://www.mckinsey.com/capabilities/business-technology/our-insights/ai-deployment-options" },
+              { t: "ref", label: "LLM deployment architecture", url: "https://aws.amazon.com/blogs/ml/deploy-llms-on-amazon-sagemaker/" }
             ]
           },
           {
-            text: "[AI] Read about a common serving stack: model server, cache, API gateway",
+            text: "[AI] Learn latency reduction techniques: quantization, pruning, caching, distillation",
             links: [
+              { t: "ref", label: "Model optimization", url: "https://www.pinecone.io/learn/reduce-llm-latency/" },
+              { t: "ref", label: "Inference optimization", url: "https://huggingface.co/blog/inference-optimize-llm" }
+            ]
+          },
+          {
+            text: "[AI] Study model batching and throughput optimization for serving",
+            links: [
+              { t: "ref", label: "Serving tradeoffs", url: "https://www.pinecone.io/learn/model-deployment/" },
               { t: "ref", label: "ML serving stack", url: "https://www.tensorflow.org/tfx/serving" }
             ]
           },
           {
-            text: "[AI] Practice explaining how you would serve a vector search model",
+            text: "[AI] Practice explaining how you would serve a vector search model with low latency",
             links: [
               { t: "ref", label: "Vector search serving", url: "https://www.pinecone.io/learn/serving-ai-models/" }
             ]
@@ -555,13 +608,41 @@ const AI_PLAN = [
       },
       {
         label: "Week 16",
-        title: "Responsible AI and explainability",
+        title: "Responsible AI, governance, security, and compliance",
         badges: ["sd"],
         tasks: [
           {
             text: "[AI] Learn why explainability and fairness matter in AI products",
             links: [
               { t: "ref", label: "Responsible AI principles", url: "https://www.ibm.com/topics/responsible-ai" }
+            ]
+          },
+          {
+            text: "[AI] Study PII protection and data privacy: masking, de-identification, GDPR compliance",
+            links: [
+              { t: "ref", label: "PII protection guide", url: "https://www.microsoft.com/en-us/ai/responsible-ai" },
+              { t: "ref", label: "Data privacy in AI", url: "https://www.databricks.com/blog/privacy-preserving-ml.html" }
+            ]
+          },
+          {
+            text: "[AI] Learn security controls: authentication, encryption, access control for AI models",
+            links: [
+              { t: "ref", label: "AI security best practices", url: "https://owasp.org/www-project-ai-security-and-privacy-guide/" },
+              { t: "ref", label: "Model stealing attacks", url: "https://arxiv.org/abs/1609.02943" }
+            ]
+          },
+          {
+            text: "[AI] Study model auditing: documentation, transparency reports, accountability",
+            links: [
+              { t: "ref", label: "Model card framework", url: "https://arxiv.org/abs/1810.03993" },
+              { t: "ref", label: "Model auditing checklist", url: "https://www.aaai.org/ocs/index.php/AAAI/AAAI-21/paper/viewFile/17644/17152" }
+            ]
+          },
+          {
+            text: "[AI] Review compliance requirements: SOC2, HIPAA, industry-specific regulations",
+            links: [
+              { t: "ref", label: "AI compliance frameworks", url: "https://www.microsoft.com/en-us/ai/responsible-ai" },
+              { t: "ref", label: "EU AI Act implications", url: "https://ec.europa.eu/info/publications/proposal-regulation-artificial-intelligence_en" }
             ]
           },
           {
@@ -585,7 +666,9 @@ const AI_PLAN = [
         ],
         resources: [
           { label: "IBM Responsible AI", url: "https://www.ibm.com/topics/responsible-ai" },
-          { label: "Interpretable ML", url: "https://christophm.github.io/interpretable-ml-book/" }
+          { label: "Interpretable ML", url: "https://christophm.github.io/interpretable-ml-book/" },
+          { label: "OWASP AI Security", url: "https://owasp.org/www-project-ai-security-and-privacy-guide/" },
+          { label: "EU AI Act", url: "https://ec.europa.eu/info/publications/proposal-regulation-artificial-intelligence_en" }
         ]
       }
     ]
