@@ -33,8 +33,7 @@ const PLAN = [
             links: [
               { t: "lc",  label: "LC #1 Two Sum",         url: "https://leetcode.com/problems/two-sum/" },
               { t: "lc",  label: "LC #125 Valid Palindrome", url: "https://leetcode.com/problems/valid-palindrome/" },
-              { t: "lc",  label: "LC #15 3Sum",            url: "https://leetcode.com/problems/3sum/" },
-              { t: "hi",  label: "Hello Interview Overview", url: "https://www.hellointerview.com/learn/code/two-pointers/overview" }
+              { t: "lc",  label: "LC #15 3Sum",            url: "https://leetcode.com/problems/3sum/" }
             ]
           },
           {
@@ -50,10 +49,9 @@ const PLAN = [
             ]
           },
           {
-            text: "[LLD] Study the 5 SOLID principles — write a 1-para example for each from your own codebase",
+            text: "[LLD] KISS, YAGNI, DRY, Separation of concern, Law of Demeter, SOLID",
             links: [
-              { t: "ref", label: "SOLID — Refactoring.Guru",  url: "https://refactoring.guru/design-patterns/solid-principles" },
-              { t: "ref", label: "SOLID in Java — Baeldung",   url: "https://www.baeldung.com/solid-principles" }
+              { t: "hi", label: "Design Principle",  url: "https://www.hellointerview.com/learn/low-level-design/in-a-hurry/design-principles" }
             ]
           },
           {
@@ -67,7 +65,8 @@ const PLAN = [
         resources: [
           { label: "Neetcode.io",       url: "https://neetcode.io" },
           { label: "Visualgo.net",      url: "https://visualgo.net/en" },
-          { label: "Refactoring.Guru",  url: "https://refactoring.guru" }
+          { label: "Refactoring.Guru",  url: "https://refactoring.guru" },
+          { label: "Hello Interview Overview", url: "https://www.hellointerview.com/learn/code/two-pointers/overview" }
         ]
       },
       {
