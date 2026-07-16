@@ -39,13 +39,21 @@ const PLAN = [
           {
             text: "[DSA] Sliding window: Longest Substring Without Repeating Characters",
             links: [
-              { t: "lc",  label: "LC #3 Longest Substring", url: "https://leetcode.com/problems/longest-substring-without-repeating-characters/" }
+              { t: "lc",  label: "LC3 Longest Substring", url: "https://leetcode.com/problems/longest-substring-without-repeating-characters/" },
+              { t: "hi",  label: "HI Max sub array sum", url: "https://www.hellointerview.com/learn/code/sliding-window/maximum-sum-of-subarrays-of-size-k" },
+              { t: "lc",  label: "LC1423 Max point", url: "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/" },
+              { t: "lc",  label: "LC2461 Max sum distinct sub array", url: "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/" },
+              { t: "lc",  label: "LC424 Longest repeating char replacement", url: "https://leetcode.com/problems/longest-repeating-character-replacement/description/" }
             ]
           },
           {
-            text: "[DSA] Target: 8–10 easy problems on Neetcode.io — write approach before coding",
+            text: "[DSA] Target: Arrays and Hashing",
             links: [
-              { t: "nc",  label: "Neetcode Roadmap", url: "https://neetcode.io/roadmap" }
+              { t: "lc",  label: "LC68 Text Justification", url: "https://leetcode.com/problems/text-justification/" },
+              { t: "lc",  label: "LC2306 Naming a Company", url: "https://leetcode.com/problems/naming-a-company/" },
+              { t: "lc",  label: "LC1074 Number of Submatrices Sum to Target", url: "https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/" },
+              { t: "lc",  label: "LC41 First Missing Positive", url: "https://leetcode.com/problems/first-missing-positive/" },
+              { t: "lc",  label: "LC214 Shortest Palindrome", url: "https://leetcode.com/problems/shortest-palindrome/" },
             ]
           },
           {
