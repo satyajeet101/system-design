@@ -1,19 +1,36 @@
 ## Publisher
-- void subscribe(Subscriber<? super T> subscriber);
+```java
+    public interface Publisher<T> {
+        void subscribe(Subscriber<? super T> s);
+    }
+```
 - Publisher Lifecycle as below
-    ![reactiveWorkflow.png](..%2Fassets%2FreactiveWorkflow.png)
-- [FluxPublisherExample.java](FluxPublisherExample.java)
-- Signals from Publisher to Subscriber:
-    - onNext(T item) → New data item 
-    - onError(Throwable error) → Error occurred 
-    - onComplete() → No more data
+
+    ![reactiveWorkflow.png](..%2F..%2Fassets%2FreactiveWorkflow.png)
+
 ## Subscriber
-- Signals from Subscriber to Publisher:
-    - subscription.request(n) → Request n items 
-    - subscription.cancel() → Stop receiving
+```java
+    public interface Subscriber<T> {
+        void onSubscribe(Subscription s);
+        void onNext(T item);
+        void onError(Throwable error);
+        void onComplete();
+    }
+```
+
 ## Subscription
+```java
+    public interface Subscription {
+        void request(long n);
+        void cancel();
+    }
+```
 ## Processor
-## Flux
+```java
+    public interface Processor<T, R> extends Subscriber<T>, Publisher<R> {
+    }
+```
+### Flux
 1. Flux<T> is a publisher that emits:
    - Zero item
    - One item
@@ -30,7 +47,7 @@
      flux.subscribe(System.out::println);
 
 
-## Mono
+### Mono
 1. Mono<T> is a publisher that emits:
     - Zero or One item
     - And then complete
@@ -56,4 +73,4 @@
 
 
 ## REST/FUNCTIONAL Endpoint
-![reactive1.png](..%2Fassets%2Freactive1.png)
+![reactive1.png](..%2F..%2Fassets%2Freactive1.png)
