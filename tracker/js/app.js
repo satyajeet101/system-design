@@ -15,6 +15,15 @@ const BADGE_CFG = {
   lld:  { cls: "b-lld",  lbl: "LLD"          },
   cr:   { cls: "b-cr",   lbl: "Code Review"  },
   mc:   { cls: "b-mc",   lbl: "Machine Coding"},
+  // Backend Interview badges
+  java:   { cls: "b-java",   lbl: "Java"        },
+  spring: { cls: "b-spring", lbl: "Spring Boot" },
+  kafka:  { cls: "b-kafka",  lbl: "Kafka"       },
+  aws:    { cls: "b-aws",    lbl: "AWS"         },
+  sql:    { cls: "b-sql",    lbl: "SQL"         },
+  redis:  { cls: "b-redis",  lbl: "Redis"       },
+  cicd:   { cls: "b-cicd",   lbl: "CI/CD"       },
+  msa:    { cls: "b-msa",    lbl: "Microservices"},
 };
 
 // Link type → CSS class
@@ -25,12 +34,14 @@ const LINK_CLS = {
   ref: "tlink-ref",
   yt:  "tlink-yt",
   hi:  "tlink-hi",
+  doc: "tlink-doc",
 };
 
 // ─── State ──────────────────────────────────────────────────
 const CATEGORIES = [
-  { id: "tech", label: "Tech Prep" },
-  { id: "ai",   label: "AI Prep" }
+  { id: "tech",    label: "Tech Prep" },
+  { id: "ai",      label: "AI Prep" },
+  { id: "backend", label: "Backend Interview" }
 ];
 
 let currentCategory = "tech";
@@ -63,7 +74,9 @@ function saveState() {
 
 // ─── Helpers ────────────────────────────────────────────────
 function getPlan() {
-  return currentCategory === "ai" ? AI_PLAN : PLAN;
+  if (currentCategory === "ai") return AI_PLAN;
+  if (currentCategory === "backend") return BACKEND_PLAN;
+  return PLAN;
 }
 
 function totalAll(plan) {

@@ -122,6 +122,16 @@ body {
 .b-cr   { background: #431407; color: #fb923c;  border: 1px solid #9a3412; }
 .b-mc   { background: #0c2a3e; color: #38bdf8;  border: 1px solid #0369a1; }
 
+/* ── Badges: Backend Interview track ── */
+.b-java   { background: #292524; color: #d6d3d1;  border: 1px solid #78716c; }
+.b-spring { background: #042f2e; color: #2dd4bf;  border: 1px solid #0f766e; }
+.b-kafka  { background: #1e1b4b; color: #818cf8;  border: 1px solid #4338ca; }
+.b-aws    { background: #422006; color: #facc15;  border: 1px solid #a16207; }
+.b-sql    { background: #083344; color: #22d3ee;  border: 1px solid #0e7490; }
+.b-redis  { background: #450a0a; color: #f87171;  border: 1px solid #b91c1c; }
+.b-cicd   { background: #2e1065; color: #a78bfa;  border: 1px solid #7c3aed; }
+.b-msa    { background: #500724; color: #f472b6;  border: 1px solid #be185d; }
+
 /* ── Tasks ── */
 .tasks { display: flex; flex-direction: column; gap: 4px; }
 .task  { display: flex; align-items: flex-start; gap: 10px; padding: 5px 6px; border-radius: 6px; transition: background 0.1s; }
@@ -165,6 +175,7 @@ body {
 .tlink-ref { background: #1a1d27; color: #9ca3af; border: 1px solid #2a2d3a; }  /* Reference */
 .tlink-yt  { background: #3b0000; color: #f87171; border: 1px solid #7f1d1d; }  /* YouTube   */
 .tlink-hi  { background: #59b9b0; color: #FFFFFF; border: 1px solid #176b7e; }  /* Hello Interview */
+.tlink-doc { background: #052e16; color: #4ade80; border: 1px solid #166534; }  /* Official Docs */
 
 /* ── Week resources footer ── */
 .resources {
