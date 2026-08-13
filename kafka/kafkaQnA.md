@@ -1,9 +1,9 @@
 ## 1. Fundamentals
 
 **Q1. What is Kafka, and how does it differ from a traditional message queue?**
-Kafka is a distributed event streaming platform built around a **commit log** abstraction. Producers append events to **topics**, split into **partitions** for parallelism and ordering (ordering guaranteed only within a partition).
+- Kafka is a distributed event streaming platform built around a **commit log** abstraction. Producers append events to **topics**, split into **partitions** for parallelism and ordering (ordering guaranteed only within a partition).
 
-Key difference from RabbitMQ/ActiveMQ: **consumption model**. Traditional queues remove a message once acknowledged — one consumer, one delivery. Kafka retains messages for a configurable retention period regardless of consumption, and consumers track their **own offsets**. This allows multiple independent consumer groups to replay, reprocess, or consume at different speeds — none of which is natural in a queue. Kafka trades flexible routing (exchanges/bindings) for raw throughput and durability at scale.
+- Key difference from RabbitMQ/ActiveMQ: **consumption model**. Traditional queues remove a message once acknowledged — one consumer, one delivery. Kafka retains messages for a configurable retention period regardless of consumption, and consumers track their **own offsets**. This allows multiple independent consumer groups to replay, reprocess, or consume at different speeds — none of which is natural in a queue. Kafka trades flexible routing (exchanges/bindings) for raw throughput and durability at scale.
 
 **Q2. What are topics, partitions, and offsets?**
 - **Topic**: logical category/stream of events.
@@ -12,35 +12,52 @@ Key difference from RabbitMQ/ActiveMQ: **consumption model**. Traditional queues
 
 ```mermaid
 flowchart LR
-    subgraph Topic["Topic: orders"]
-        subgraph P0["Partition 0"]
-            direction LR
-            a0[off 0] --> a1[off 1] --> a2[off 2] --> a3[off 3]
+    subgraph KafkaCluster["Kafka Cluster"]
+        subgraph Broker1["Broker 1"]
+            Partition1Leader["Partition 1 (Leader)"]
+            Partition2Follower["Partition 2 (Follower)"]
         end
-        subgraph P1["Partition 1"]
-            direction LR
-            b0[off 0] --> b1[off 1] --> b2[off 2]
-        end
-        subgraph P2["Partition 2"]
-            direction LR
-            c0[off 0] --> c1[off 1] --> c2[off 2] --> c3[off 3] --> c4[off 4]
+        subgraph Broker2["Broker 2"]
+            Partition1Follower["Partition 1 (Follower)"]
+            Partition2Leader["Partition 2 (Leader)"]
         end
     end
-    Producer([Producer]) --> Topic
+
+    Producer["Producer"] -->|Writes to Leader| Partition1Leader
+    Producer -->|Writes to Leader| Partition2Leader
+
+    Partition1Leader -->|Replicates| Partition1Follower
+    Partition2Leader -->|Replicates| Partition2Follower
+
+    subgraph ConsumerGroup["Consumer Group"]
+        Consumer1["Consumer 1"]
+        Consumer2["Consumer 2"]
+    end
+
+    Partition1Leader -->|Reads| Consumer1
+    Partition2Leader -->|Reads| Consumer2
 ```
 
 **Q3. What is a broker, and what is a Kafka cluster?**
-A broker is a single Kafka server that stores data and serves client requests. A cluster is a group of brokers working together; each broker hosts a subset of partitions (as leader or follower). One broker acts as **controller**, managing partition leadership and cluster metadata (via Raft/KRaft in modern Kafka, or ZooKeeper historically).
+- A broker is a single Kafka server that stores data and serves client requests. 
+- A cluster is a group of brokers working together; each broker hosts a subset of partitions (as leader or follower). 
+- One broker acts as **controller**, managing partition leadership and cluster metadata (via Raft/KRaft in modern Kafka, or ZooKeeper historically).
 
 **Q4. KRaft vs ZooKeeper — what changed and why?**
-Kafka historically depended on ZooKeeper for metadata, controller election, and ACLs. **KRaft** (Kafka Raft), GA since Kafka 3.3+ and default in newer versions, removes the ZooKeeper dependency — metadata is stored in Kafka itself as an event log, replicated via the Raft consensus protocol among a small quorum of controller nodes. Benefits: simpler ops (one system instead of two), faster controller failover, and support for far more partitions per cluster (ZooKeeper struggled beyond ~200K partitions).
+- Kafka historically depended on ZooKeeper for metadata, controller election, and ACLs. 
+- **KRaft** (Kafka Raft), GA since Kafka 3.3+ and default in newer versions, removes the ZooKeeper dependency — metadata is stored in Kafka itself as an event log, replicated via the Raft consensus protocol among a small quorum of controller nodes. 
+  - Benefits: 
+    - simpler ops (one system instead of two)
+    - faster controller failover
+    - support for far more partitions per cluster (ZooKeeper struggled beyond ~200K partitions).
 
 ---
 
 ## 2. Producer
 
 **Q5. How does Kafka decide which partition a message goes to?**
-- **With a key**: `hash(key) % numPartitions` (default partitioner uses murmur2) — deterministic, so all messages with the same key land in the same partition, preserving per-key order.
+- **With a key**: `hash(key) % numPartitions` (default partitioner uses murmur2) 
+  - deterministic, so all messages with the same key land in the same partition, preserving per-key order.
 - **Without a key**: since Kafka 2.4+, the **sticky partitioner** batches records onto one partition at a time before switching (better batching/throughput) rather than strict round-robin.
 
 ```mermaid
@@ -53,7 +70,7 @@ flowchart LR
 ```
 
 **Q6. What does the `acks` setting control? Tradeoffs?**
-Durability vs. throughput/latency knob:
+Durability vs. throughput/latency knob: ack tells the producer how many brokers must confirm a write before considering it successful.
 - `acks=0`: fire-and-forget, no wait, no durability guarantee — fastest, riskiest.
 - `acks=1`: waits for the **partition leader** to write locally. Risk: if leader crashes before replication, message is lost even though producer thinks it succeeded.
 - `acks=all` (`-1`): waits for leader + all **in-sync replicas (ISR)** to ack. Strongest durability. Only meaningful combined with `min.insync.replicas >= 2` and `replication.factor >= 3` — otherwise `acks=all` can degrade to behaving like `acks=1`.
@@ -77,7 +94,7 @@ sequenceDiagram
 ```
 
 **Q7. What is idempotent production, and how does it prevent duplicates?**
-Setting `enable.idempotence=true` assigns each producer a **Producer ID (PID)** and a per-partition **sequence number** to every message. The broker deduplicates based on (PID, sequence number), rejecting retries that would otherwise create duplicates from network retries under `acks=all`. This gives **exactly-once delivery per partition, per producer session**, not full end-to-end exactly-once by itself.
+- Setting `enable.idempotence=true` assigns each producer a **Producer ID (PID)** and a per-partition **sequence number** to every message. The broker deduplicates based on (PID, sequence number), rejecting retries that would otherwise create duplicates from network retries under `acks=all`. This gives **exactly-once delivery per partition, per producer session**, not full end-to-end exactly-once by itself.
 
 **Q8. What are Kafka Transactions, and how do they enable exactly-once semantics (EOS)?**
 Transactions let a producer write to **multiple partitions atomically**, and coordinate with consumer offset commits — critical for "read-process-write" patterns (e.g., Kafka Streams). A **transaction coordinator** (broker) tracks transaction state; messages are tagged with a transactional ID and only become visible to consumers with `isolation.level=read_committed` once the transaction commits. Combined with idempotent producers, this delivers **exactly-once semantics** across a consume-transform-produce pipeline, not just at-least-once.
