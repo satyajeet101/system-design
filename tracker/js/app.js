@@ -37,6 +37,39 @@ const LINK_CLS = {
   doc: "tlink-doc",
 };
 
+const LEGENDS = {
+  tech: `
+    <span class="leg"><span class="leg-dot" style="background:#1d4ed8"></span>DSA</span>
+    <span class="leg"><span class="leg-dot" style="background:#166534"></span>HLD System Design</span>
+    <span class="leg"><span class="leg-dot" style="background:#9f1239"></span>LLD</span>
+    <span class="leg"><span class="leg-dot" style="background:#9a3412"></span>Code Review</span>
+    <span class="leg"><span class="leg-dot" style="background:#0369a1"></span>Machine Coding</span>
+    <span class="leg"><span class="leg-dot" style="background:#92400e"></span>Behavioral</span>
+    <span class="leg"><span class="leg-dot" style="background:#6b21a8"></span>Mock Interview</span>
+    <span class="leg"><span class="leg-dot" style="background:#78716c"></span>Java</span>
+    <span class="leg"><span class="leg-dot" style="background:#0f766e"></span>Spring Boot</span>
+    <span class="leg"><span class="leg-dot" style="background:#4338ca"></span>Kafka</span>
+    <span class="leg"><span class="leg-dot" style="background:#a16207"></span>AWS</span>
+    <span class="leg"><span class="leg-dot" style="background:#0e7490"></span>SQL</span>
+    <span class="leg"><span class="leg-dot" style="background:#b91c1c"></span>Redis</span>
+    <span class="leg"><span class="leg-dot" style="background:#7c3aed"></span>CI/CD</span>
+    <span class="leg"><span class="leg-dot" style="background:#be185d"></span>Microservices</span>
+  `,
+  ai: `
+    <span class="leg"><span class="leg-dot" style="background:#166534"></span>HLD System Design</span>
+  `,
+  backend: `
+    <span class="leg"><span class="leg-dot" style="background:#78716c"></span>Java</span>
+    <span class="leg"><span class="leg-dot" style="background:#0f766e"></span>Spring Boot</span>
+    <span class="leg"><span class="leg-dot" style="background:#4338ca"></span>Kafka</span>
+    <span class="leg"><span class="leg-dot" style="background:#a16207"></span>AWS</span>
+    <span class="leg"><span class="leg-dot" style="background:#0e7490"></span>SQL</span>
+    <span class="leg"><span class="leg-dot" style="background:#b91c1c"></span>Redis</span>
+    <span class="leg"><span class="leg-dot" style="background:#7c3aed"></span>CI/CD</span>
+    <span class="leg"><span class="leg-dot" style="background:#be185d"></span>Microservices</span>
+  `
+};
+
 // ─── State ──────────────────────────────────────────────────
 const CATEGORIES = [
   { id: "tech",    label: "Tech Prep" },
@@ -225,6 +258,22 @@ function render() {
 
   // Weeks
   document.getElementById("weeks").innerHTML = m.weeks.map((w, wi) => renderWeek(w, wi)).join("");
+
+  const legendEl = document.getElementById("legend");
+  if (legendEl) {
+    if (currentCategory === "tech") {
+      legendEl.innerHTML = LEGENDS.tech;
+      legendEl.style.display = "flex";
+    } else if (currentCategory === "ai") {
+      legendEl.innerHTML = LEGENDS.ai;
+      legendEl.style.display = "flex";
+    } else if (currentCategory === "backend") {
+      legendEl.innerHTML = LEGENDS.backend;
+      legendEl.style.display = "flex";
+    } else {
+      legendEl.style.display = "none";
+    }
+  }
 
   // Nav buttons
   document.getElementById("prev-btn").disabled = currentMonth === 0;
