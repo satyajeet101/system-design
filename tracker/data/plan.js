@@ -1185,4 +1185,137 @@ const PLAN = [
     ]
   }
 
+,
+
+  // ─────────────────────────────────────────────
+  // MONTH 7
+  // ─────────────────────────────────────────────
+  {
+    title: "Month 7 — Principal & Staff level topics",
+    goal:  "Prepare for leadership, architecture-at-scale, SRE/observability, security/compliance, product sense, and interviewing as a principal engineer. Focus on tradeoffs, stakeholder communication, hiring, and running large-scale systems.",
+    weeks: [
+      {
+        label: "Week 25",
+        title: "Leadership, product sense & influence",
+        badges: ["beh"],
+        tasks: [
+          {
+            text: "[Leadership] Prepare 6–8 stories showing technical leadership: owning a roadmap, cross-team collaboration, technical vision, major tradeoffs, de-risking projects",
+            links: [
+              { t: "ref", label: "Crafting leadership stories", url: "https://www.linkedin.com/pulse/how-tell-your-leadership-story-interviews/" }
+            ]
+          },
+          {
+            text: "[Product Sense] Practice 10 product-design prompts: tradeoffs, metrics (North Star), experiments and launch criteria",
+            links: [
+              { t: "ref", label: "Product sense guide", url: "https://www.producttalk.org/" }
+            ]
+          },
+          {
+            text: "[Stakeholder] Run mock architecture reviews with PM/Design stakeholders — focus on tradeoffs, timelines, and risk",
+            links: [
+              { t: "ref", label: "How to run an architecture review", url: "https://martinfowler.com/articles/architecture-review.html" }
+            ]
+          }
+        ],
+        resources: [
+          { label: "Managing Humans — Leadership reading", url: "https://hbr.org/" }
+        ]
+      },
+      {
+        label: "Week 26",
+        title: "Advanced distributed systems & algorithms",
+        badges: ["sd"],
+        tasks: [
+          {
+            text: "[DistSys] Consensus: Raft vs Paxos — leader election, log replication, membership changes",
+            links: [
+              { t: "ref", label: "Raft paper/explainers", url: "https://raft.github.io/" },
+              { t: "ref", label: "Paxos overview", url: "https://lamport.azurewebsites.net/pubs/paxos-simple.pdf" }
+            ]
+          },
+          {
+            text: "[DistSys] Consistency models: strong vs eventual, CRDTs, causal consistency, distributed transactions and sagas",
+            links: [
+              { t: "ref", label: "Consistency models", url: "https://queue.acm.org/detail.cfm?id=3321618" }
+            ]
+          },
+          {
+            text: "[Perf] Sharding, partitioning, indexing strategies and hotspot mitigation; capacity planning exercises",
+            links: [
+              { t: "ref", label: "Scaling databases guide", url: "https://www.cockroachlabs.com/blog/" }
+            ]
+          }
+        ],
+        resources: [
+          { label: "Designing Data-Intensive Applications", url: "https://dataintensive.net/" }
+        ]
+      },
+      {
+        label: "Week 27",
+        title: "Observability, SRE & incident response",
+        badges: ["sd"],
+        tasks: [
+          {
+            text: "[SRE] SLIs/SLOs/SLAs: define, measure, and set error budgets; simulate burn scenarios",
+            links: [
+              { t: "ref", label: "Google SRE book — SLIs/SLOs", url: "https://landing.google.com/sre/book.html" }
+            ]
+          },
+          {
+            text: "[Obs] Tracing/metrics/logging: instrument a sample service, add dashboards and an on-call playbook",
+            links: [
+              { t: "ref", label: "OpenTelemetry", url: "https://opentelemetry.io/" }
+            ]
+          },
+          {
+            text: "[IR] Run a tabletop incident postmortem: RCA, blameless postmortem template, mitigation plan",
+            links: [
+              { t: "ref", label: "Blameless postmortem guide", url: "https://incident.io/blog/how-to-run-blameless-postmortems" }
+            ]
+          }
+        ],
+        resources: [
+          { label: "Google SRE Book", url: "https://landing.google.com/sre/book.html" },
+          { label: "OpenTelemetry", url: "https://opentelemetry.io/" }
+        ]
+      },
+      {
+        label: "Week 28",
+        title: "Security, compliance, networking & cost",
+        badges: ["sd"],
+        tasks: [
+          {
+            text: "[Security] Threat modelling, OWASP top 10, secure design for payment and PII systems",
+            links: [
+              { t: "ref", label: "OWASP Top 10", url: "https://owasp.org/www-project-top-ten/" }
+            ]
+          },
+          {
+            text: "[Networking] TCP vs UDP, HTTP/2, gRPC, TLS basics, CDN and geo-replication tradeoffs",
+            links: [
+              { t: "ref", label: "gRPC docs", url: "https://grpc.io/docs/" }
+            ]
+          },
+          {
+            text: "[Cost] Cost optimization: right-sizing, multi-region costs, caching vs compute tradeoffs — prepare a cost-aware design pitch",
+            links: [
+              { t: "ref", label: "Cloud cost optimization", url: "https://aws.amazon.com/architecture/cost-optimization/" }
+            ]
+          },
+          {
+            text: "[Hiring] Mock interview loop: run 2 hiring panels (DSA+Design+Behavioral) — give written feedback and calibration notes",
+            links: [
+              { t: "ref", label: "Interview calibration guide", url: "https://recruitingdaily.com/interview-calibration/" }
+            ]
+          }
+        ],
+        resources: [
+          { label: "OWASP", url: "https://owasp.org/" },
+          { label: "gRPC", url: "https://grpc.io/" },
+          { label: "AWS Cost Optimization", url: "https://aws.amazon.com/architecture/cost-optimization/" }
+        ]
+      }
+    ]
+  }
 ]; // end PLAN
