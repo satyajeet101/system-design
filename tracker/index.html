@@ -1,65 +1,468 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tracker-6-Months</title>
-    <link rel="icon" type="image/png" href="/tracker/assets/favicon.png">
-    <link rel="stylesheet" href="css/styles.css">
-  </head>
-
-  <body>
-
-    <div class="page">
-
-      <!-- Header -->
-      <div class="header">
-        <h1>Interview Prep Tracker</h1>
-        <div class="tabs category-tabs" id="category-tabs"></div>
-        <div class="legend" id="legend"></div>
-      </div>
-
-      <!-- Stats -->
-      <div class="stats-row" id="stats"></div>
-
-      <!-- Month tabs -->
-      <div class="tabs" id="tabs"></div>
-
-      <!-- Month complete banner -->
-      <div class="complete-banner" id="complete-banner">🎉 Month complete! Move to the next month.</div>
-
-      <!-- Month header -->
-      <div class="month-header">
-        <div>
-          <div class="month-title" id="month-title"></div>
-          <div class="month-goal" id="month-goal"></div>
-        </div>
-        <div class="month-progress">
-          <div class="pct-label" id="pct-label">0% complete</div>
-          <div class="pbar">
-            <div class="pbar-fill" id="pbar-fill" style="width:0%"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Week cards -->
-      <div class="weeks" id="weeks"></div>
-
-      <!-- Navigation -->
-      <div class="nav">
-        <button class="nav-btn" id="prev-btn" onclick="goMonth(currentMonth - 1)">← Previous</button>
-        <button class="nav-btn" id="next-btn" onclick="goMonth(currentMonth + 1)">Next →</button>
-      </div>
-
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Principal Engineer Preparation Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow" id="eyebrow">Comprehensive interview preparation</p>
+      <h1>Principal Engineer readiness, tracked.</h1>
+      <p class="subtitle" id="subtitle">A comprehensive path through technical depth, AI systems, and backend engineering.</p>
     </div>
+  </header>
 
-    <!-- Data first, then app logic -->
-    <script src="data/plan.js"></script>
-    <script src="data/ai_plan.js"></script>
-    <script src="data/backend-plan.js"></script>
-    <script src="js/app.js"></script>
+  <main>
+    <nav class="track-tabs card" id="trackTabs" aria-label="Preparation tracks"></nav>
 
-  </body>
+    <section class="overview card" aria-label="Overall progress">
+      <div>
+        <div class="progress-header">
+          <h2>Overall progress</h2>
+          <span class="progress-number" id="overallPercent">0%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="overallBar"></div></div>
+        <div class="progress-meta">
+          <span id="overallCount">0 of 0 complete</span>
+          <span id="remainingCount">0 remaining</span>
+        </div>
+      </div>
+      <div class="date-box">
+        <label>Start date
+          <input id="startDate" type="date">
+        </label>
+        <label>Target date
+          <span class="date-value" id="targetDate">—</span>
+        </label>
+      </div>
+    </section>
 
+    <h2 class="section-title">Progress by skill</h2>
+    <section class="categories" id="categories" aria-label="Category progress"></section>
+
+    <section class="toolbar card" aria-label="Tracker controls">
+      <input class="control" id="search" type="search" placeholder="Search topics…" aria-label="Search topics">
+      <select class="control" id="categoryFilter" aria-label="Filter by category">
+        <option value="All">All skills</option>
+      </select>
+      <div class="actions">
+        <button class="button" id="exportButton" type="button">Export progress</button>
+        <button class="button" id="importButton" type="button">Import</button>
+        <button class="button danger" id="resetButton" type="button">Reset</button>
+        <input id="importFile" type="file" accept="application/json" hidden>
+      </div>
+    </section>
+
+    <section class="weeks" id="weeks" aria-label="Weekly preparation plan"></section>
+  </main>
+
+  <footer>Progress is saved automatically in this browser. Edit the curriculum files in <strong>tracker/data</strong> to extend the plan.</footer>
+
+  <script src="data/tech-plan.js"></script>
+  <script src="data/ai-plan.js"></script>
+  <script src="data/backend-plan.js"></script>
+  <script src="data/tracks.js"></script>
+  <script>
+    (() => {
+      "use strict";
+
+      const STORAGE_KEY = "principal-prep-multitrack-v2";
+      const LINK_TYPES = {
+        lc: { label: "LC", color: "#ffa116" },
+        nc: { label: "NC", color: "#4ed4a0" },
+        gh: { label: "GH", color: "#0FBF3E" },
+        doc: { label: "Doc", color: "#7aa7ff" },
+        hi: { label: "HI", color: "#22c197" },
+        ref: { label: "Ref", color: "#b39ddb" }
+      };
+      const tracks = window.PREP_TRACKS;
+      if (!Array.isArray(tracks) || tracks.some(track => !Array.isArray(track.weeks))) {
+        document.body.innerHTML = "<p class='empty'>Unable to load the preparation plans. Keep the data folder beside index.html and reload.</p>";
+        return;
+      }
+
+      const knownIds = new Set(tracks.flatMap(track => track.weeks.flatMap(week => week.tasks.map(task => task.id))));
+      let state = loadState();
+      let activeTrackId = state.activeTrackId;
+      let openWeeks = new Set([currentWeek()]);
+
+      const elements = {
+        eyebrow: document.getElementById("eyebrow"),
+        subtitle: document.getElementById("subtitle"),
+        trackTabs: document.getElementById("trackTabs"),
+        overallPercent: document.getElementById("overallPercent"),
+        overallBar: document.getElementById("overallBar"),
+        overallCount: document.getElementById("overallCount"),
+        remainingCount: document.getElementById("remainingCount"),
+        startDate: document.getElementById("startDate"),
+        targetDate: document.getElementById("targetDate"),
+        categories: document.getElementById("categories"),
+        weeks: document.getElementById("weeks"),
+        search: document.getElementById("search"),
+        categoryFilter: document.getElementById("categoryFilter"),
+        exportButton: document.getElementById("exportButton"),
+        importButton: document.getElementById("importButton"),
+        importFile: document.getElementById("importFile"),
+        resetButton: document.getElementById("resetButton")
+      };
+
+      initialize();
+
+      function activeTrack() {
+        return tracks.find(track => track.id === activeTrackId) || tracks[0];
+      }
+
+      function allTasks(track = activeTrack()) {
+        return track.weeks.flatMap(week => week.tasks.map(task => ({ ...task, week: week.number })));
+      }
+
+      function completedForTrack(track = activeTrack()) {
+        const ids = new Set(allTasks(track).map(task => task.id));
+        return state.completed.filter(id => ids.has(id));
+      }
+
+      function initialize() {
+        elements.startDate.addEventListener("change", () => {
+          state.startDates[activeTrackId] = elements.startDate.value || today();
+          saveState();
+          openWeeks = new Set([currentWeek()]);
+          render();
+        });
+        elements.search.addEventListener("input", renderWeeks);
+        elements.categoryFilter.addEventListener("change", renderWeeks);
+        elements.exportButton.addEventListener("click", exportProgress);
+        elements.importButton.addEventListener("click", () => elements.importFile.click());
+        elements.importFile.addEventListener("change", importProgress);
+        elements.resetButton.addEventListener("click", resetProgress);
+        render();
+      }
+
+      function loadState() {
+        const fallback = {
+          completed: [],
+          startDates: Object.fromEntries(tracks.map(track => [track.id, today()])),
+          activeTrackId: tracks[0].id
+        };
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (!saved) return fallback;
+          const parsed = JSON.parse(saved);
+          if (!parsed || !Array.isArray(parsed.completed)) return fallback;
+          return {
+            completed: parsed.completed.filter(id => knownIds.has(id)),
+            startDates: Object.fromEntries(tracks.map(track => [
+              track.id,
+              validDate(parsed.startDates?.[track.id]) ? parsed.startDates[track.id] : today()
+            ])),
+            activeTrackId: tracks.some(track => track.id === parsed.activeTrackId) ? parsed.activeTrackId : tracks[0].id
+          };
+        } catch {
+          return fallback;
+        }
+      }
+
+      function saveState() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+
+      function render() {
+        renderTrackTabs();
+        renderTrackContext();
+        renderOverview();
+        renderCategories();
+        renderWeeks();
+      }
+
+      function renderTrackTabs() {
+        elements.trackTabs.replaceChildren(...tracks.map(track => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "track-tab" + (track.id === activeTrackId ? " active" : "");
+          button.textContent = track.title;
+          button.addEventListener("click", () => switchTrack(track.id));
+          return button;
+        }));
+      }
+
+      function switchTrack(trackId) {
+        if (trackId === activeTrackId) return;
+        activeTrackId = trackId;
+        state.activeTrackId = trackId;
+        elements.search.value = "";
+        elements.categoryFilter.value = "All";
+        openWeeks = new Set([currentWeek()]);
+        saveState();
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function renderTrackContext() {
+        const track = activeTrack();
+        elements.eyebrow.textContent = `${track.durationWeeks}-week ${track.title}`;
+        elements.subtitle.textContent = track.subtitle;
+        elements.startDate.value = state.startDates[track.id];
+
+        const selected = elements.categoryFilter.value;
+        elements.categoryFilter.replaceChildren(new Option("All skills", "All"));
+        track.categories.forEach(category => elements.categoryFilter.add(new Option(category.name, category.name)));
+        if (track.categories.some(category => category.name === selected)) elements.categoryFilter.value = selected;
+      }
+
+      function renderOverview() {
+        const track = activeTrack();
+        const tasks = allTasks(track);
+        const complete = completedForTrack(track).length;
+        const total = tasks.length;
+        const percent = percentage(complete, total);
+        elements.overallPercent.textContent = percent + "%";
+        elements.overallBar.style.width = percent + "%";
+        elements.overallCount.textContent = `${complete} of ${total} complete`;
+        elements.remainingCount.textContent = `${total - complete} remaining`;
+
+        const target = parseLocalDate(state.startDates[track.id]);
+        target.setDate(target.getDate() + (track.durationWeeks * 7) - 1);
+        elements.targetDate.textContent = target.toLocaleDateString(undefined, {
+          year: "numeric", month: "short", day: "numeric"
+        });
+      }
+
+      function renderCategories() {
+        const track = activeTrack();
+        const tasksForTrack = allTasks(track);
+        elements.categories.replaceChildren(...track.categories.map(category => {
+          const tasks = tasksForTrack.filter(task => task.category === category.name);
+          const complete = tasks.filter(task => state.completed.includes(task.id)).length;
+          const percent = percentage(complete, tasks.length);
+          const card = document.createElement("article");
+          card.className = "category-card card";
+          card.style.setProperty("--category-color", category.color);
+          card.innerHTML = `
+            <div class="category-head"><span>${escapeHtml(category.name)}</span><span>${percent}%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:${percent}%"></div></div>
+            <div class="category-count">${complete} of ${tasks.length} topics complete</div>`;
+          return card;
+        }));
+      }
+
+      function renderWeeks() {
+        const track = activeTrack();
+        const query = elements.search.value.trim().toLowerCase();
+        const selectedCategory = elements.categoryFilter.value;
+        const activeWeek = currentWeek();
+        const weekNodes = [];
+
+        track.weeks.forEach(week => {
+          const visibleTasks = week.tasks.filter(task => {
+            const matchesCategory = selectedCategory === "All" || task.category === selectedCategory;
+            const linkText = (task.links || []).map(link => link.label).join(" ");
+            const text = `${task.title} ${task.detail} ${task.category} ${linkText}`.toLowerCase();
+            return matchesCategory && (!query || text.includes(query));
+          });
+          if (!visibleTasks.length) return;
+
+          const complete = week.tasks.filter(task => state.completed.includes(task.id)).length;
+          const percent = percentage(complete, week.tasks.length);
+          const isOpen = openWeeks.has(week.number) || Boolean(query) || selectedCategory !== "All";
+          const article = document.createElement("article");
+          article.className = "week card" + (week.number === activeWeek ? " current" : "");
+
+          const header = document.createElement("button");
+          header.className = "week-header";
+          header.type = "button";
+          header.setAttribute("aria-expanded", String(isOpen));
+          header.innerHTML = `
+            <span class="week-number">${week.number}</span>
+            <span class="week-copy">
+              <h3>${escapeHtml(week.theme)}</h3>
+              <p>${week.tasks.length} tasks${week.number === activeWeek ? " · Current week" : ""}</p>
+            </span>
+            <span class="week-score"><strong>${percent}%</strong><span>${complete}/${week.tasks.length} done</span></span>`;
+
+          const body = document.createElement("div");
+          body.className = "week-body";
+          body.hidden = !isOpen;
+          body.innerHTML = `<p class="outcome"><strong>Weekly outcome:</strong> ${escapeHtml(week.outcome)}</p>`;
+
+          const list = document.createElement("div");
+          list.className = "task-list";
+          visibleTasks.forEach(task => list.append(createTask(task)));
+          body.append(list);
+          if (week.resources?.length) body.append(createResources(week.resources));
+
+          header.addEventListener("click", () => {
+            if (body.hidden) openWeeks.add(week.number);
+            else openWeeks.delete(week.number);
+            body.hidden = !body.hidden;
+            header.setAttribute("aria-expanded", String(!body.hidden));
+          });
+
+          article.append(header, body);
+          weekNodes.push(article);
+        });
+
+        if (!weekNodes.length) {
+          const empty = document.createElement("div");
+          empty.className = "empty card";
+          empty.textContent = "No topics match this filter.";
+          weekNodes.push(empty);
+        }
+        elements.weeks.replaceChildren(...weekNodes);
+      }
+
+      function createTask(task) {
+        const done = state.completed.includes(task.id);
+        const color = activeTrack().categories.find(category => category.name === task.category)?.color || "#64748b";
+        const item = document.createElement("div");
+        item.className = "task" + (done ? " done" : "");
+        item.innerHTML = `
+          <input type="checkbox" ${done ? "checked" : ""} aria-label="Mark ${escapeHtml(task.title)} complete">
+          <span>
+            <span class="task-title">${escapeHtml(task.title)}</span>
+            ${task.detail ? `<span class="task-detail">${escapeHtml(task.detail)}</span>` : ""}
+            ${renderLinks(task.links)}
+          </span>
+          <span class="badge" style="--badge-color:${color}">${escapeHtml(task.category)}</span>`;
+
+        item.querySelector("input").addEventListener("change", event => {
+          if (event.target.checked) state.completed = [...new Set([...state.completed, task.id])];
+          else state.completed = state.completed.filter(id => id !== task.id);
+          saveState();
+          render();
+        });
+        return item;
+      }
+
+      function renderLinkType(type) {
+        const meta = LINK_TYPES[type];
+        if (!meta) return "";
+        return `<span class="link-type" style="--type-color:${meta.color}">${meta.label}</span>`;
+      }
+
+      function renderLinks(links = []) {
+        if (!links.length) return "";
+        return `<span class="task-links">${links.map(link =>
+          `<a class="task-link" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`
+        ).join("")}</span>`;
+      }
+
+      function createResources(resources) {
+        const container = document.createElement("div");
+        container.className = "week-resources";
+        container.innerHTML = `<span class="resources-label">References</span>${resources.map(resource =>
+          `<a class="resource-link" href="${safeUrl(resource.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(resource.t)}${escapeHtml(resource.label)}</a>`
+        ).join("")}`;
+        return container;
+      }
+
+      function currentWeek() {
+        const track = activeTrack();
+        const start = parseLocalDate(state.startDates[track.id]);
+        const elapsedDays = Math.floor((startOfToday() - start) / 86400000);
+        return Math.min(track.durationWeeks, Math.max(1, Math.floor(elapsedDays / 7) + 1));
+      }
+
+      function exportProgress() {
+        const payload = {
+          tracker: "Principal Engineer Multi-Track Preparation",
+          exportedAt: new Date().toISOString(),
+          ...state
+        };
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "principal-prep-progress.json";
+        link.click();
+        URL.revokeObjectURL(link.href);
+      }
+
+      function importProgress(event) {
+        const [file] = event.target.files;
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const imported = JSON.parse(reader.result);
+            if (!Array.isArray(imported.completed)) throw new Error("Missing completed topic list.");
+            state = {
+              completed: imported.completed.filter(id => knownIds.has(id)),
+              startDates: Object.fromEntries(tracks.map(track => [
+                track.id,
+                validDate(imported.startDates?.[track.id]) ? imported.startDates[track.id] : state.startDates[track.id]
+              ])),
+              activeTrackId: tracks.some(track => track.id === imported.activeTrackId)
+                ? imported.activeTrackId
+                : activeTrackId
+            };
+            activeTrackId = state.activeTrackId;
+            openWeeks = new Set([currentWeek()]);
+            saveState();
+            render();
+          } catch (error) {
+            alert(`Could not import progress: ${error.message}`);
+          } finally {
+            elements.importFile.value = "";
+          }
+        };
+        reader.onerror = () => {
+          alert("Could not read the selected progress file.");
+          elements.importFile.value = "";
+        };
+        reader.readAsText(file);
+      }
+
+      function resetProgress() {
+        const track = activeTrack();
+        if (!confirm(`Reset every checkbox in ${track.title}? This cannot be undone unless you exported progress.`)) return;
+        const trackIds = new Set(allTasks(track).map(task => task.id));
+        state.completed = state.completed.filter(id => !trackIds.has(id));
+        saveState();
+        render();
+      }
+
+      function percentage(value, total) {
+        return total ? Math.round((value / total) * 100) : 0;
+      }
+
+      function today() {
+        const date = new Date();
+        return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
+      }
+
+      function startOfToday() {
+        const date = new Date();
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      }
+
+      function parseLocalDate(value) {
+        const [year, month, day] = value.split("-").map(Number);
+        return new Date(year, month - 1, day);
+      }
+
+      function validDate(value) {
+        return /^\d{4}-\d{2}-\d{2}$/.test(value || "") && !Number.isNaN(parseLocalDate(value).getTime());
+      }
+
+      function safeUrl(value) {
+        try {
+          const url = new URL(value);
+          return ["http:", "https:"].includes(url.protocol) ? escapeHtml(url.href) : "#";
+        } catch {
+          return "#";
+        }
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+    })();
+  </script>
+</body>
 </html>
