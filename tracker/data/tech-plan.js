@@ -66,7 +66,7 @@ window.TECH_TRACK = {
           "id": "tech-w1-dsa-1",
           "category": "DSA",
           "title": "Two-pointer",
-          "detail": "Two Sum, Valid Palindrome, 3Sum",
+          "detail": "This covers the broad two-pointer playbook: pair-sum problems, palindrome checks, sorted-array operations, partition/merge patterns, and fast/slow pointer variations.",
           "links": [
             {
               "t": "lc",
@@ -75,13 +75,58 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
+              "label": "LC #167 Two Sum II - Input Array Is Sorted",
+              "url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
+            },
+            {
+              "t": "lc",
               "label": "LC #125 Valid Palindrome",
               "url": "https://leetcode.com/problems/valid-palindrome/"
             },
             {
               "t": "lc",
+              "label": "LC #680 Valid Palindrome II",
+              "url": "https://leetcode.com/problems/valid-palindrome-ii/"
+            },
+            {
+              "t": "lc",
               "label": "LC #15 3Sum",
               "url": "https://leetcode.com/problems/3sum/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #11 Container With Most Water",
+              "url": "https://leetcode.com/problems/container-with-most-water/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #42 Trapping Rain Water",
+              "url": "https://leetcode.com/problems/trapping-rain-water/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #26 Remove Duplicates from Sorted Array",
+              "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #88 Merge Sorted Array",
+              "url": "https://leetcode.com/problems/merge-sorted-array/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #283 Move Zeroes",
+              "url": "https://leetcode.com/problems/move-zeroes/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #977 Squares of a Sorted Array",
+              "url": "https://leetcode.com/problems/squares-of-a-sorted-array/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #844 Backspace String Compare",
+              "url": "https://leetcode.com/problems/backspace-string-compare/"
             }
           ]
         },
@@ -93,7 +138,7 @@ window.TECH_TRACK = {
           "links": [
             {
               "t": "lc",
-              "label": "LC3 Longest Substring",
+              "label": "LC #3 Longest Substring Without Repeating Characters",
               "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
             },
             {
@@ -103,17 +148,17 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "LC1423 Max point",
+              "label": "LC #1423 Maximum Points You Can Obtain from Cards",
               "url": "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/"
             },
             {
               "t": "lc",
-              "label": "LC2461 Max sum distinct sub array",
+              "label": "LC #2461 Maximum Sum of Distinct Subarrays With Length K",
               "url": "https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/"
             },
             {
               "t": "lc",
-              "label": "LC424 Longest repeating char replacement",
+              "label": "LC #424 Longest Repeating Character Replacement",
               "url": "https://leetcode.com/problems/longest-repeating-character-replacement/description/"
             }
           ]
@@ -146,57 +191,52 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "Transpose Matrix",
+              "label": "LC #867 Transpose Matrix",
               "url": "https://leetcode.com/problems/transpose-matrix/description/"
             },
             {
               "t": "lc",
-              "label": "Rotate Image",
+              "label": "LC #48 Rotate Image",
               "url": "https://leetcode.com/problems/rotate-image/description/"
             },
             {
               "t": "lc",
-              "label": "Spiral Matrix",
+              "label": "LC #54 Spiral Matrix",
               "url": "https://leetcode.com/problems/spiral-matrix/description/"
             },
             {
               "t": "lc",
-              "label": "Range Sum Query - Immutable",
+              "label": "LC #303 Range Sum Query - Immutable",
               "url": "https://leetcode.com/problems/range-sum-query-immutable/description/"
             },
             {
               "t": "lc",
-              "label": "Find Pivot Index",
+              "label": "LC #724 Find Pivot Index",
               "url": "https://leetcode.com/problems/find-pivot-index/description/"
             },
             {
               "t": "lc",
-              "label": "Subarray Sum Equals K",
+              "label": "LC #560 Subarray Sum Equals K",
               "url": "https://leetcode.com/problems/subarray-sum-equals-k/description/"
             },
             {
               "t": "lc",
-              "label": "Remove Element",
+              "label": "LC #27 Remove Element",
               "url": "https://leetcode.com/problems/remove-element/description/"
             },
             {
               "t": "lc",
-              "label": "Move Zeroes",
-              "url": "https://leetcode.com/problems/move-zeroes/description/"
-            },
-            {
-              "t": "lc",
-              "label": "Set Matrix Zeroes",
+              "label": "LC #73 Set Matrix Zeroes",
               "url": "https://leetcode.com/problems/set-matrix-zeroes/description/"
             },
             {
               "t": "lc",
-              "label": "Valid Anagram",
+              "label": "LC #242 Valid Anagram",
               "url": "https://leetcode.com/problems/valid-anagram/description/"
             },
             {
               "t": "lc",
-              "label": "Majority Element",
+              "label": "LC #169 Majority Element",
               "url": "https://leetcode.com/problems/majority-element/description/"
             }
           ]
@@ -247,57 +287,52 @@ window.TECH_TRACK = {
           "links": [
             {
               "t": "lc",
-              "label": "Brace Expansion II",
+              "label": "LC #1096 Brace Expansion II",
               "url": "https://leetcode.com/problems/brace-expansion-ii/description/?envType=problem-list-v2&envId=string"
             },
             {
               "t": "lc",
-              "label": "Text Justification",
+              "label": "LC #68 Text Justification",
               "url": "https://leetcode.com/problems/text-justification/description/?envType=problem-list-v2&envId=string"
             },
             {
               "t": "lc",
-              "label": "Scramble String",
+              "label": "LC #87 Scramble String",
               "url": "https://leetcode.com/problems/scramble-string/description/?envType=problem-list-v2&envId=string"
             },
             {
               "t": "lc",
-              "label": "Word Ladder",
+              "label": "LC #127 Word Ladder",
               "url": "https://leetcode.com/problems/word-ladder/description/?envType=problem-list-v2&envId=string"
             },
             {
               "t": "lc",
-              "label": "Basic Calculator",
+              "label": "LC #224 Basic Calculator",
               "url": "https://leetcode.com/problems/basic-calculator/description/?envType=problem-list-v2&envId=string"
             },
             {
               "t": "lc",
-              "label": "Sudoku Solver",
+              "label": "LC #37 Sudoku Solver",
               "url": "https://leetcode.com/problems/sudoku-solver/description/?envType=problem-list-v2&envId=array"
             },
             {
               "t": "lc",
-              "label": "Trapping Rain Water",
-              "url": "https://leetcode.com/problems/trapping-rain-water/description/?envType=problem-list-v2&envId=array"
-            },
-            {
-              "t": "lc",
-              "label": "N-Queens",
+              "label": "LC #51 N-Queens",
               "url": "https://leetcode.com/problems/n-queens/description/?envType=problem-list-v2&envId=array"
             },
             {
               "t": "lc",
-              "label": "Largest Rectangle In Histogram",
+              "label": "LC #84 Largest Rectangle In Histogram",
               "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/description/?envType=problem-list-v2&envId=array"
             },
             {
               "t": "lc",
-              "label": "Burst Balloons",
+              "label": "LC #312 Burst Balloons",
               "url": "https://leetcode.com/problems/burst-balloons/description/?envType=problem-list-v2&envId=array"
             },
             {
               "t": "lc",
-              "label": "Count Of Range Sum",
+              "label": "LC #327 Count Of Range Sum",
               "url": "https://leetcode.com/problems/count-of-range-sum/description/?envType=problem-list-v2&envId=array"
             }
           ]
