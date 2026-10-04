@@ -70,11 +70,6 @@ window.TECH_TRACK = {
           "links": [
             {
               "t": "lc",
-              "label": "LC #1 Two Sum",
-              "url": "https://leetcode.com/problems/two-sum/"
-            },
-            {
-              "t": "lc",
               "label": "LC #167 Two Sum II - Input Array Is Sorted",
               "url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/"
             },
