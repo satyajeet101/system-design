@@ -42,7 +42,7 @@ window.TECH_TRACK = {
     {
       "number": 1,
       "theme": "Arrays, strings & LLD mindset",
-      "outcome": "Build core data structure fundamentals and begin thinking in object-oriented design. DSA: easy problems only. LLD: start with SOLID and simple class diagrams before any code.",
+      "outcome": "Lay the foundations: two-pointer, sliding window, hashing and complexity analysis on arrays and strings, plus SOLID and your first UML class diagram. Start your achievement inventory and take a baseline mock to see where you stand.",
       "resources": [
         {
           "label": "Neetcode.io",
@@ -358,7 +358,7 @@ window.TECH_TRACK = {
     {
       "number": 2,
       "theme": "HashMaps, sets, prefix sums & OOP patterns",
-      "outcome": "Build core data structure fundamentals and begin thinking in object-oriented design. DSA: easy problems only. LLD: start with SOLID and simple class diagrams before any code.",
+      "outcome": "Add hash maps, prefix sums, linked lists, stacks and queues (about 15 linear-structure problems). Implement the Parking Lot in Java, learn creational patterns, and draft influence-without-authority stories and a 90-second introduction.",
       "resources": [
         {
           "label": "Head First Design Patterns",
@@ -491,7 +491,7 @@ window.TECH_TRACK = {
     {
       "number": 3,
       "theme": "Linked lists, stacks & structural patterns",
-      "outcome": "Build core data structure fundamentals and begin thinking in object-oriented design. DSA: easy problems only. LLD: start with SOLID and simple class diagrams before any code.",
+      "outcome": "Move into trees, tries, recursion and backtracking (about 16 problems). Learn structural patterns by designing a Library Management System, review your own Parking Lot code, and prepare a failure-and-learning story.",
       "resources": [
         {
           "label": "Visualgo — Linked List",
@@ -643,7 +643,7 @@ window.TECH_TRACK = {
     {
       "number": 4,
       "theme": "Binary search, recursion & behavioral patterns",
-      "outcome": "Build core data structure fundamentals and begin thinking in object-oriented design. DSA: easy problems only. LLD: start with SOLID and simple class diagrams before any code.",
+      "outcome": "Cover binary search, heaps, graphs, topological sort, union-find and shortest paths (about 18 problems). Learn behavioral patterns, then close Month 1 with a review, a mock, and a conflict story.",
       "resources": [
         {
           "label": "Visualgo — Binary Search",
@@ -804,7 +804,7 @@ window.TECH_TRACK = {
     {
       "number": 5,
       "theme": "Trees, DFS/BFS & machine coding setup",
-      "outcome": "Master the most frequently tested DSA patterns. Introduce machine coding rounds (build a working feature in 75–90 min). Begin structured code review practice with a checklist.",
+      "outcome": "Start dynamic programming and tree/DFS patterns (about 16 DP problems). Set up your machine-coding template and build a Parking Lot in 90 minutes. Learn the system-design framework and scalability basics with a URL shortener.",
       "resources": [
         {
           "label": "Neetcode — Trees",
@@ -962,7 +962,7 @@ window.TECH_TRACK = {
     {
       "number": 6,
       "theme": "BST, heap & LLD: ride sharing",
-      "outcome": "Master the most frequently tested DSA patterns. Introduce machine coding rounds (build a working feature in 75–90 min). Begin structured code review practice with a checklist.",
+      "outcome": "Work through BST, heap, sorting, greedy, bit manipulation and range structures (about 18 problems). Design ride sharing with Strategy, review an open-source Spring Boot repo, and start messaging and distributed-systems fundamentals. Take your first Pramp mock.",
       "resources": [
         {
           "label": "Neetcode — Heap",
@@ -1132,7 +1132,7 @@ window.TECH_TRACK = {
     {
       "number": 7,
       "theme": "Graphs & machine coding: elevator system",
-      "outcome": "Master the most frequently tested DSA patterns. Introduce machine coding rounds (build a working feature in 75–90 min). Begin structured code review practice with a checklist.",
+      "outcome": "Practice BFS, DFS and union-find, build an Elevator System in 90 minutes, and review it critically. Design a booking service that prevents double booking, take two timed coding mocks, and prepare mentorship stories.",
       "resources": [
         {
           "label": "Neetcode — Graphs",
@@ -1260,7 +1260,7 @@ window.TECH_TRACK = {
     {
       "number": 8,
       "theme": "Advanced sliding window & code review deep dive",
-      "outcome": "Master the most frequently tested DSA patterns. Introduce machine coding rounds (build a working feature in 75–90 min). Begin structured code review practice with a checklist.",
+      "outcome": "Close the gaps from Weeks 5–7 with binary search on answer and hard sliding window. Review a Spring Boot REST API, build your 15-item code review checklist, design a multi-region photo platform, and run a Month-2 design mock.",
       "resources": [
         {
           "label": "Neetcode — Sliding Window",
@@ -1372,6 +1372,24 @@ window.TECH_TRACK = {
           "links": []
         },
         {
+          "id": "tech-w8-system-design-3",
+          "category": "System Design",
+          "title": "API design and evolution",
+          "detail": "REST vs GraphQL vs gRPC, pagination, idempotent writes, versioning, backward compatibility and schema evolution; design the public API for a booking service and defend each choice.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "Google API Design Guide",
+              "url": "https://cloud.google.com/apis/design"
+            },
+            {
+              "t": "ref",
+              "label": "GraphQL — Learn",
+              "url": "https://graphql.org/learn/"
+            }
+          ]
+        },
+        {
           "id": "tech-w8-behavioral-1",
           "category": "Behavioral",
           "title": "Prepare an operational excellence story",
@@ -1383,7 +1401,7 @@ window.TECH_TRACK = {
     {
       "number": 9,
       "theme": "DP 1D + LLD: food delivery + HLD: URL shortener",
-      "outcome": "Dynamic programming, backtracking, and tries. HLD system design starts (1 session/week). LLD moves to distributed-system-adjacent designs. Machine coding rounds timed at 75 min.",
+      "outcome": "Start 1D DP (top-down and bottom-up), design a Food Delivery system with Observer and Strategy, and begin marketplace system design: search, pricing, payments and reliability. Research Airbnb culture and map your stories to its core values.",
       "resources": [
         {
           "label": "Neetcode — 1D DP",
@@ -1535,13 +1553,26 @@ window.TECH_TRACK = {
           "title": "Research Airbnb mission and engineering culture",
           "detail": "Connect belonging, host/guest trust, global scale, and product quality to your experience.",
           "links": []
+        },
+        {
+          "id": "tech-w9-behavioral-3",
+          "category": "Behavioral",
+          "title": "Map stories to Airbnb's four core values",
+          "detail": "Champion the Mission, Be a Host, Embrace the Adventure, Be a Cereal Entrepreneur: write 2 STAR stories per value from your own work. Airbnb runs a dedicated Core Values round with cross-functional interviewers and scores each value.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "Airbnb Careers",
+              "url": "https://careers.airbnb.com/"
+            }
+          ]
         }
       ]
     },
     {
       "number": 10,
       "theme": "DP 2D + machine coding: LRU & LFU cache",
-      "outcome": "Dynamic programming, backtracking, and tries. HLD system design starts (1 session/week). LLD moves to distributed-system-adjacent designs. Machine coding rounds timed at 75 min.",
+      "outcome": "Cover 2D DP and knapsack, build LRU then LFU cache from scratch and make them thread-safe. Drill architecture tradeoffs, security, capacity estimation and migrations, take three timed coding mocks, and prepare transformation and ethics stories.",
       "resources": [
         {
           "label": "Neetcode — 2D DP",
@@ -1697,7 +1728,7 @@ window.TECH_TRACK = {
     {
       "number": 11,
       "theme": "Backtracking, tries & LLD: ticket booking",
-      "outcome": "Dynamic programming, backtracking, and tries. HLD system design starts (1 session/week). LLD moves to distributed-system-adjacent designs. Machine coding rounds timed at 75 min.",
+      "outcome": "Finish backtracking and tries, design BookMyShow with concurrent seat booking, and complete two full coding interviews. Run two principal-level design mocks with deep-dive follow-ups, a leadership mock, and build the eight-story matrix.",
       "resources": [
         {
           "label": "Neetcode — Backtracking",
@@ -1872,7 +1903,7 @@ window.TECH_TRACK = {
     {
       "number": 12,
       "theme": "Intervals, greedy, monotonic stack & machine coding: rate limiter",
-      "outcome": "Dynamic programming, backtracking, and tries. HLD system design starts (1 session/week). LLD moves to distributed-system-adjacent designs. Machine coding rounds timed at 75 min.",
+      "outcome": "Month-3 checkpoint: intervals, greedy and monotonic stack, a Rate Limiter in 75 minutes, and an Airbnb-style booking platform design. Re-solve your highest-value problems, run a first full-loop dry run, rehearse the story matrix, and draft your resume narrative and interview-day plan.",
       "resources": [
         {
           "label": "ByteByteGo",
@@ -1987,7 +2018,7 @@ window.TECH_TRACK = {
         {
           "id": "tech-w12-system-design-2",
           "category": "System Design",
-          "title": "Complete one final system-design mock",
+          "title": "Complete a Month-3 checkpoint system-design mock",
           "detail": "Optimize for structure, collaboration, risk identification, and business-aware tradeoffs.",
           "links": []
         },
@@ -2008,29 +2039,29 @@ window.TECH_TRACK = {
         {
           "id": "tech-w12-behavioral-3",
           "category": "Behavioral",
-          "title": "Finalize resume walkthrough and Airbnb motivation",
-          "detail": "Give a coherent career narrative and specific reasons this role, company, and timing fit.",
+          "title": "Draft resume walkthrough and Airbnb motivation",
+          "detail": "Give a coherent career narrative and specific reasons this role, company, and timing fit. Refine again in Weeks 20–22 before applying.",
           "links": []
         },
         {
           "id": "tech-w12-system-design-3",
           "category": "System Design",
-          "title": "Run a realistic full-loop simulation",
+          "title": "Run a first full-loop dry run (baseline for Weeks 19–20)",
           "detail": "Coding, design, technical depth, and behavioral sessions with breaks and written feedback.",
           "links": []
         },
         {
           "id": "tech-w12-behavioral-4",
           "category": "Behavioral",
-          "title": "Create interview-day plan",
-          "detail": "Confirm logistics, environment, sleep, meals, materials, timing, and recovery between sessions.",
+          "title": "Draft interview-day plan",
+          "detail": "Logistics, environment, sleep, meals, materials, timing, and recovery between sessions. Finalize in Week 22 once loops are scheduled.",
           "links": []
         },
         {
           "id": "tech-w12-behavioral-5",
           "category": "Behavioral",
-          "title": "Taper and rest",
-          "detail": "Stop heavy preparation 24 hours before the interview; use only light recall and confidence review.",
+          "title": "Month-3 deload",
+          "detail": "Take a light day to consolidate and review gap notes. This is a checkpoint, not the final taper; the real taper happens 24 hours before each live loop (Weeks 23–24).",
           "links": []
         }
       ]
@@ -2038,7 +2069,7 @@ window.TECH_TRACK = {
     {
       "number": 13,
       "theme": "Airbnb-tagged DSA + LLD: search & availability",
-      "outcome": "Mirror what Airbnb and DoorDash actually test. Company-tagged DSA, deeper HLD, LLD for marketplace systems, timed machine coding, and behavioral STAR story preparation.",
+      "outcome": "Switch to Airbnb-specific prep: calendar-booking DSA, a search-and-availability LLD, a 90-minute search and listing design with ranking and idempotent booking, and a data-modeling drill.",
       "resources": [
         {
           "label": "Airbnb Engineering Blog",
@@ -2143,13 +2174,31 @@ window.TECH_TRACK = {
               "url": "https://medium.com/airbnb-engineering/search-ranking-at-airbnb-f1570f6c8f8b"
             }
           ]
+        },
+        {
+          "id": "tech-w13-system-design-2",
+          "category": "System Design",
+          "title": "Data modeling / table design drill",
+          "detail": "Schema for listings, availability calendar, bookings, pricing and reviews; prevent overlapping bookings (range types + exclusion constraint vs per-night rows vs optimistic locking); indexes, read/write patterns, and how the schema changes at 10x scale. Airbnb architecture rounds are reported to go deep on tables.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "PostgreSQL range types and exclusion constraints",
+              "url": "https://www.postgresql.org/docs/current/rangetypes.html"
+            },
+            {
+              "t": "ref",
+              "label": "Use The Index, Luke",
+              "url": "https://use-the-index-luke.com/"
+            }
+          ]
         }
       ]
     },
     {
       "number": 14,
       "theme": "DoorDash-tagged DSA + machine coding: order system",
-      "outcome": "Mirror what Airbnb and DoorDash actually test. Company-tagged DSA, deeper HLD, LLD for marketplace systems, timed machine coding, and behavioral STAR story preparation.",
+      "outcome": "DoorDash-style prep: graph and routing problems, an order-management machine-coding round in 75 minutes, a 90-minute design, and a real-time guest–host messaging design.",
       "resources": [
         {
           "label": "DoorDash Engineering Blog",
@@ -2254,13 +2303,26 @@ window.TECH_TRACK = {
               "url": "https://bytebytego.com/courses/system-design-interview/design-a-ride-sharing-service"
             }
           ]
+        },
+        {
+          "id": "tech-w14-system-design-2",
+          "category": "System Design",
+          "title": "Design guest–host messaging",
+          "detail": "WebSockets vs long polling, message ordering and delivery guarantees, offline sync, read receipts, push fallback, abuse and PII filtering, storage and retention.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "ByteByteGo — Chat System",
+              "url": "https://bytebytego.com/courses/system-design-interview/design-a-chat-system"
+            }
+          ]
         }
       ]
     },
     {
       "number": 15,
       "theme": "Hard DSA + mock interviews + code review",
-      "outcome": "Mirror what Airbnb and DoorDash actually test. Company-tagged DSA, deeper HLD, LLD for marketplace systems, timed machine coding, and behavioral STAR story preparation.",
+      "outcome": "Stress-test yourself with hard DSA, two full mocks with written feedback on communication, code review written in a principal reviewer's tone, and a trust-and-safety risk-pipeline design.",
       "resources": [
         {
           "label": "Interviewing.io",
@@ -2317,7 +2379,7 @@ window.TECH_TRACK = {
         {
           "id": "tech-w15-code-review-2",
           "category": "Code Review",
-          "title": "Write a PR review document as if reviewing a junior's code — practice tone expected of a Tech Lead",
+          "title": "Write a PR review document as if reviewing a junior's code — practice the tone expected of a Principal engineer",
           "detail": "",
           "links": [
             {
@@ -2349,13 +2411,26 @@ window.TECH_TRACK = {
               "url": "https://bytebytego.com/courses/system-design-interview/design-a-notification-system"
             }
           ]
+        },
+        {
+          "id": "tech-w15-system-design-2",
+          "category": "System Design",
+          "title": "Design a trust & safety / risk scoring pipeline",
+          "detail": "Identity verification, risky-booking and fraud scoring, rule engine plus ML model, human review queue, false-positive cost to hosts and guests, audit trail, and appeals.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "Airbnb Engineering Blog",
+              "url": "https://medium.com/airbnb-engineering"
+            }
+          ]
         }
       ]
     },
     {
       "number": 16,
       "theme": "Behavioral + LLD: payment system",
-      "outcome": "Mirror what Airbnb and DoorDash actually test. Company-tagged DSA, deeper HLD, LLD for marketplace systems, timed machine coding, and behavioral STAR story preparation.",
+      "outcome": "Behavioral and payments week: write and record all eight STAR stories, run a mock Core Values interview, design a payment processing system with idempotency, and do a 90-minute distributed-payments design.",
       "resources": [
         {
           "label": "Stripe Engineering Blog",
@@ -2399,6 +2474,19 @@ window.TECH_TRACK = {
               "t": "ref",
               "label": "Pramp — Behavioral mock",
               "url": "https://www.pramp.com"
+            }
+          ]
+        },
+        {
+          "id": "tech-w16-behavioral-3",
+          "category": "Behavioral",
+          "title": "Mock Core Values interview with a non-engineer",
+          "detail": "Ask a PM, designer or friend outside engineering to run it. Score yourself per value, and prepare a concrete Be a Host example (empathy for the user you never met) and an Embrace the Adventure example (ambiguity you chose to take on).",
+          "links": [
+            {
+              "t": "ref",
+              "label": "Airbnb Careers",
+              "url": "https://careers.airbnb.com/"
             }
           ]
         },
@@ -2461,7 +2549,7 @@ window.TECH_TRACK = {
     {
       "number": 17,
       "theme": "Weak area DSA + LLD mock #1",
-      "outcome": "2–3 mocks per week. LLD mocks added alongside DSA. Machine coding under real interview pressure. Fix weak spots. Start applying to warm-up companies now.",
+      "outcome": "Find and drill your weakest DSA pattern, take mocks with feedback on communication, practice cold LLD, and run a system-design mock that includes an ML-aware ranking design.",
       "resources": [
         {
           "label": "Interviewing.io",
@@ -2556,13 +2644,31 @@ window.TECH_TRACK = {
               "url": "https://www.pramp.com"
             }
           ]
+        },
+        {
+          "id": "tech-w17-system-design-2",
+          "category": "System Design",
+          "title": "ML-aware design: search ranking",
+          "detail": "Candidate retrieval vs ranking, learning-to-rank, feature store, online/offline parity, training-serving skew, cold start, A/B testing and guardrail metrics. Be able to discuss where the ML model stops and the system begins.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "Applying Deep Learning To Airbnb Search",
+              "url": "https://arxiv.org/abs/1810.09591"
+            },
+            {
+              "t": "ref",
+              "label": "Chip Huyen — ML Systems Design",
+              "url": "https://huyenchip.com/machine-learning-systems-design/toc.html"
+            }
+          ]
         }
       ]
     },
     {
       "number": 18,
       "theme": "Weak area #2 + machine coding: Splitwise",
-      "outcome": "2–3 mocks per week. LLD mocks added alongside DSA. Machine coding under real interview pressure. Fix weak spots. Start applying to warm-up companies now.",
+      "outcome": "Drill weak area #2, build Splitwise in 75 minutes and add unit tests, review it 24 hours later, polish your three best stories, and design an experimentation platform.",
       "resources": [
         {
           "label": "Clean Code — Robert Martin",
@@ -2609,12 +2715,25 @@ window.TECH_TRACK = {
           "id": "tech-w18-machine-coding-2",
           "category": "Machine Coding",
           "title": "Debrief",
-          "detail": "clean APIs? Proper encapsulation? No god classes? Would a Tech Lead approve this PR?",
+          "detail": "clean APIs? Proper encapsulation? No god classes? Would a Principal engineer approve this PR?",
           "links": [
             {
               "t": "ref",
               "label": "Refactoring best practices",
               "url": "https://refactoring.guru/refactoring"
+            }
+          ]
+        },
+        {
+          "id": "tech-w18-machine-coding-3",
+          "category": "Machine Coding",
+          "title": "Add unit tests and an edge-case list to every machine-coding solution",
+          "detail": "Parking Lot, Elevator, LRU/LFU, Rate Limiter, Splitwise: write JUnit tests, list edge cases up front and say them out loud in the interview. Airbnb grades code quality, edge cases and testing, not just a working solution.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "JUnit 5 User Guide",
+              "url": "https://junit.org/junit5/docs/current/user-guide/"
             }
           ]
         },
@@ -2643,13 +2762,31 @@ window.TECH_TRACK = {
               "url": "https://www.pramp.com"
             }
           ]
+        },
+        {
+          "id": "tech-w18-system-design-1",
+          "category": "System Design",
+          "title": "Design an experimentation (A/B testing) platform",
+          "detail": "Deterministic bucketing, exposure logging, metrics pipeline, guardrail and sample-ratio checks, interference between experiments, feature flag integration, and how results drive launch decisions.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "Trustworthy Online Controlled Experiments",
+              "url": "https://experimentguide.com/"
+            },
+            {
+              "t": "ref",
+              "label": "Airbnb Engineering Blog",
+              "url": "https://medium.com/airbnb-engineering"
+            }
+          ]
         }
       ]
     },
     {
       "number": 19,
       "theme": "Full loop simulation #1",
-      "outcome": "2–3 mocks per week. LLD mocks added alongside DSA. Machine coding under real interview pressure. Fix weak spots. Start applying to warm-up companies now.",
+      "outcome": "Run your first full-loop simulation in one sitting, a 90-minute design, a Notification System LLD, and a Kafka consumer code review. Submit warm-up applications and design an LLM-powered support assistant.",
       "resources": [
         {
           "label": "ByteByteGo — Chat System",
@@ -2716,6 +2853,24 @@ window.TECH_TRACK = {
           ]
         },
         {
+          "id": "tech-w19-system-design-2",
+          "category": "System Design",
+          "title": "Design an LLM-powered guest support assistant",
+          "detail": "RAG retrieval over listings and policies, guardrails, evals and regression tests, latency and cost budget, PII handling, escalation to a human agent, and feedback loop. Connect it to your own RAG experience.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "Eugene Yan — Patterns for LLM-based systems",
+              "url": "https://eugeneyan.com/writing/llm-patterns/"
+            },
+            {
+              "t": "ref",
+              "label": "Anthropic — Building effective agents",
+              "url": "https://www.anthropic.com/engineering/building-effective-agents"
+            }
+          ]
+        },
+        {
           "id": "tech-w19-lld-1",
           "category": "LLD",
           "title": "Design a Notification System",
@@ -2751,7 +2906,7 @@ window.TECH_TRACK = {
     {
       "number": 20,
       "theme": "Full loop simulation #2 + apply to targets",
-      "outcome": "2–3 mocks per week. LLD mocks added alongside DSA. Machine coding under real interview pressure. Fix weak spots. Start applying to warm-up companies now.",
+      "outcome": "Run a second full loop focused on timing and communication gaps. Confirm level and loop format, apply to Airbnb, DoorDash, Uber and Lyft, write an RFC, build a Twitter timeline in 75 minutes, and compile your cheat sheet.",
       "resources": [
         {
           "label": "ByteByteGo Vol 2",
@@ -2851,13 +3006,33 @@ window.TECH_TRACK = {
               "url": "https://github.com/donnemartin/system-design-primer"
             }
           ]
+        },
+        {
+          "id": "tech-w20-behavioral-3",
+          "category": "Behavioral",
+          "title": "Confirm target level and loop format with the recruiter",
+          "detail": "Ask which level the role is scoped to (Principal vs Staff/Senior Staff), which rounds to expect (coding, design, code review, Core Values, cross-functional, experience), and who the interviewers are. Raise level early to avoid down-leveling surprises.",
+          "links": []
+        },
+        {
+          "id": "tech-w20-leadership-1",
+          "category": "Leadership",
+          "title": "Write a design doc / RFC for a system you own",
+          "detail": "2–3 pages: context, goals and non-goals, options considered, decision, risks, rollout, metrics. Principal loops probe how you drive decisions in writing across teams, not just in a room.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "Design Docs at Google",
+              "url": "https://www.industrialempathy.com/posts/design-docs-at-google/"
+            }
+          ]
         }
       ]
     },
     {
       "number": 21,
       "theme": "Full revision sprint — DSA + LLD + Leadership, product sense & influence",
-      "outcome": "Revise more than you learn new things. Live interviews are happening. Lead with your 14 years of system design depth — it's your biggest differentiator over junior candidates.",
+      "outcome": "Revise more than you learn: redo missed problems and weakest designs, do a final machine-coding review, and shift to principal scope with an audit of your leadership stories, a technical strategy memo, product-design prompts, and architecture reviews with PM and Design.",
       "resources": [
         {
           "label": "awesome-low-level-design",
@@ -2925,7 +3100,7 @@ window.TECH_TRACK = {
         {
           "id": "tech-w21-code-review-1",
           "category": "Code Review",
-          "title": "Final review of all machine coding projects — would you approve this as a Tech Lead?",
+          "title": "Final review of all machine coding projects — would you approve this as a Principal engineer?",
           "detail": "",
           "links": [
             {
@@ -2986,13 +3161,39 @@ window.TECH_TRACK = {
               "url": "https://martinfowler.com/articles/architecture-review.html"
             }
           ]
+        },
+        {
+          "id": "tech-w21-leadership-4",
+          "category": "Leadership",
+          "title": "Draft a 2–3 year technical strategy memo for a platform you own",
+          "detail": "Diagnosis, guiding policies, roadmap and sequencing, build vs buy, cost, risks, and success metrics. Practice presenting it in 10 minutes to a skeptical VP.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "StaffEng",
+              "url": "https://staffeng.com/"
+            }
+          ]
+        },
+        {
+          "id": "tech-w21-leadership-5",
+          "category": "Leadership",
+          "title": "Audit your leadership stories against principal scope",
+          "detail": "For each of the 6–8 stories ask: did it span multiple teams or an org, did I grow senior or staff engineers, did I raise the engineering bar, did I handle executive pushback? Replace any story that is only team-level.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "StaffEng",
+              "url": "https://staffeng.com/"
+            }
+          ]
         }
       ]
     },
     {
       "number": 22,
       "theme": "Company research + final mocks + Advanced distributed systems & algorithms",
-      "outcome": "Revise more than you learn new things. Live interviews are happening. Lead with your 14 years of system design depth — it's your biggest differentiator over junior candidates.",
+      "outcome": "Company research and final mocks: Airbnb and DoorDash deep dives, three target-format mocks, a 30-minute flagship-system deep dive, and advanced distributed systems (consensus, consistency, sharding).",
       "resources": [
         {
           "label": "Airbnb Engineering Blog",
@@ -3093,6 +3294,26 @@ window.TECH_TRACK = {
           ]
         },
         {
+          "id": "tech-w22-behavioral-4",
+          "category": "Behavioral",
+          "title": "Prepare a 30-minute deep dive on your flagship system",
+          "detail": "Context, constraints, alternatives rejected, failures, metrics, what you would redo. Draw the architecture live and rehearse \"why not X?\" probing; compress it to the 5-minute version in Week 23.",
+          "links": []
+        },
+        {
+          "id": "tech-w22-behavioral-5",
+          "category": "Behavioral",
+          "title": "Read 4–5 Airbnb Engineering blog posts and prepare questions from them",
+          "detail": "Pick search, payments, service architecture, experimentation and data. Turn each into one specific question for your interviewers.",
+          "links": [
+            {
+              "t": "ref",
+              "label": "Airbnb Engineering Blog",
+              "url": "https://medium.com/airbnb-engineering"
+            }
+          ]
+        },
+        {
           "id": "tech-w22-system-design-1",
           "category": "System Design",
           "title": "Consensus",
@@ -3141,7 +3362,7 @@ window.TECH_TRACK = {
     {
       "number": 23,
       "theme": "Live interviews — stay sharp + Observability, SRE & incident response",
-      "outcome": "Revise more than you learn new things. Live interviews are happening. Lead with your 14 years of system design depth — it's your biggest differentiator over junior candidates.",
+      "outcome": "Live-interview mode: keep DSA and machine coding warm, rehearse a 5-minute architecture walkthrough, debrief after every loop, and cover observability, SLOs and incident response. Check Principal-level comp before offer talks.",
       "resources": [
         {
           "label": "Levels.fyi",
@@ -3225,8 +3446,8 @@ window.TECH_TRACK = {
         {
           "id": "tech-w23-behavioral-3",
           "category": "Behavioral",
-          "title": "Check Levels.fyi for Airbnb/DoorDash Senior/Staff comp before any offer conversations",
-          "detail": "",
+          "title": "Check Levels.fyi for Airbnb/DoorDash Principal (and Senior Staff) comp before any offer conversations",
+          "detail": "Confirm how each company maps its levels before comparing numbers; ask the recruiter which level the role is scoped to.",
           "links": [
             {
               "t": "ref",
@@ -3284,7 +3505,7 @@ window.TECH_TRACK = {
     {
       "number": 24,
       "theme": "Mindset, offers & celebration + Security, compliance, networking & cost",
-      "outcome": "Revise more than you learn new things. Live interviews are happening. Lead with your 14 years of system design depth — it's your biggest differentiator over junior candidates.",
+      "outcome": "Final polish and offers: light DSA, a last timed run of all eight stories, and security, networking and cost-optimization depth. Line up an immigration attorney before an offer arrives. Lead with your 14 years of system-design depth.",
       "resources": [
         {
           "label": "USCIS H1B",
@@ -3368,7 +3589,7 @@ window.TECH_TRACK = {
         {
           "id": "tech-w24-behavioral-3",
           "category": "Behavioral",
-          "title": "6 months of consistent multi-track senior-level preparation is a genuine achievement — own it",
+          "title": "6 months of consistent multi-track principal-level preparation is a genuine achievement — own it",
           "detail": "",
           "links": []
         },
