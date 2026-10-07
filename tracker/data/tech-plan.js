@@ -917,29 +917,61 @@ window.TECH_TRACK = {
           "category": "DSA",
           "title": "Dynamic programming foundations",
           "detail": "State, transition, base cases, memoization, tabulation, and space optimization.",
-          "links": []
+          "links": [
+            { "t": "lc", "label": "LC #509 Fibonacci Number", "url": "https://leetcode.com/problems/fibonacci-number/" },
+            { "t": "lc", "label": "LC #746 Min Cost Climbing Stairs", "url": "https://leetcode.com/problems/min-cost-climbing-stairs/" },
+            { "t": "lc", "label": "LC #279 Perfect Squares", "url": "https://leetcode.com/problems/perfect-squares/" },
+            { "t": "lc", "label": "LC #70 Climbing Stairs", "url": "https://leetcode.com/problems/climbing-stairs/" }
+          ]
         },
+
         {
           "id": "tech-w5-dsa-5",
           "category": "DSA",
-          "title": "One-dimensional DP",
+          "title": "One-dimensional Dynamic programming",
           "detail": "House robber, decoding, coin change, subsequences, and interval decisions.",
-          "links": []
+          "links": [
+            { "t": "lc", "label": "LC #198 House Robber", "url": "https://leetcode.com/problems/house-robber/" },
+            { "t": "lc", "label": "LC #91 Decode Ways", "url": "https://leetcode.com/problems/decode-ways/" },
+            { "t": "lc", "label": "LC #322 Coin Change", "url": "https://leetcode.com/problems/coin-change/" },
+            { "t": "lc", "label": "LC #300 Longest Increasing Subsequence", "url": "https://leetcode.com/problems/longest-increasing-subsequence/" },
+            { "t": "lc", "label": "LC #312 Burst Balloons", "url": "https://leetcode.com/problems/burst-balloons/" }
+          ]
         },
+
         {
           "id": "tech-w5-dsa-6",
           "category": "DSA",
-          "title": "Two-dimensional and grid DP",
+          "title": "Two-dimensional and grid Dynamic programming",
           "detail": "Paths, edit distance, LCS, knapsack, matrix states, and reconstruction.",
-          "links": []
+          "links": [
+            { "t": "lc", "label": "LC #64 Minimum Path Sum", "url": "https://leetcode.com/problems/minimum-path-sum/" },
+            { "t": "lc", "label": "LC #120 Triangle", "url": "https://leetcode.com/problems/triangle/" },
+            { "t": "lc", "label": "LC #221 Maximal Square", "url": "https://leetcode.com/problems/maximal-square/" },
+            { "t": "lc", "label": "LC #72 Edit Distance", "url": "https://leetcode.com/problems/edit-distance/" },
+            { "t": "lc", "label": "LC #329 Longest Increasing Path in a Matrix", "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/" }
+          ]
         },
+
         {
           "id": "tech-w5-dsa-7",
           "category": "DSA",
-          "title": "Solve 16 DP problems",
+          "title": "Solve 16 Dynamic programming problems",
           "detail": "Write recurrence before code and compare top-down vs bottom-up.",
-          "links": []
+          "links": [
+            { "t": "lc", "label": "LC #62 Unique Paths", "url": "https://leetcode.com/problems/unique-paths/" },
+            { "t": "lc", "label": "LC #63 Unique Paths II", "url": "https://leetcode.com/problems/unique-paths-ii/" },
+            { "t": "lc", "label": "LC #53 Maximum Subarray", "url": "https://leetcode.com/problems/maximum-subarray/" },
+            { "t": "lc", "label": "LC #1143 Longest Common Subsequence", "url": "https://leetcode.com/problems/longest-common-subsequence/" },
+            { "t": "lc", "label": "LC #97 Interleaving String", "url": "https://leetcode.com/problems/interleaving-string/" },
+            { "t": "lc", "label": "LC #416 Partition Equal Subset Sum", "url": "https://leetcode.com/problems/partition-equal-subset-sum/" },
+            { "t": "lc", "label": "LC #343 Integer Break", "url": "https://leetcode.com/problems/integer-break/" },
+            { "t": "lc", "label": "LC #931 Minimum Falling Path Sum", "url": "https://leetcode.com/problems/minimum-falling-path-sum/" },
+            { "t": "lc", "label": "LC #139 Word Break", "url": "https://leetcode.com/problems/word-break/" }
+          ]
         },
+
+
         {
           "id": "tech-w5-system-design-1",
           "category": "System Design",
@@ -1085,26 +1117,19 @@ window.TECH_TRACK = {
         {
           "id": "tech-w6-dsa-5",
           "category": "DSA",
-          "title": "Greedy algorithms and intervals",
-          "detail": "Exchange arguments, scheduling, merging, sweep line, and meeting-room patterns.",
-          "links": []
-        },
-        {
-          "id": "tech-w6-dsa-6",
-          "category": "DSA",
           "title": "Bit manipulation and math",
           "detail": "Masks, XOR, shifts, subsets, GCD, primes, modular arithmetic, and overflow.",
           "links": []
         },
         {
-          "id": "tech-w6-dsa-7",
+          "id": "tech-w6-dsa-6",
           "category": "DSA",
           "title": "Advanced range data structures",
           "detail": "Fenwick tree, segment tree, sparse table concepts, and when to use each.",
           "links": []
         },
         {
-          "id": "tech-w6-dsa-8",
+          "id": "tech-w6-dsa-7",
           "category": "DSA",
           "title": "Solve 18 mixed algorithm problems",
           "detail": "Use a 35-minute limit and document pattern, error, and improved approach.",
