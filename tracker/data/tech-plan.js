@@ -110,6 +110,11 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
+              "label": "LC #75 Sort Colors",
+              "url": "https://leetcode.com/problems/sort-colors/description/"
+            },
+            {
+              "t": "lc",
               "label": "LC #283 Move Zeroes",
               "url": "https://leetcode.com/problems/move-zeroes/"
             },
@@ -120,11 +125,17 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
+              "label": "LC #611 Valid Triangle Number",
+              "url": "https://leetcode.com/problems/valid-triangle-number/description/"
+            },
+            {
+              "t": "lc",
               "label": "LC #844 Backspace String Compare",
               "url": "https://leetcode.com/problems/backspace-string-compare/"
             }
           ]
         },
+
         {
           "id": "tech-w1-dsa-2",
           "category": "DSA",

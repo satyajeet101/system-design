@@ -59,7 +59,7 @@
     <section class="weeks" id="weeks" aria-label="Weekly preparation plan"></section>
   </main>
 
-  <footer>Progress is saved automatically in this browser. Edit the curriculum files in <strong>tracker/data</strong> to extend the plan.</footer>
+  <footer>Progress is saved automatically in this browser. Add a label and URL to a task's links or a week's resources in <strong>tracker/data</strong> for a separate checkbox; use an optional id to keep its check if the URL changes.</footer>
 
   <script src="data/tech-plan.js"></script>
   <script src="data/ai-plan.js"></script>
@@ -85,6 +85,14 @@
       }
 
       const knownIds = new Set(tracks.flatMap(track => track.weeks.flatMap(week => week.tasks.map(task => task.id))));
+      const resourceKey = (track, week, resource) => JSON.stringify([track.id, week.number, resource.id || resource.url]);
+      const knownResourceIds = new Set(tracks.flatMap(track => track.weeks.flatMap(week =>
+        (week.resources || []).map(resource => resourceKey(track, week, resource))
+      )));
+      const linkKey = (task, link) => JSON.stringify([task.id, link.id || link.url]);
+      const knownLinkIds = new Set(tracks.flatMap(track => track.weeks.flatMap(week =>
+        week.tasks.flatMap(task => (task.links || []).map(link => linkKey(task, link)))
+      )));
       let state = loadState();
       let activeTrackId = state.activeTrackId;
       let openWeeks = new Set([currentWeek()]);
@@ -143,6 +151,8 @@
       function loadState() {
         const fallback = {
           completed: [],
+          completedResources: [],
+          completedLinks: [],
           startDates: Object.fromEntries(tracks.map(track => [track.id, today()])),
           activeTrackId: tracks[0].id
         };
@@ -153,6 +163,12 @@
           if (!parsed || !Array.isArray(parsed.completed)) return fallback;
           return {
             completed: parsed.completed.filter(id => knownIds.has(id)),
+            completedResources: Array.isArray(parsed.completedResources)
+              ? parsed.completedResources.filter(id => knownResourceIds.has(id))
+              : [],
+            completedLinks: Array.isArray(parsed.completedLinks)
+              ? parsed.completedLinks.filter(id => knownLinkIds.has(id))
+              : [],
             startDates: Object.fromEntries(tracks.map(track => [
               track.id,
               validDate(parsed.startDates?.[track.id]) ? parsed.startDates[track.id] : today()
@@ -290,7 +306,7 @@
           list.className = "task-list";
           visibleTasks.forEach(task => list.append(createTask(task)));
           body.append(list);
-          if (week.resources?.length) body.append(createResources(week.resources));
+          if (week.resources?.length) body.append(createResources(track, week));
 
           header.addEventListener("click", () => {
             if (body.hidden) openWeeks.add(week.number);
@@ -322,9 +338,9 @@
           <span>
             <span class="task-title">${escapeHtml(task.title)}</span>
             ${task.detail ? `<span class="task-detail">${escapeHtml(task.detail)}</span>` : ""}
-            ${renderLinks(task.links)}
           </span>
           <span class="badge" style="--badge-color:${color}">${escapeHtml(task.category)}</span>`;
+        if (task.links?.length) item.children[1].append(createLinks(task));
 
         item.querySelector("input").addEventListener("change", event => {
           if (event.target.checked) state.completed = [...new Set([...state.completed, task.id])];
@@ -341,19 +357,36 @@
         return `<span class="link-type" style="--type-color:${meta.color}">${meta.label}</span>`;
       }
 
-      function renderLinks(links = []) {
-        if (!links.length) return "";
-        return `<span class="task-links">${links.map(link =>
-          `<a class="task-link" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`
-        ).join("")}</span>`;
+      function createCheckableLink(link, id, field, linkClass) {
+        const done = state[field].includes(id);
+        const item = document.createElement("span");
+        item.className = "checkable-link" + (done ? " done" : "");
+        item.innerHTML = `
+          <input type="checkbox" ${done ? "checked" : ""} aria-label="Mark ${escapeHtml(link.label)} complete">
+          <a class="${linkClass}" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`;
+        item.querySelector("input").addEventListener("change", event => {
+          if (event.target.checked) state[field] = [...new Set([...state[field], id])];
+          else state[field] = state[field].filter(savedId => savedId !== id);
+          saveState();
+          item.classList.toggle("done", event.target.checked);
+        });
+        return item;
       }
 
-      function createResources(resources) {
+      function createLinks(task) {
+        const container = document.createElement("span");
+        container.className = "task-links";
+        task.links.forEach(link => container.append(createCheckableLink(link, linkKey(task, link), "completedLinks", "task-link")));
+        return container;
+      }
+
+      function createResources(track, week) {
         const container = document.createElement("div");
         container.className = "week-resources";
-        container.innerHTML = `<span class="resources-label">References</span>${resources.map(resource =>
-          `<a class="resource-link" href="${safeUrl(resource.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(resource.t)}${escapeHtml(resource.label)}</a>`
-        ).join("")}`;
+        container.innerHTML = `<span class="resources-label">References</span>`;
+        week.resources.forEach(resource => {
+          container.append(createCheckableLink(resource, resourceKey(track, week, resource), "completedResources", "resource-link"));
+        });
         return container;
       }
 
@@ -386,8 +419,16 @@
           try {
             const imported = JSON.parse(reader.result);
             if (!Array.isArray(imported.completed)) throw new Error("Missing completed topic list.");
+            if (imported.completedResources !== undefined && !Array.isArray(imported.completedResources)) {
+              throw new Error("Invalid completed resources list.");
+            }
+            if (imported.completedLinks !== undefined && !Array.isArray(imported.completedLinks)) {
+              throw new Error("Invalid completed links list.");
+            }
             state = {
               completed: imported.completed.filter(id => knownIds.has(id)),
+              completedResources: (imported.completedResources || []).filter(id => knownResourceIds.has(id)),
+              completedLinks: (imported.completedLinks || []).filter(id => knownLinkIds.has(id)),
               startDates: Object.fromEntries(tracks.map(track => [
                 track.id,
                 validDate(imported.startDates?.[track.id]) ? imported.startDates[track.id] : state.startDates[track.id]
@@ -417,7 +458,15 @@
         const track = activeTrack();
         if (!confirm(`Reset every checkbox in ${track.title}? This cannot be undone unless you exported progress.`)) return;
         const trackIds = new Set(allTasks(track).map(task => task.id));
+        const resourceIds = new Set(track.weeks.flatMap(week =>
+          (week.resources || []).map(resource => resourceKey(track, week, resource))
+        ));
         state.completed = state.completed.filter(id => !trackIds.has(id));
+        state.completedResources = state.completedResources.filter(id => !resourceIds.has(id));
+        const linkIds = new Set(track.weeks.flatMap(week =>
+          week.tasks.flatMap(task => (task.links || []).map(link => linkKey(task, link)))
+        ));
+        state.completedLinks = state.completedLinks.filter(id => !linkIds.has(id));
         saveState();
         render();
       }

@@ -212,6 +212,9 @@ main { margin-top: -42px; padding-bottom: 64px; }
 }
 .week-resources { margin-top: 15px; padding-top: 14px; border-top: 1px solid var(--line); }
 .resources-label { align-self: center; margin-right: 3px; color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.checkable-link { display: inline-flex; align-items: center; gap: 5px; }
+.checkable-link input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); cursor: pointer; }
+.checkable-link.done a { opacity: .6; text-decoration: line-through; }
 .badge {
   padding: 4px 8px;
   border-radius: 999px;
