@@ -93,6 +93,55 @@
       const knownLinkIds = new Set(tracks.flatMap(track => track.weeks.flatMap(week =>
         week.tasks.flatMap(task => (task.links || []).map(link => linkKey(task, link)))
       )));
+
+      function problemSlug(url) {
+        try {
+          const u = new URL(url);
+          const parts = u.pathname.replace(/^\/|\/$/g, "").split("/");
+          if (parts.length > 1 && parts[0].toLowerCase() === "problems") {
+            return parts[1].toLowerCase();
+          }
+          return u.pathname.toLowerCase();
+        } catch {
+          return String(url).toLowerCase();
+        }
+      }
+
+      const slugToLinkKeys = new Map();
+      const slugToQuestion = new Map();
+      const leetcodeQuestions = [];
+
+      const techTrack = window.TECH_TRACK || tracks.find(t => t.id === "tech") || tracks[0];
+      for (const week of techTrack.weeks || []) {
+        for (const task of week.tasks || []) {
+          for (const link of task.links || []) {
+            if (link.t === "lc" || (link.url && link.url.includes("leetcode.com/problems/"))) {
+              const sl = problemSlug(link.url);
+              const key = linkKey(task, link);
+              if (!slugToLinkKeys.has(sl)) {
+                slugToLinkKeys.set(sl, []);
+              }
+              slugToLinkKeys.get(sl).push(key);
+
+              if (!slugToQuestion.has(sl)) {
+                const q = {
+                  serial: leetcodeQuestions.length + 1,
+                  slug: sl,
+                  label: link.label,
+                  url: link.url,
+                  t: link.t || "lc",
+                  taskIds: [task.id]
+                };
+                slugToQuestion.set(sl, q);
+                leetcodeQuestions.push(q);
+              } else {
+                slugToQuestion.get(sl).taskIds.push(task.id);
+              }
+            }
+          }
+        }
+      }
+
       let state = loadState();
       let activeTrackId = state.activeTrackId;
       let openWeeks = new Set([currentWeek()]);
@@ -153,7 +202,10 @@
           completed: [],
           completedResources: [],
           completedLinks: [],
-          startDates: Object.fromEntries(tracks.map(track => [track.id, today()])),
+          startDates: {
+            ...Object.fromEntries(tracks.map(track => [track.id, today()])),
+            leetcode: today()
+          },
           activeTrackId: tracks[0].id
         };
         try {
@@ -169,11 +221,18 @@
             completedLinks: Array.isArray(parsed.completedLinks)
               ? parsed.completedLinks.filter(id => knownLinkIds.has(id))
               : [],
-            startDates: Object.fromEntries(tracks.map(track => [
-              track.id,
-              validDate(parsed.startDates?.[track.id]) ? parsed.startDates[track.id] : today()
-            ])),
-            activeTrackId: tracks.some(track => track.id === parsed.activeTrackId) ? parsed.activeTrackId : tracks[0].id
+            startDates: {
+              ...Object.fromEntries(tracks.map(track => [
+                track.id,
+                validDate(parsed.startDates?.[track.id]) ? parsed.startDates[track.id] : today()
+              ])),
+              leetcode: validDate(parsed.startDates?.leetcode)
+                ? parsed.startDates.leetcode
+                : (validDate(parsed.startDates?.tech) ? parsed.startDates.tech : today())
+            },
+            activeTrackId: (tracks.some(track => track.id === parsed.activeTrackId) || parsed.activeTrackId === "leetcode")
+              ? parsed.activeTrackId
+              : tracks[0].id
           };
         } catch {
           return fallback;
@@ -193,14 +252,23 @@
       }
 
       function renderTrackTabs() {
-        elements.trackTabs.replaceChildren(...tracks.map(track => {
+        const tabs = tracks.map(track => {
           const button = document.createElement("button");
           button.type = "button";
           button.className = "track-tab" + (track.id === activeTrackId ? " active" : "");
           button.textContent = track.title;
           button.addEventListener("click", () => switchTrack(track.id));
           return button;
-        }));
+        });
+
+        const lcButton = document.createElement("button");
+        lcButton.type = "button";
+        lcButton.className = "track-tab" + (activeTrackId === "leetcode" ? " active" : "");
+        lcButton.textContent = "LeetCode";
+        lcButton.addEventListener("click", () => switchTrack("leetcode"));
+        tabs.push(lcButton);
+
+        elements.trackTabs.replaceChildren(...tabs);
       }
 
       function switchTrack(trackId) {
@@ -216,6 +284,17 @@
       }
 
       function renderTrackContext() {
+        if (activeTrackId === "leetcode") {
+          elements.eyebrow.textContent = `${leetcodeQuestions.length} Problems · LeetCode Practice`;
+          elements.subtitle.textContent = "All LeetCode questions from the Tech Prep curriculum, tracked on a single page.";
+          elements.startDate.value = state.startDates.leetcode || state.startDates.tech || today();
+          elements.categoryFilter.style.display = "none";
+          elements.search.placeholder = "Search LeetCode questions…";
+          return;
+        }
+
+        elements.categoryFilter.style.display = "";
+        elements.search.placeholder = "Search topics…";
         const track = activeTrack();
         elements.eyebrow.textContent = `${track.durationWeeks}-week ${track.title}`;
         elements.subtitle.textContent = track.subtitle;
@@ -228,6 +307,28 @@
       }
 
       function renderOverview() {
+        const progressTitle = document.querySelector(".progress-header h2");
+        if (activeTrackId === "leetcode") {
+          if (progressTitle) progressTitle.textContent = "LeetCode progress";
+          const total = leetcodeQuestions.length;
+          const complete = leetcodeQuestions.filter(q =>
+            (slugToLinkKeys.get(q.slug) || []).some(k => state.completedLinks.includes(k))
+          ).length;
+          const percent = percentage(complete, total);
+          elements.overallPercent.textContent = percent + "%";
+          elements.overallBar.style.width = percent + "%";
+          elements.overallCount.textContent = `${complete} of ${total} complete`;
+          elements.remainingCount.textContent = `${total - complete} remaining`;
+
+          const target = parseLocalDate(state.startDates.leetcode || state.startDates.tech || today());
+          target.setDate(target.getDate() + (24 * 7) - 1);
+          elements.targetDate.textContent = target.toLocaleDateString(undefined, {
+            year: "numeric", month: "short", day: "numeric"
+          });
+          return;
+        }
+
+        if (progressTitle) progressTitle.textContent = "Overall progress";
         const track = activeTrack();
         const tasks = allTasks(track);
         const complete = completedForTrack(track).length;
@@ -246,6 +347,15 @@
       }
 
       function renderCategories() {
+        const skillTitle = document.querySelector(".section-title");
+        if (activeTrackId === "leetcode") {
+          elements.categories.style.display = "none";
+          if (skillTitle) skillTitle.style.display = "none";
+          return;
+        }
+        elements.categories.style.display = "";
+        if (skillTitle) skillTitle.style.display = "";
+
         const track = activeTrack();
         const tasksForTrack = allTasks(track);
         elements.categories.replaceChildren(...track.categories.map(category => {
@@ -264,6 +374,11 @@
       }
 
       function renderWeeks() {
+        if (activeTrackId === "leetcode") {
+          renderLeetCodeList();
+          return;
+        }
+
         const track = activeTrack();
         const query = elements.search.value.trim().toLowerCase();
         const selectedCategory = elements.categoryFilter.value;
@@ -328,6 +443,85 @@
         elements.weeks.replaceChildren(...weekNodes);
       }
 
+      function renderLeetCodeList() {
+        const query = elements.search.value.trim().toLowerCase();
+        const visibleQuestions = leetcodeQuestions.filter(q => {
+          if (!query) return true;
+          return (
+            q.label.toLowerCase().includes(query) ||
+            q.url.toLowerCase().includes(query) ||
+            q.slug.toLowerCase().includes(query) ||
+            String(q.serial) === query ||
+            String(q.serial).startsWith(query)
+          );
+        });
+
+        const listContainer = document.createElement("div");
+        listContainer.className = "lc-list card";
+
+        if (!visibleQuestions.length) {
+          const empty = document.createElement("div");
+          empty.className = "empty";
+          empty.textContent = "No LeetCode questions match your search.";
+          listContainer.append(empty);
+          elements.weeks.replaceChildren(listContainer);
+          return;
+        }
+
+        const header = document.createElement("div");
+        header.className = "lc-list-header";
+        const updateHeader = () => {
+          const completedVisible = visibleQuestions.filter(q =>
+            (slugToLinkKeys.get(q.slug) || []).some(k => state.completedLinks.includes(k))
+          ).length;
+          header.innerHTML = `
+            <span>Showing <strong>${visibleQuestions.length}</strong> of <strong>${leetcodeQuestions.length}</strong> LeetCode questions</span>
+            <span><strong>${completedVisible}</strong> of <strong>${visibleQuestions.length}</strong> completed</span>
+          `;
+        };
+        updateHeader();
+        listContainer.append(header);
+
+        visibleQuestions.forEach(q => {
+          const keys = slugToLinkKeys.get(q.slug) || [];
+          const done = keys.some(k => state.completedLinks.includes(k));
+          const item = document.createElement("div");
+          item.className = "lc-task" + (done ? " done" : "");
+          item.innerHTML = `
+            <label class="lc-serial" for="lc-check-${q.serial}">${q.serial}.</label>
+            <input type="checkbox" id="lc-check-${q.serial}" ${done ? "checked" : ""} data-lc-slug="${escapeHtml(q.slug)}" aria-label="Mark ${escapeHtml(q.label)} complete">
+            <span class="lc-link-wrapper">
+              <a class="task-link" href="${safeUrl(q.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(q.t)}${escapeHtml(q.label)}</a>
+            </span>
+          `;
+
+          const checkbox = item.querySelector('input[type="checkbox"]');
+          checkbox.addEventListener("change", event => {
+            const checked = event.target.checked;
+            if (checked) {
+              state.completedLinks = [...new Set([...state.completedLinks, ...keys])];
+            } else {
+              const keySet = new Set(keys);
+              state.completedLinks = state.completedLinks.filter(savedId => !keySet.has(savedId));
+            }
+            saveState();
+            item.classList.toggle("done", checked);
+            renderOverview();
+            updateHeader();
+            document.querySelectorAll(`[data-lc-slug="${q.slug}"]`).forEach(el => {
+              if (el !== checkbox) {
+                el.checked = checked;
+                el.closest(".checkable-link, .lc-task")?.classList.toggle("done", checked);
+              }
+            });
+          });
+
+          listContainer.append(item);
+        });
+
+        elements.weeks.replaceChildren(listContainer);
+      }
+
       function createTask(task) {
         const done = state.completed.includes(task.id);
         const color = activeTrack().categories.find(category => category.name === task.category)?.color || "#64748b";
@@ -358,17 +552,35 @@
       }
 
       function createCheckableLink(link, id, field, linkClass) {
-        const done = state[field].includes(id);
+        const isLeetCode = field === "completedLinks" && (link.t === "lc" || (link.url && link.url.includes("leetcode.com/problems/")));
+        const lcSlug = isLeetCode ? problemSlug(link.url) : null;
+        const keys = lcSlug ? (slugToLinkKeys.get(lcSlug) || [id]) : [id];
+        const done = isLeetCode
+          ? keys.some(k => state.completedLinks.includes(k))
+          : state[field].includes(id);
         const item = document.createElement("span");
         item.className = "checkable-link" + (done ? " done" : "");
+        const slugAttr = lcSlug ? ` data-lc-slug="${escapeHtml(lcSlug)}"` : "";
         item.innerHTML = `
-          <input type="checkbox" ${done ? "checked" : ""} aria-label="Mark ${escapeHtml(link.label)} complete">
+          <input type="checkbox" ${done ? "checked" : ""}${slugAttr} aria-label="Mark ${escapeHtml(link.label)} complete">
           <a class="${linkClass}" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`;
         item.querySelector("input").addEventListener("change", event => {
-          if (event.target.checked) state[field] = [...new Set([...state[field], id])];
-          else state[field] = state[field].filter(savedId => savedId !== id);
+          if (event.target.checked) {
+            state[field] = [...new Set([...state[field], ...keys])];
+          } else {
+            const keySet = new Set(keys);
+            state[field] = state[field].filter(savedId => !keySet.has(savedId));
+          }
           saveState();
           item.classList.toggle("done", event.target.checked);
+          if (lcSlug) {
+            document.querySelectorAll(`[data-lc-slug="${lcSlug}"]`).forEach(el => {
+              if (el !== event.target) {
+                el.checked = event.target.checked;
+                el.closest(".checkable-link, .lc-task")?.classList.toggle("done", event.target.checked);
+              }
+            });
+          }
         });
         return item;
       }
@@ -392,7 +604,10 @@
 
       function currentWeek() {
         const track = activeTrack();
-        const start = parseLocalDate(state.startDates[track.id]);
+        const dateVal = (activeTrackId === "leetcode")
+          ? (state.startDates.leetcode || state.startDates.tech || today())
+          : state.startDates[track.id];
+        const start = parseLocalDate(dateVal);
         const elapsedDays = Math.floor((startOfToday() - start) / 86400000);
         return Math.min(track.durationWeeks, Math.max(1, Math.floor(elapsedDays / 7) + 1));
       }
@@ -429,11 +644,16 @@
               completed: imported.completed.filter(id => knownIds.has(id)),
               completedResources: (imported.completedResources || []).filter(id => knownResourceIds.has(id)),
               completedLinks: (imported.completedLinks || []).filter(id => knownLinkIds.has(id)),
-              startDates: Object.fromEntries(tracks.map(track => [
-                track.id,
-                validDate(imported.startDates?.[track.id]) ? imported.startDates[track.id] : state.startDates[track.id]
-              ])),
-              activeTrackId: tracks.some(track => track.id === imported.activeTrackId)
+              startDates: {
+                ...Object.fromEntries(tracks.map(track => [
+                  track.id,
+                  validDate(imported.startDates?.[track.id]) ? imported.startDates[track.id] : state.startDates[track.id]
+                ])),
+                leetcode: validDate(imported.startDates?.leetcode)
+                  ? imported.startDates.leetcode
+                  : (state.startDates?.leetcode || today())
+              },
+              activeTrackId: (tracks.some(track => track.id === imported.activeTrackId) || imported.activeTrackId === "leetcode")
                 ? imported.activeTrackId
                 : activeTrackId
             };
@@ -455,6 +675,18 @@
       }
 
       function resetProgress() {
+        if (activeTrackId === "leetcode") {
+          if (!confirm("Reset all LeetCode progress? This will uncheck all LeetCode questions in both LeetCode and Tech Prep tabs.")) return;
+          const allLcKeys = new Set();
+          for (const keys of slugToLinkKeys.values()) {
+            keys.forEach(k => allLcKeys.add(k));
+          }
+          state.completedLinks = state.completedLinks.filter(id => !allLcKeys.has(id));
+          saveState();
+          render();
+          return;
+        }
+
         const track = activeTrack();
         if (!confirm(`Reset every checkbox in ${track.title}? This cannot be undone unless you exported progress.`)) return;
         const trackIds = new Set(allTasks(track).map(task => task.id));
