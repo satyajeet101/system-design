@@ -189,17 +189,42 @@ main { margin-top: -42px; padding-bottom: 64px; }
 .task:hover { background: var(--surface-raised); }
 .task.done { opacity: .62; background: #19191e; }
 .task.done .task-title { text-decoration: line-through; }
-.task input {
-  width: 20px;
-  height: 20px;
+.task input,
+.checkable-link input,
+.lc-task input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
   margin: 2px 0 0;
-  accent-color: #22c55e;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1.5px solid #4b5563;
+  border-radius: 5px;
+  background: #1b1b22;
+  position: relative;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
-.task input:checked {
-  accent-color: #22c55e;
+.task input:checked,
+.checkable-link input:checked,
+.lc-task input[type="checkbox"]:checked {
+  border-color: #22c55e;
+  background: #22c55e;
   box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.task input:checked::after,
+.checkable-link input:checked::after,
+.lc-task input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 .task-title { display: block; font-weight: 750; }
 .task-detail { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; }
@@ -231,7 +256,6 @@ main { margin-top: -42px; padding-bottom: 64px; }
 .week-resources { margin-top: 15px; padding-top: 14px; border-top: 1px solid var(--line); }
 .resources-label { align-self: center; margin-right: 3px; color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; }
 .checkable-link { display: inline-flex; align-items: center; gap: 5px; }
-.checkable-link input { width: 16px; height: 16px; margin: 0; accent-color: #22c55e; cursor: pointer; }
 .checkable-link.done a { opacity: .6; text-decoration: line-through; }
 .badge {
   padding: 4px 8px;
@@ -277,14 +301,6 @@ main { margin-top: -42px; padding-bottom: 64px; }
   font-variant-numeric: tabular-nums;
   cursor: pointer;
   user-select: none;
-  flex-shrink: 0;
-}
-.lc-task input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin: 0;
-  accent-color: var(--accent);
-  cursor: pointer;
   flex-shrink: 0;
 }
 .lc-link-wrapper { display: flex; align-items: center; flex: 1; min-width: 0; }
