@@ -572,14 +572,13 @@
         item.className = "checkable-link" + (done ? " done" : "");
         const slugAttr = lcSlug ? ` data-lc-slug="${escapeHtml(lcSlug)}"` : "";
         const tooltipText = noteText ? escapeHtml(noteText) : "";
-        const titleAttr = tooltipText ? ` title="${tooltipText}"` : "";
         const noteBadge = tooltipText
-          ? `<span class="link-note" data-tooltip="${tooltipText}"${titleAttr} aria-label="${tooltipText}">i</span>`
+          ? `<span class="link-note" data-tooltip="${tooltipText}" aria-label="${tooltipText}">i</span>`
           : "";
         item.innerHTML = `
           <input type="checkbox" ${done ? "checked" : ""}${slugAttr} aria-label="Mark ${escapeHtml(link.label)} complete">
           ${noteBadge}
-          <a class="${linkClass}" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer"${titleAttr}>${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`;
+          <a class="${linkClass}" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`;
         item.querySelector("input").addEventListener("change", event => {
           if (event.target.checked) {
             state[field] = [...new Set([...state[field], ...keys])];

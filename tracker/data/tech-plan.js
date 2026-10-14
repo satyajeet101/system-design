@@ -112,7 +112,7 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "LC #75 Sort Colors",
               "url": "https://leetcode.com/problems/sort-colors/description/",
-              "note": "Two-pointer partitioning pattern."
+              "note": "In one pass using low, mid, and high, 0 → swap(low, mid), low++, mid++; 1 → mid++; 2 → swap(mid, high), high-- (don’t increment mid because the swapped element is unprocessed)"
             },
             {
               "t": "lc",

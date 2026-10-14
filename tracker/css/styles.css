@@ -187,7 +187,7 @@ main { margin-top: -42px; padding-bottom: 64px; }
   transition: opacity .2s, background .2s;
 }
 .task:hover { background: var(--surface-raised); }
-.task.done { opacity: .62; background: #19191e; }
+.task.done { background: #19191e; }
 .task.done .task-title { text-decoration: line-through; }
 .task input,
 .checkable-link input,
@@ -255,7 +255,7 @@ main { margin-top: -42px; padding-bottom: 64px; }
 }
 .week-resources { margin-top: 15px; padding-top: 14px; border-top: 1px solid var(--line); }
 .resources-label { align-self: center; margin-right: 3px; color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; }
-.checkable-link { display: inline-flex; align-items: center; gap: 5px; position: relative; }
+.checkable-link { display: inline-flex; align-items: center; gap: 5px; position: relative; overflow: visible; z-index: 1; }
 .link-note {
   display: inline-flex;
   align-items: center;
@@ -276,9 +276,12 @@ main { margin-top: -42px; padding-bottom: 64px; }
 .link-note::after {
   content: attr(data-tooltip);
   position: absolute;
-  left: 50%;
+  left: 0;
   bottom: calc(100% + 10px);
-  transform: translateX(-50%);
+  transform: translateY(-2px);
+  display: block;
+  width: min(260px, 72vw);
+  max-width: 260px;
   padding: 7px 10px;
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(120, 0, 0, 1), rgba(40, 0, 0, 1));
@@ -288,7 +291,9 @@ main { margin-top: -42px; padding-bottom: 64px; }
   font-size: 11px;
   font-weight: 700;
   line-height: 1.35;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.12s ease, transform 0.12s ease;
@@ -297,9 +302,9 @@ main { margin-top: -42px; padding-bottom: 64px; }
 .link-note:hover::after,
 .link-note:focus-visible::after {
   opacity: 1;
-  transform: translateX(-50%) translateY(-2px);
+  transform: translateY(-4px);
 }
-.checkable-link.done a { opacity: .6; text-decoration: line-through; }
+.checkable-link.done a { text-decoration: line-through; opacity: .85; }
 .badge {
   padding: 4px 8px;
   border-radius: 999px;
@@ -333,8 +338,8 @@ main { margin-top: -42px; padding-bottom: 64px; }
   transition: opacity .2s, background .2s, border-color .2s;
 }
 .lc-task:hover { background: var(--surface-raised); border-color: #686873; }
-.lc-task.done { opacity: .62; background: #19191e; }
-.lc-task.done .task-link { text-decoration: line-through; opacity: .75; }
+.lc-task.done { background: #19191e; }
+.lc-task.done .task-link { text-decoration: line-through; opacity: .85; }
 .lc-serial {
   min-width: 38px;
   color: var(--muted);
