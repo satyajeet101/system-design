@@ -118,25 +118,29 @@
             if (link.t === "lc" || (link.url && link.url.includes("leetcode.com/problems/"))) {
               const sl = problemSlug(link.url);
               const key = linkKey(task, link);
-              if (!slugToLinkKeys.has(sl)) {
-                slugToLinkKeys.set(sl, []);
-              }
-              slugToLinkKeys.get(sl).push(key);
+             const note = (link.note || link.concept || "").trim();
+             if (!slugToLinkKeys.has(sl)) {
+               slugToLinkKeys.set(sl, []);
+             }
+             slugToLinkKeys.get(sl).push(key);
 
-              if (!slugToQuestion.has(sl)) {
-                const q = {
-                  serial: leetcodeQuestions.length + 1,
-                  slug: sl,
-                  label: link.label,
-                  url: link.url,
-                  t: link.t || "lc",
-                  taskIds: [task.id]
-                };
-                slugToQuestion.set(sl, q);
-                leetcodeQuestions.push(q);
-              } else {
-                slugToQuestion.get(sl).taskIds.push(task.id);
-              }
+             if (!slugToQuestion.has(sl)) {
+               const q = {
+                 serial: leetcodeQuestions.length + 1,
+                 slug: sl,
+                 label: link.label,
+                 url: link.url,
+                 t: link.t || "lc",
+                 note: note || "",
+                 taskIds: [task.id]
+               };
+               slugToQuestion.set(sl, q);
+               leetcodeQuestions.push(q);
+             } else {
+               const q = slugToQuestion.get(sl);
+               q.taskIds.push(task.id);
+               if (!q.note && note) q.note = note;
+             }
             }
           }
         }
@@ -485,15 +489,20 @@
         visibleQuestions.forEach(q => {
           const keys = slugToLinkKeys.get(q.slug) || [];
           const done = keys.some(k => state.completedLinks.includes(k));
-          const item = document.createElement("div");
-          item.className = "lc-task" + (done ? " done" : "");
-          item.innerHTML = `
-            <label class="lc-serial" for="lc-check-${q.serial}">${q.serial}.</label>
-            <input type="checkbox" id="lc-check-${q.serial}" ${done ? "checked" : ""} data-lc-slug="${escapeHtml(q.slug)}" aria-label="Mark ${escapeHtml(q.label)} complete">
-            <span class="lc-link-wrapper">
-              <a class="task-link" href="${safeUrl(q.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(q.t)}${escapeHtml(q.label)}</a>
-            </span>
-          `;
+         const note = (q.note || "").trim();
+         const noteBadge = note
+           ? `<span class="link-note" data-tooltip="${escapeHtml(note)}" aria-label="${escapeHtml(note)}">i</span>`
+           : "";
+         const item = document.createElement("div");
+         item.className = "lc-task" + (done ? " done" : "");
+         item.innerHTML = `
+           <label class="lc-serial" for="lc-check-${q.serial}">${q.serial}.</label>
+           <input type="checkbox" id="lc-check-${q.serial}" ${done ? "checked" : ""} data-lc-slug="${escapeHtml(q.slug)}" aria-label="Mark ${escapeHtml(q.label)} complete">
+           <span class="lc-link-wrapper">
+             ${noteBadge}
+             <a class="task-link" href="${safeUrl(q.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(q.t)}${escapeHtml(q.label)}</a>
+           </span>
+         `;
 
           const checkbox = item.querySelector('input[type="checkbox"]');
           checkbox.addEventListener("change", event => {
@@ -558,12 +567,19 @@
         const done = isLeetCode
           ? keys.some(k => state.completedLinks.includes(k))
           : state[field].includes(id);
+        const noteText = (link.note || link.concept || "").trim();
         const item = document.createElement("span");
         item.className = "checkable-link" + (done ? " done" : "");
         const slugAttr = lcSlug ? ` data-lc-slug="${escapeHtml(lcSlug)}"` : "";
+        const tooltipText = noteText ? escapeHtml(noteText) : "";
+        const titleAttr = tooltipText ? ` title="${tooltipText}"` : "";
+        const noteBadge = tooltipText
+          ? `<span class="link-note" data-tooltip="${tooltipText}"${titleAttr} aria-label="${tooltipText}">i</span>`
+          : "";
         item.innerHTML = `
           <input type="checkbox" ${done ? "checked" : ""}${slugAttr} aria-label="Mark ${escapeHtml(link.label)} complete">
-          <a class="${linkClass}" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`;
+          ${noteBadge}
+          <a class="${linkClass}" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer"${titleAttr}>${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`;
         item.querySelector("input").addEventListener("change", event => {
           if (event.target.checked) {
             state[field] = [...new Set([...state[field], ...keys])];

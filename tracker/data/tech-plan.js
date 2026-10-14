@@ -111,7 +111,8 @@ window.TECH_TRACK = {
             {
               "t": "lc",
               "label": "LC #75 Sort Colors",
-              "url": "https://leetcode.com/problems/sort-colors/description/"
+              "url": "https://leetcode.com/problems/sort-colors/description/",
+              "note": "Two-pointer partitioning pattern."
             },
             {
               "t": "lc",
