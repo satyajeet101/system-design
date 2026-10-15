@@ -1271,7 +1271,7 @@ window.TECH_TRACK = {
     },
     {
       "number": 5,
-      "theme": "Trees, DFS/BFS & machine coding setup",
+      "theme": "DP, Trees, DFS/BFS & machine coding setup",
       "outcome": "Start dynamic programming and tree/DFS patterns (about 16 DP problems). Set up your machine-coding template and build a Parking Lot in 90 minutes. Learn the system-design framework and scalability basics with a URL shortener.",
       "resources": [
         {
@@ -1556,19 +1556,6 @@ window.TECH_TRACK = {
           ]
         },
         {
-          "id": "tech-w5-dsa-3",
-          "category": "DSA",
-          "title": "Target",
-          "detail": "10–12 medium problems. Start timing at 35 min per problem",
-          "links": [
-            {
-              "t": "nc",
-              "label": "Neetcode — Trees",
-              "url": "https://neetcode.io/problems/invert-a-binary-tree"
-            }
-          ]
-        },
-        {
           "id": "tech-w5-machine-coding-1",
           "category": "Machine Coding",
           "title": "Setup",
@@ -1595,7 +1582,7 @@ window.TECH_TRACK = {
           ]
         },
         {
-          "id": "tech-w5-dsa-4",
+          "id": "tech-w5-dsa-3",
           "category": "DSA",
           "title": "Dynamic programming foundations",
           "detail": "State, transition, base cases, memoization, tabulation, and space optimization.",
@@ -1608,7 +1595,7 @@ window.TECH_TRACK = {
         },
 
         {
-          "id": "tech-w5-dsa-5",
+          "id": "tech-w5-dsa-4",
           "category": "DSA",
           "title": "One-dimensional Dynamic programming",
           "detail": "House robber, decoding, coin change, subsequences, and interval decisions.",
@@ -1622,7 +1609,7 @@ window.TECH_TRACK = {
         },
 
         {
-          "id": "tech-w5-dsa-6",
+          "id": "tech-w5-dsa-5",
           "category": "DSA",
           "title": "Two-dimensional and grid Dynamic programming",
           "detail": "Paths, edit distance, LCS, knapsack, matrix states, and reconstruction.",
@@ -1631,14 +1618,15 @@ window.TECH_TRACK = {
             { "t": "lc", "label": "LC #120 Triangle", "url": "https://leetcode.com/problems/triangle/" },
             { "t": "lc", "label": "LC #221 Maximal Square", "url": "https://leetcode.com/problems/maximal-square/" },
             { "t": "lc", "label": "LC #72 Edit Distance", "url": "https://leetcode.com/problems/edit-distance/" },
-            { "t": "lc", "label": "LC #329 Longest Increasing Path in a Matrix", "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/" }
+            { "t": "lc", "label": "LC #329 Longest Increasing Path in a Matrix", "url": "https://leetcode.com/problems/longest-increasing-path-in-a-matrix/" },
+            { "t": "lc", "label": "LC #494 Target Sum", "url": "https://leetcode.com/problems/target-sum/" }
           ]
         },
 
         {
-          "id": "tech-w5-dsa-7",
+          "id": "tech-w5-dsa-6",
           "category": "DSA",
-          "title": "Solve 16 Dynamic programming problems",
+          "title": "Solve Dynamic programming problems",
           "detail": "Write recurrence before code and compare top-down vs bottom-up.",
           "links": [
             { "t": "lc", "label": "LC #62 Unique Paths", "url": "https://leetcode.com/problems/unique-paths/" },
@@ -2529,55 +2517,10 @@ window.TECH_TRACK = {
     },
     {
       "number": 9,
-      "theme": "DP 1D + LLD: food delivery + HLD: URL shortener",
-      "outcome": "Start 1D DP (top-down and bottom-up), design a Food Delivery system with Observer and Strategy, and begin marketplace system design: search, pricing, payments and reliability. Research Airbnb culture and map your stories to its core values.",
-      "resources": [
-        {
-          "label": "Neetcode — 1D DP",
-          "url": "https://neetcode.io/problems/climbing-stairs"
-        },
-        {
-          "label": "ByteByteGo",
-          "url": "https://bytebytego.com"
-        }
-      ],
+      "theme": "LLD: food delivery + HLD: URL shortener",
+      "outcome": "Design a Food Delivery system with Observer and Strategy, and begin marketplace system design: search, pricing, payments and reliability. Research Airbnb culture and map your stories to its core values.",
+      "resources": [],
       "tasks": [
-        {
-          "id": "tech-w9-dsa-1",
-          "category": "DSA",
-          "title": "1D DP",
-          "detail": "Climbing Stairs, House Robber, Coin Change — understand state → recurrence → base case",
-          "links": [
-            {
-              "t": "lc",
-              "label": "LC #198 House Robber",
-              "url": "https://leetcode.com/problems/house-robber/"
-            },
-            {
-              "t": "lc",
-              "label": "LC #322 Coin Change",
-              "url": "https://leetcode.com/problems/coin-change/"
-            }
-          ]
-        },
-        {
-          "id": "tech-w9-dsa-2",
-          "category": "DSA",
-          "title": "Practice BOTH top-down (memoization) and bottom-up (tabulation) for same problem — don't skip",
-          "detail": "",
-          "links": [
-            {
-              "t": "ref",
-              "label": "DP patterns — AlgoMaster",
-              "url": "https://blog.algomaster.io/p/20-dsa-patterns"
-            },
-            {
-              "t": "nc",
-              "label": "Neetcode — 1D DP",
-              "url": "https://neetcode.io/problems/climbing-stairs"
-            }
-          ]
-        },
         {
           "id": "tech-w9-lld-1",
           "category": "LLD",
@@ -2700,60 +2643,10 @@ window.TECH_TRACK = {
     },
     {
       "number": 10,
-      "theme": "DP 2D + machine coding: LRU & LFU cache",
-      "outcome": "Cover 2D DP and knapsack, build LRU then LFU cache from scratch and make them thread-safe. Drill architecture tradeoffs, security, capacity estimation and migrations, take three timed coding mocks, and prepare transformation and ethics stories.",
-      "resources": [
-        {
-          "label": "Neetcode — 2D DP",
-          "url": "https://neetcode.io/problems/unique-paths"
-        },
-        {
-          "label": "ByteByteGo",
-          "url": "https://bytebytego.com"
-        }
-      ],
+      "theme": "Machine coding: LRU & LFU cache",
+      "outcome": "Build LRU then LFU cache from scratch and make them thread-safe. Drill architecture tradeoffs, security, capacity estimation and migrations, take three timed coding mocks, and prepare transformation and ethics stories.",
+      "resources": [],
       "tasks": [
-        {
-          "id": "tech-w10-dsa-1",
-          "category": "DSA",
-          "title": "2D DP",
-          "detail": "Unique Paths, Longest Common Subsequence, Edit Distance",
-          "links": [
-            {
-              "t": "lc",
-              "label": "LC #62 Unique Paths",
-              "url": "https://leetcode.com/problems/unique-paths/"
-            },
-            {
-              "t": "lc",
-              "label": "LC #1143 LCS",
-              "url": "https://leetcode.com/problems/longest-common-subsequence/"
-            },
-            {
-              "t": "lc",
-              "label": "LC #72 Edit Distance",
-              "url": "https://leetcode.com/problems/edit-distance/"
-            }
-          ]
-        },
-        {
-          "id": "tech-w10-dsa-2",
-          "category": "DSA",
-          "title": "Knapsack",
-          "detail": "Partition Equal Subset Sum, Target Sum — DP needs volume, aim 8 problems",
-          "links": [
-            {
-              "t": "lc",
-              "label": "LC #416 Partition Subset Sum",
-              "url": "https://leetcode.com/problems/partition-equal-subset-sum/"
-            },
-            {
-              "t": "lc",
-              "label": "LC #494 Target Sum",
-              "url": "https://leetcode.com/problems/target-sum/"
-            }
-          ]
-        },
         {
           "id": "tech-w10-machine-coding-1",
           "category": "Machine Coding",
