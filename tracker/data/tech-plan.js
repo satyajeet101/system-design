@@ -116,6 +116,11 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
+              "label": "LC #345 Reverse Vowels of a String",
+              "url": "https://leetcode.com/problems/reverse-vowels-of-a-string/"
+            },
+            {
+              "t": "lc",
               "label": "LC #283 Move Zeroes",
               "url": "https://leetcode.com/problems/move-zeroes/"
             },
@@ -246,11 +251,61 @@ window.TECH_TRACK = {
               "label": "LC #169 Majority Element",
               "url": "https://leetcode.com/problems/majority-element/description/"
             },
-                     {
-                       "t": "lc",
-                       "label": "LC: Two Sum",
-                       "url": "https://leetcode.com/problems/two-sum/"
-                     },
+            {
+              "t": "lc",
+              "label": "LC #1768 Merge Strings Alternately",
+              "url": "https://leetcode.com/problems/merge-strings-alternately/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1071 Greatest Common Divisor of Strings",
+              "url": "https://leetcode.com/problems/greatest-common-divisor-of-strings/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1431 Kids With the Greatest Number of Candies",
+              "url": "https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #605 Can Place Flowers",
+              "url": "https://leetcode.com/problems/can-place-flowers/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #205 Isomorphic Strings",
+              "url": "https://leetcode.com/problems/isomorphic-strings/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #290 Word Pattern",
+              "url": "https://leetcode.com/problems/word-pattern/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #2215 Find the Difference of Two Arrays",
+              "url": "https://leetcode.com/problems/find-the-difference-of-two-arrays/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #804 Unique Morse Code Words",
+              "url": "https://leetcode.com/problems/unique-morse-code-words/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #905 Sort Array By Parity",
+              "url": "https://leetcode.com/problems/sort-array-by-parity/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #238 Product of Array Except Self",
+              "url": "https://leetcode.com/problems/product-of-array-except-self/"
+            },
+            {
+              "t": "lc",
+              "label": "LC: Two Sum",
+              "url": "https://leetcode.com/problems/two-sum/"
+            },
                      {
                        "t": "lc",
                        "label": "LC: Best Time To Buy And Sell Stock",
