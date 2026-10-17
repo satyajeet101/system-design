@@ -138,6 +138,31 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "LC #844 Backspace String Compare",
               "url": "https://leetcode.com/problems/backspace-string-compare/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #151 Reverse Words in a String",
+              "url": "https://leetcode.com/problems/reverse-words-in-a-string/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #344 Reverse String",
+              "url": "https://leetcode.com/problems/reverse-string/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #392 Is Subsequence",
+              "url": "https://leetcode.com/problems/is-subsequence/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #443 String Compression",
+              "url": "https://leetcode.com/problems/string-compression/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1679 Max Number of K-Sum Pairs",
+              "url": "https://leetcode.com/problems/max-number-of-k-sum-pairs/"
             }
           ]
         },
@@ -152,6 +177,16 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "LC #3 Longest Substring Without Repeating Characters",
               "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #485 Max Consecutive Ones",
+              "url": "https://leetcode.com/problems/max-consecutive-ones/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1004 Max Consecutive Ones III",
+              "url": "https://leetcode.com/problems/max-consecutive-ones-iii/"
             },
             {
               "t": "hi",
@@ -172,6 +207,21 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "LC #424 Longest Repeating Character Replacement",
               "url": "https://leetcode.com/problems/longest-repeating-character-replacement/description/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #643 Maximum Average Subarray I",
+              "url": "https://leetcode.com/problems/maximum-average-subarray-i/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1456 Maximum Number of Vowels in a Substring of Given Length",
+              "url": "https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1493 Longest Subarray of 1s After Deleting One Element",
+              "url": "https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/"
             }
           ]
         },
@@ -248,8 +298,33 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
+              "label": "LC #334 Increasing Triplet Subsequence",
+              "url": "https://leetcode.com/problems/increasing-triplet-subsequence/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #2515 Shortest Distance to Target String in a Circular Array",
+              "url": "https://leetcode.com/problems/shortest-distance-to-target-string-in-a-circular-array/"
+            },
+            {
+              "t": "lc",
               "label": "LC #169 Majority Element",
               "url": "https://leetcode.com/problems/majority-element/description/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1207 Unique Number of Occurrences",
+              "url": "https://leetcode.com/problems/unique-number-of-occurrences/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1732 Find the Highest Altitude",
+              "url": "https://leetcode.com/problems/find-the-highest-altitude/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1657 Determine if Two Strings Are Close",
+              "url": "https://leetcode.com/problems/determine-if-two-strings-are-close/"
             },
             {
               "t": "lc",
@@ -658,6 +733,11 @@ window.TECH_TRACK = {
               "label": "LC #217 Contains Duplicate",
               "url": "https://leetcode.com/problems/contains-duplicate/"
             },
+            {
+              "t": "lc",
+              "label": "LC #2352 Equal Row and Column Pairs",
+              "url": "https://leetcode.com/problems/equal-row-and-column-pairs/"
+            },
                      {
                        "t": "lc",
                        "label": "LC: Verifying An Alien Dictionary",
@@ -838,6 +918,21 @@ window.TECH_TRACK = {
                      },
                      {
                        "t": "lc",
+                       "label": "LC #328 Odd Even Linked List",
+                       "url": "https://leetcode.com/problems/odd-even-linked-list/"
+                     },
+                     {
+                       "t": "lc",
+                       "label": "LC #2095 Delete the Middle Node of a Linked List",
+                       "url": "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
+                     },
+                     {
+                       "t": "lc",
+                       "label": "LC #2130 Maximum Twin Sum of a Linked List",
+                       "url": "https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/"
+                     },
+                     {
+                       "t": "lc",
                        "label": "LC: Middle Of The Linked List",
                        "url": "https://leetcode.com/problems/middle-of-the-linked-list/"
                      },
@@ -909,6 +1004,16 @@ window.TECH_TRACK = {
               "label": "LC #739 Daily Temperatures",
               "url": "https://leetcode.com/problems/daily-temperatures/"
             },
+            {
+              "t": "lc",
+              "label": "LC #649 Dota2 Senate",
+              "url": "https://leetcode.com/problems/dota2-senate/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #933 Number of Recent Calls",
+              "url": "https://leetcode.com/problems/number-of-recent-calls/"
+            },
                      {
                        "t": "lc",
                        "label": "LC: Next Greater Element I",
@@ -953,6 +1058,21 @@ window.TECH_TRACK = {
                        "t": "lc",
                        "label": "LC: Evaluate Reverse Polish Notation",
                        "url": "https://leetcode.com/problems/evaluate-reverse-polish-notation/"
+                     },
+                     {
+                       "t": "lc",
+                       "label": "LC #394 Decode String",
+                       "url": "https://leetcode.com/problems/decode-string/"
+                     },
+                     {
+                       "t": "lc",
+                       "label": "LC #735 Asteroid Collision",
+                       "url": "https://leetcode.com/problems/asteroid-collision/"
+                     },
+                     {
+                       "t": "lc",
+                       "label": "LC #2390 Removing Stars From a String",
+                       "url": "https://leetcode.com/problems/removing-stars-from-a-string/"
                      }
           ]
         },
@@ -1354,6 +1474,16 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "LC #199 Right Side View",
               "url": "https://leetcode.com/problems/binary-tree-right-side-view/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #872 Leaf-Similar Trees",
+              "url": "https://leetcode.com/problems/leaf-similar-trees/"
+            },
+            {
+              "t": "lc",
+              "label": "LC #1544 Count Good Nodes in Binary Tree",
+              "url": "https://leetcode.com/problems/count-good-nodes-in-binary-tree/"
             },
             {
               "t": "lc",
