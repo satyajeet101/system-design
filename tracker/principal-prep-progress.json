@@ -1,6 +1,6 @@
 {
   "tracker": "Principal Engineer Multi-Track Preparation",
-  "exportedAt": "2026-10-18T02:37:08.646Z",
+  "exportedAt": "2026-10-18T05:32:02.979Z",
   "completed": [],
   "completedResources": [],
   "completedLinks": [
@@ -13,7 +13,8 @@
     "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/remove-duplicates-from-sorted-array/\"]",
     "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/merge-sorted-array/\"]",
     "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/sort-colors/description/\"]",
-    "[\"tech-w5-dsa-3\",\"https://leetcode.com/problems/climbing-stairs/\"]"
+    "[\"tech-w5-dsa-3\",\"https://leetcode.com/problems/climbing-stairs/\"]",
+    "[\"tech-w5-dsa-4\",\"https://leetcode.com/problems/house-robber/\"]"
   ],
   "startDates": {
     "tech": "2026-10-13",
@@ -21,5 +22,5 @@
     "backend": "2026-10-13",
     "leetcode": "2026-10-13"
   },
-  "activeTrackId": "leetcode"
+  "activeTrackId": "tech"
 }
