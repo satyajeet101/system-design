@@ -1336,11 +1336,6 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Fibonacci",
               "url": "https://leetcode.com/problems/fibonacci-number/"
-            },
-            {
-              "t": "lc",
-              "label": "Climbing Stairs",
-              "url": "https://leetcode.com/problems/climbing-stairs/"
             }
           ]
         },

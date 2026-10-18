@@ -1,0 +1,25 @@
+{
+  "tracker": "Principal Engineer Multi-Track Preparation",
+  "exportedAt": "2026-10-18T02:37:08.646Z",
+  "completed": [],
+  "completedResources": [],
+  "completedLinks": [
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/valid-palindrome/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/valid-palindrome-ii/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/3sum/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/container-with-most-water/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/trapping-rain-water/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/remove-duplicates-from-sorted-array/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/merge-sorted-array/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/sort-colors/description/\"]",
+    "[\"tech-w5-dsa-3\",\"https://leetcode.com/problems/climbing-stairs/\"]"
+  ],
+  "startDates": {
+    "tech": "2026-10-13",
+    "ai": "2026-10-13",
+    "backend": "2026-10-13",
+    "leetcode": "2026-10-13"
+  },
+  "activeTrackId": "leetcode"
+}
