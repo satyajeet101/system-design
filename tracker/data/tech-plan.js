@@ -117,7 +117,8 @@ window.TECH_TRACK = {
             {
               "t": "lc",
               "label": "Reverse Vowels of a String",
-              "url": "https://leetcode.com/problems/reverse-vowels-of-a-string/"
+              "url": "https://leetcode.com/problems/reverse-vowels-of-a-string/",
+              "note": "Check if vowel: return \"aeiouAEIOU\".indexOf(c) != -1; sb.setCharAt(1, 'm'); "
             },
             {
               "t": "lc",
@@ -142,7 +143,9 @@ window.TECH_TRACK = {
             {
               "t": "lc",
               "label": "Reverse Words in a String",
-              "url": "https://leetcode.com/problems/reverse-words-in-a-string/"
+              "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+              "note": "String s = \"  the   sky  is   blue  \";\n" +
+                  "String[] arr = s.trim().split(\"\\\\s+\");"
             },
             {
               "t": "lc",
@@ -1803,7 +1806,8 @@ window.TECH_TRACK = {
             {
               "t": "lc",
               "label": "Decode Ways",
-              "url": "https://leetcode.com/problems/decode-ways/"
+              "url": "https://leetcode.com/problems/decode-ways/",
+              "note": "if (i == s.length()) return 1; // A valid path finished if (s.charAt(i) == '0') return 0; // This path is invalid"
             },
             {
               "t": "lc",
