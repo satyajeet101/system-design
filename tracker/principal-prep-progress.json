@@ -1,7 +1,9 @@
 {
   "tracker": "Principal Engineer Multi-Track Preparation",
-  "exportedAt": "2026-10-18T05:32:02.979Z",
-  "completed": [],
+  "exportedAt": "2026-11-02T02:52:34.533Z",
+  "completed": [
+    "tech-w1-system-design-1"
+  ],
   "completedResources": [],
   "completedLinks": [
     "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/\"]",
@@ -14,7 +16,13 @@
     "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/merge-sorted-array/\"]",
     "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/sort-colors/description/\"]",
     "[\"tech-w5-dsa-3\",\"https://leetcode.com/problems/climbing-stairs/\"]",
-    "[\"tech-w5-dsa-4\",\"https://leetcode.com/problems/house-robber/\"]"
+    "[\"tech-w5-dsa-4\",\"https://leetcode.com/problems/house-robber/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/reverse-string/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/reverse-vowels-of-a-string/\"]",
+    "[\"tech-w1-dsa-1\",\"https://leetcode.com/problems/reverse-words-in-a-string/\"]",
+    "[\"tech-w1-dsa-3\",\"https://leetcode.com/problems/reverse-words-in-a-string/\"]",
+    "[\"tech-w1-system-design-1\",\"https://www.hellointerview.com/learn/system-design/core-concepts/networking-essentials\"]",
+    "[\"tech-w1-system-design-1\",null]"
   ],
   "startDates": {
     "tech": "2026-10-13",

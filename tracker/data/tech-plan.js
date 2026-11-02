@@ -53,12 +53,8 @@ window.TECH_TRACK = {
           "url": "https://visualgo.net/en"
         },
         {
-          "label": "Refactoring.Guru",
-          "url": "https://refactoring.guru"
-        },
-        {
-          "label": "Hello Interview Overview",
-          "url": "https://www.hellointerview.com/learn/code/two-pointers/overview"
+          "label": "SSD Overview",
+          "url": "https://www.hellointerview.com/learn/system-design/in-a-hurry/core-concepts"
         }
       ],
       "tasks": [
@@ -698,9 +694,23 @@ window.TECH_TRACK = {
         {
           "id": "tech-w1-system-design-1",
           "category": "System Design",
-          "title": "Take a baseline mock interview",
-          "detail": "One coding and one system-design prompt; record gaps without over-preparing.",
-          "links": []
+          "title": "Networking Essentials",
+          "detail": "Network layers, protocols-TCP, UDP, HTTP, DNS, TLS, and CDNs.",
+          "links": [
+            {
+              "t": "hi",
+              "label": "Networking Essentials",
+              "url": "https://www.hellointerview.com/learn/system-design/core-concepts/networking-essentials"
+            },
+            { "label": "IPv4 and IPv6, at layer 3(Network Layer)" },
+            { "label": "TCP vs UDP, at layer 4(Transport Layer)" },
+            { "label": "HTTP(REST, GQL, gRPC, SSE, Websockets, WebRTC) at layer 7(Application Layer)" },
+            { "label": "Load Balancers(layer4 and layer7)(client side, dedicated(software, hardware))" },
+            { "label": "Content Delivery Networks (CDNs)" },
+            { "label": "Retries, Backoff, Jitter." },
+            { "label": "Circuit Breaker, Rate Limiter, Bulkhead Isolation" },
+            { "label": "Circuit Breaker, Rate Limiter, Bulkhead Isolation" }
+          ]
         }
       ]
     },

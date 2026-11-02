@@ -188,7 +188,7 @@ main { margin-top: -42px; padding-bottom: 64px; }
 }
 .task:hover { background: var(--surface-raised); }
 .task.done { background: #19191e; }
-.task.done .task-title { text-decoration: line-through; }
+.task.done .task-title { }
 .task input,
 .checkable-link input,
 .lc-task input[type="checkbox"] {
@@ -229,7 +229,7 @@ main { margin-top: -42px; padding-bottom: 64px; }
 .task-title { display: block; font-weight: 750; }
 .task-detail { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; }
 .task-links, .week-resources { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px; }
-.task-link, .resource-link {
+.task-link, .resource-link, .link-disabled {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -243,6 +243,12 @@ main { margin-top: -42px; padding-bottom: 64px; }
   text-decoration: none;
 }
 .task-link:hover, .resource-link:hover { border-color: #8c8c9b; background: #2a2a32; }
+.link-disabled {
+  color: #c8d0dd;
+  opacity: 0.8;
+  cursor: default;
+  pointer-events: none;
+}
 .link-type {
   padding: 1px 5px;
   border-radius: 4px;
@@ -304,7 +310,8 @@ main { margin-top: -42px; padding-bottom: 64px; }
   opacity: 1;
   transform: translateY(-4px);
 }
-.checkable-link.done a { text-decoration: line-through; opacity: .85; }
+.checkable-link.done a,
+.checkable-link.done .link-disabled { opacity: .85; }
 .badge {
   padding: 4px 8px;
   border-radius: 999px;
@@ -339,7 +346,7 @@ main { margin-top: -42px; padding-bottom: 64px; }
 }
 .lc-task:hover { background: var(--surface-raised); border-color: #686873; }
 .lc-task.done { background: #19191e; }
-.lc-task.done .task-link { text-decoration: line-through; opacity: .85; }
+.lc-task.done .task-link { opacity: .85; }
 .lc-serial {
   min-width: 38px;
   color: var(--muted);

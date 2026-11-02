@@ -568,6 +568,7 @@
           ? keys.some(k => state.completedLinks.includes(k))
           : state[field].includes(id);
         const noteText = (link.note || link.concept || "").trim();
+        const hasUrl = Boolean(link.url && safeUrl(link.url) !== "#");
         const item = document.createElement("span");
         item.className = "checkable-link" + (done ? " done" : "");
         const slugAttr = lcSlug ? ` data-lc-slug="${escapeHtml(lcSlug)}"` : "";
@@ -575,10 +576,13 @@
         const noteBadge = tooltipText
           ? `<span class="link-note" data-tooltip="${tooltipText}" aria-label="${tooltipText}">i</span>`
           : "";
+        const linkMarkup = hasUrl
+          ? `<a class="${linkClass}" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`
+          : `<span class="${linkClass} link-disabled">${renderLinkType(link.t)}${escapeHtml(link.label)}</span>`;
         item.innerHTML = `
           <input type="checkbox" ${done ? "checked" : ""}${slugAttr} aria-label="Mark ${escapeHtml(link.label)} complete">
           ${noteBadge}
-          <a class="${linkClass}" href="${safeUrl(link.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(link.t)}${escapeHtml(link.label)}</a>`;
+          ${linkMarkup}`;
         item.querySelector("input").addEventListener("change", event => {
           if (event.target.checked) {
             state[field] = [...new Set([...state[field], ...keys])];
@@ -612,7 +616,12 @@
         container.className = "week-resources";
         container.innerHTML = `<span class="resources-label">References</span>`;
         week.resources.forEach(resource => {
-          container.append(createCheckableLink(resource, resourceKey(track, week, resource), "completedResources", "resource-link"));
+          const item = document.createElement("span");
+          item.className = "resource-item";
+          item.innerHTML = `
+            <a class="resource-link" href="${safeUrl(resource.url)}" target="_blank" rel="noopener noreferrer">${renderLinkType(resource.t)}${escapeHtml(resource.label)}</a>
+          `;
+          container.append(item);
         });
         return container;
       }
