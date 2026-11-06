@@ -615,13 +615,6 @@ window.TECH_TRACK = {
         {
           "id": "tech-w1-dsa-4",
           "category": "DSA",
-          "title": "Big-O time and space complexity",
-          "detail": "Analyze loops, recursion, amortized cost, and common growth rates.",
-          "links": []
-        },
-        {
-          "id": "tech-w1-dsa-5",
-          "category": "DSA",
           "title": "Solve array/string problems",
           "detail": "Explain complexity aloud.",
           "links": [
@@ -708,7 +701,6 @@ window.TECH_TRACK = {
             { "label": "Load Balancers(layer4 and layer7)(client side, dedicated(software, hardware))" },
             { "label": "Content Delivery Networks (CDNs)" },
             { "label": "Retries, Backoff, Jitter." },
-            { "label": "Circuit Breaker, Rate Limiter, Bulkhead Isolation" },
             { "label": "Circuit Breaker, Rate Limiter, Bulkhead Isolation" }
           ]
         }
@@ -797,15 +789,23 @@ window.TECH_TRACK = {
         {
           "id": "tech-w2-dsa-3",
           "category": "DSA",
-          "title": "Target",
-          "detail": "8–10 easy problems. Write Big-O for every solution",
-          "links": [
-            {
-              "t": "nc",
-              "label": "Neetcode — Arrays & Hashing",
-              "url": "https://neetcode.io/problems/contains-duplicate"
-            }
-          ]
+          "title": "Stacks, queues, and deques",
+          "detail": "Monotonic stack, expression parsing, BFS queue, circular queue, and deque patterns.",
+          "links": []
+        },
+        {
+          "id": "tech-w2-dsa-4",
+          "category": "DSA",
+          "title": "Two pointers and sliding window",
+          "detail": "Fixed/variable windows, fast/slow pointers, partitioning, and palindrome patterns.",
+          "links": []
+        },
+        {
+          "id": "tech-w2-dsa-5",
+          "category": "DSA",
+          "title": "Solve 15 linear-structure problems",
+          "detail": "Prioritize medium problems and re-solve misses after 48 hours.",
+          "links": []
         },
         {
           "id": "tech-w2-lld-1",
@@ -831,6 +831,25 @@ window.TECH_TRACK = {
           ]
         },
         {
+          "id": "tech-w2-system-design-1",
+          "category": "System Design",
+          "title": "API design",
+          "detail": "REST, GraphQL, gRPC, auth, authorization, idempotent GET/PUT/POST/PATCH, and request semantics.",
+          "links": [
+            {"t": "hi", "label": "API design principles", "url": "https://www.hellointerview.com/learn/system-design/core-concepts/api-design" },
+            { "label": "REST" },
+            { "label": "GraphQL" },
+            { "label": "gRPC" },
+            { "label": "Authentication and Authorization" },
+            { "label": "Request semantics- GET, POST, PUT, PATCH, DELETE-Idempotent/nonIdempontent" },
+            { "label": "Pagination-offset based and cursor-based" },
+            { "label": "Rate limiting- per user, per ip, per endpoint" },
+            { "label": "JWT vs OAuth" },
+            { "label": "Versioning strategies- Header vs url" },
+            { "label": "Idempotency Keys" }
+          ]
+        },
+        {
           "id": "tech-w2-lld-2",
           "category": "LLD",
           "title": "Implement Parking Lot in Java using your class diagram from Week 1",
@@ -842,34 +861,6 @@ window.TECH_TRACK = {
               "url": "https://github.com/ashishps1/awesome-low-level-design/tree/main/solutions/java/parkinglot"
             }
           ]
-        },
-        {
-          "id": "tech-w2-dsa-4",
-          "category": "DSA",
-          "title": "Linked lists",
-          "detail": "Reversal, merge, middle, cycle detection, intersection, and sentinel nodes.",
-          "links": []
-        },
-        {
-          "id": "tech-w2-dsa-5",
-          "category": "DSA",
-          "title": "Stacks, queues, and deques",
-          "detail": "Monotonic stack, expression parsing, BFS queue, circular queue, and deque patterns.",
-          "links": []
-        },
-        {
-          "id": "tech-w2-dsa-6",
-          "category": "DSA",
-          "title": "Two pointers and sliding window",
-          "detail": "Fixed/variable windows, fast/slow pointers, partitioning, and palindrome patterns.",
-          "links": []
-        },
-        {
-          "id": "tech-w2-dsa-7",
-          "category": "DSA",
-          "title": "Solve 15 linear-structure problems",
-          "detail": "Prioritize medium problems and re-solve misses after 48 hours.",
-          "links": []
         },
         {
           "id": "tech-w2-behavioral-1",
@@ -1086,6 +1077,18 @@ window.TECH_TRACK = {
               "label": "Removing Stars From a String",
               "url": "https://leetcode.com/problems/removing-stars-from-a-string/"
             }
+          ]
+        },
+        {
+          "id": "tech-w3-system-design-1",
+          "category": "System Design",
+          "title": "Data modeling",
+          "detail": "DB model options, schema design, normalization vs denormalization, and tradeoff analysis.",
+          "links": [
+            { "t": "hi", "label": "Data Modeling", "url": "https://www.hellointerview.com/learn/system-design/core-concepts/data-modeling" },
+            { "label": "DB model options — RDBMS/SQL, Document DB, Key-value store, Wide-column DB, Graph DB" },
+            { "label": "Schema design fundamentals" },
+            { "label": "Normalization vs denormalization" }
           ]
         },
         {
@@ -2935,7 +2938,7 @@ window.TECH_TRACK = {
         {
           "id": "tech-w10-machine-coding-1",
           "category": "Machine Coding",
-          "title": "Build LRU Cache from scratch in 60 min (HashMap + doubly linked list, no built-ins)",
+          "title": "Build LRU Cache from scratch in 60 min",
           "detail": "",
           "links": [
             {
@@ -3209,8 +3212,8 @@ window.TECH_TRACK = {
     },
     {
       "number": 12,
-      "theme": "Intervals, greedy, monotonic stack & machine coding: rate limiter",
-      "outcome": "Month-3 checkpoint: intervals, greedy and monotonic stack, a Rate Limiter in 75 minutes, and an Airbnb-style booking platform design. Re-solve your highest-value problems, run a first full-loop dry run, rehearse the story matrix, and draft your resume narrative and interview-day plan.",
+      "theme": "Intervals, greedy & machine coding: rate limiter",
+      "outcome": "Month-3 checkpoint: intervals, greedy, a Rate Limiter in 75 minutes, and an Airbnb-style booking platform design. Re-solve your highest-value problems, run a first full-loop dry run, rehearse the story matrix, and draft your resume narrative and interview-day plan.",
       "resources": [
         {
           "label": "ByteByteGo",
@@ -3318,13 +3321,6 @@ window.TECH_TRACK = {
           ]
         },
         {
-          "id": "tech-w12-dsa-3",
-          "category": "DSA",
-          "title": "Monotonic Stack",
-          "detail": "Largest Rectangle in Histogram, Trapping Rain Water",
-          "links": []
-        },
-        {
           "id": "tech-w12-machine-coding-1",
           "category": "Machine Coding",
           "title": "Build a Rate Limiter in 75 min",
@@ -3359,13 +3355,6 @@ window.TECH_TRACK = {
               "url": "https://github.com/donnemartin/system-design-primer"
             }
           ]
-        },
-        {
-          "id": "tech-w12-dsa-4",
-          "category": "DSA",
-          "title": "Re-solve the 15 highest-value coding problems",
-          "detail": "Select representative patterns and previously missed problems; no new problem binge.",
-          "links": []
         },
         {
           "id": "tech-w12-system-design-2",
