@@ -789,13 +789,6 @@ window.TECH_TRACK = {
         {
           "id": "tech-w2-dsa-3",
           "category": "DSA",
-          "title": "Stacks, queues, and deques",
-          "detail": "Monotonic stack, expression parsing, BFS queue, circular queue, and deque patterns.",
-          "links": []
-        },
-        {
-          "id": "tech-w2-dsa-4",
-          "category": "DSA",
           "title": "Two pointers and sliding window",
           "detail": "Fixed/variable windows, fast/slow pointers, partitioning, and palindrome patterns.",
           "links": []
@@ -1340,7 +1333,7 @@ window.TECH_TRACK = {
           "id": "tech-w4-dsa-2",
           "category": "DSA",
           "title": "Recursion",
-          "detail": "Pow(x,n), Fibonacci, Climbing Stairs — trace the call stack by hand",
+          "detail": "Pow(x,n), Fibonacci, Climbing Stairs",
           "links": [
             {
               "t": "lc",
@@ -3164,13 +3157,6 @@ window.TECH_TRACK = {
           "category": "DSA",
           "title": "Complete two full coding interviews",
           "detail": "Use unseen medium/hard questions, 45 minutes each, with external feedback.",
-          "links": []
-        },
-        {
-          "id": "tech-w11-dsa-4",
-          "category": "DSA",
-          "title": "Review the complete DSA pattern sheet",
-          "detail": "Arrays, hashing, pointers, windows, lists, stacks, trees, tries, heaps, graphs, backtracking, greedy, DP, intervals, bits, and range queries.",
           "links": []
         },
         {
