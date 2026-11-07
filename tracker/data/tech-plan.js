@@ -516,11 +516,6 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "Minimum Remove To Make Valid Parentheses",
-              "url": "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
-            },
-            {
-              "t": "lc",
               "label": "Longest Palindromic Substring",
               "url": "https://leetcode.com/problems/longest-palindromic-substring/"
             },
@@ -531,11 +526,6 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "Basic Calculator II",
-              "url": "https://leetcode.com/problems/basic-calculator-ii/"
-            },
-            {
-              "t": "lc",
               "label": "Integer To Roman",
               "url": "https://leetcode.com/problems/integer-to-roman/"
             },
@@ -543,11 +533,6 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Reverse Words In A String",
               "url": "https://leetcode.com/problems/reverse-words-in-a-string/"
-            },
-            {
-              "t": "lc",
-              "label": "Simplify Path",
-              "url": "https://leetcode.com/problems/simplify-path/"
             },
             {
               "t": "lc",
@@ -652,11 +637,6 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "N-Queens",
               "url": "https://leetcode.com/problems/n-queens/description/?envType=problem-list-v2&envId=array"
-            },
-            {
-              "t": "lc",
-              "label": "Largest Rectangle In Histogram",
-              "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/description/?envType=problem-list-v2&envId=array"
             },
             {
               "t": "lc",
@@ -877,6 +857,11 @@ window.TECH_TRACK = {
       "outcome": "Move into trees, tries, recursion and backtracking (about 16 problems). Learn structural patterns by designing a Library Management System, review your own Parking Lot code, and prepare a failure-and-learning story.",
       "resources": [
         {
+          "t": "gh",
+          "label": "Notes on queue nad stack",
+          "url": "https://github.com/satyajeet101/system-design/blob/main/java/collectionFramework/StackAndQueue.java"
+        },
+        {
           "label": "Visualgo — Linked List",
           "url": "https://visualgo.net/en/list"
         },
@@ -992,11 +977,6 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "Min Stack",
-              "url": "https://leetcode.com/problems/min-stack/"
-            },
-            {
-              "t": "lc",
               "label": "Daily Temperatures",
               "url": "https://leetcode.com/problems/daily-temperatures/"
             },
@@ -1024,6 +1004,51 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Implement Stack Using Queues",
               "url": "https://leetcode.com/problems/implement-stack-using-queues/"
+            },
+            {
+              "t": "lc",
+              "label": "Largest Rectangle In Histogram",
+              "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/description/?envType=problem-list-v2&envId=array"
+            },
+            {
+              "t": "lc",
+              "label": "Minimum Remove To Make Valid Parentheses",
+              "url": "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/"
+            },
+            {
+              "t": "lc",
+              "label": "Remove K Digits",
+              "url": "https://leetcode.com/problems/remove-k-digits/"
+            },
+            {
+              "t": "lc",
+              "label": "Find The Most Competitive Subsequence",
+              "url": "https://leetcode.com/problems/find-the-most-competitive-subsequence/"
+            },
+            {
+              "t": "lc",
+              "label": "Basic Calculator II",
+              "url": "https://leetcode.com/problems/basic-calculator-ii/"
+            },
+            {
+              "t": "lc",
+              "label": "Simplify Path",
+              "url": "https://leetcode.com/problems/simplify-path/"
+            },
+            {
+              "t": "lc",
+              "label": "Min Stack",
+              "url": "https://leetcode.com/problems/min-stack/"
+            },
+            {
+              "t": "lc",
+              "label": "Maximal Rectangle",
+              "url": "https://leetcode.com/problems/maximal-rectangle/"
+            },
+            {
+              "t": "lc",
+              "label": "Trapping Rain Water II",
+              "url": "https://leetcode.com/problems/trapping-rain-water-ii/"
             },
             {
               "t": "lc",
@@ -1062,6 +1087,11 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
+              "label": "Longest Valid Parentheses",
+              "url": "https://leetcode.com/problems/longest-valid-parentheses/"
+            },
+            {
+              "t": "lc",
               "label": "Asteroid Collision",
               "url": "https://leetcode.com/problems/asteroid-collision/"
             },
@@ -1069,6 +1099,41 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Removing Stars From a String",
               "url": "https://leetcode.com/problems/removing-stars-from-a-string/"
+            },
+            {
+              "t": "lc",
+              "label": "Minimum Add to Make Parentheses Valid",
+              "url": "https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/"
+            },
+            {
+              "t": "lc",
+              "label": "Minimum Number of Swaps to Make the String Balanced",
+              "url": "https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/"
+            },
+            {
+              "t": "lc",
+              "label": "Next Greater Element II",
+              "url": "https://leetcode.com/problems/next-greater-element-ii/"
+            },
+            {
+              "t": "lc",
+              "label": "Maximum Width Ramp",
+              "url": "https://leetcode.com/problems/maximum-width-ramp/"
+            },
+            {
+              "t": "lc",
+              "label": "Final Prices With a Special Discount in a Shop",
+              "url": "https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/"
+            },
+            {
+              "t": "lc",
+              "label": "Basic Calculator II",
+              "url": "https://leetcode.com/problems/basic-calculator-ii/"
+            },
+            {
+              "t": "lc",
+              "label": "Maximum Frequency Stack",
+              "url": "https://leetcode.com/problems/maximum-frequency-stack/"
             }
           ]
         },
@@ -1988,16 +2053,6 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "Maximal Rectangle",
-              "url": "https://leetcode.com/problems/maximal-rectangle/"
-            },
-            {
-              "t": "lc",
-              "label": "Longest Valid Parentheses",
-              "url": "https://leetcode.com/problems/longest-valid-parentheses/"
-            },
-            {
-              "t": "lc",
               "label": "Minimum Difficulty Of A Job Schedule",
               "url": "https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule/"
             },
@@ -2149,11 +2204,6 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "Find The Most Competitive Subsequence",
-              "url": "https://leetcode.com/problems/find-the-most-competitive-subsequence/"
-            },
-            {
-              "t": "lc",
               "label": "Ugly Number II",
               "url": "https://leetcode.com/problems/ugly-number-ii/"
             },
@@ -2161,11 +2211,6 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "The Skyline Problem",
               "url": "https://leetcode.com/problems/the-skyline-problem/"
-            },
-            {
-              "t": "lc",
-              "label": "Trapping Rain Water II",
-              "url": "https://leetcode.com/problems/trapping-rain-water-ii/"
             },
             {
               "t": "lc",
@@ -3273,11 +3318,6 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Minimum Deletions To Make Character Frequencies Unique",
               "url": "https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/"
-            },
-            {
-              "t": "lc",
-              "label": "Remove K Digits",
-              "url": "https://leetcode.com/problems/remove-k-digits/"
             },
             {
               "t": "lc",
