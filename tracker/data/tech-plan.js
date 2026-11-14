@@ -904,6 +904,11 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
+              "label": "Merge K Sorted Lists",
+              "url": "https://leetcode.com/problems/merge-k-sorted-lists/"
+            },
+            {
+              "t": "lc",
               "label": "Delete the Middle Node of a Linked List",
               "url": "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/"
             },
@@ -936,6 +941,46 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Remove Duplicates From Sorted List",
               "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list/"
+            },
+            {
+              "t": "lc",
+              "label": "Remove Nth Node From End of List",
+              "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+            },
+            {
+              "t": "lc",
+              "label": "Reorder List",
+              "url": "https://leetcode.com/problems/reorder-list/"
+            },
+            {
+              "t": "lc",
+              "label": "Swap Nodes in Pairs",
+              "url": "https://leetcode.com/problems/swap-nodes-in-pairs/"
+            },
+            {
+              "t": "lc",
+              "label": "Reverse Linked List II",
+              "url": "https://leetcode.com/problems/reverse-linked-list-ii/"
+            },
+            {
+              "t": "lc",
+              "label": "Remove Duplicates From Sorted List II",
+              "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/"
+            },
+            {
+              "t": "lc",
+              "label": "Add Two Numbers",
+              "url": "https://leetcode.com/problems/add-two-numbers/"
+            },
+            {
+              "t": "lc",
+              "label": "Rotate List",
+              "url": "https://leetcode.com/problems/rotate-list/"
+            },
+            {
+              "t": "lc",
+              "label": "Partition List",
+              "url": "https://leetcode.com/problems/partition-list/"
             },
             {
               "t": "lc",
@@ -1391,6 +1436,81 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Shortest Subarray With Sum At Least K",
               "url": "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/"
+            },
+            {
+              "t": "lc",
+              "label": "Kth Smallest Element In A Sorted Matrix",
+              "url": "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+            },
+            {
+              "t": "lc",
+              "label": "Koko Eating Bananas",
+              "url": "https://leetcode.com/problems/koko-eating-bananas/"
+            },
+            {
+              "t": "lc",
+              "label": "Capacity To Ship Packages Within D Days",
+              "url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
+            },
+            {
+              "t": "lc",
+              "label": "Search Insert Position",
+              "url": "https://leetcode.com/problems/search-insert-position/"
+            },
+            {
+              "t": "lc",
+              "label": "First Bad Version",
+              "url": "https://leetcode.com/problems/first-bad-version/"
+            },
+            {
+              "t": "lc",
+              "label": "Guess Number Higher or Lower",
+              "url": "https://leetcode.com/problems/guess-number-higher-or-lower/"
+            },
+            {
+              "t": "lc",
+              "label": "Single Element in a Sorted Array",
+              "url": "https://leetcode.com/problems/single-element-in-a-sorted-array/"
+            },
+            {
+              "t": "lc",
+              "label": "Kth Missing Positive Number",
+              "url": "https://leetcode.com/problems/kth-missing-positive-number/"
+            },
+            {
+              "t": "lc",
+              "label": "Search in Rotated Sorted Array II",
+              "url": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
+            },
+            {
+              "t": "lc",
+              "label": "Find in Mountain Array",
+              "url": "https://leetcode.com/problems/find-in-mountain-array/"
+            },
+            {
+              "t": "lc",
+              "label": "Minimum Number of Days to Make m Bouquets",
+              "url": "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/"
+            },
+            {
+              "t": "lc",
+              "label": "Minimized Maximum of Products Distributed to Any Store",
+              "url": "https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store/"
+            },
+            {
+              "t": "lc",
+              "label": "Maximum Candies Allocated to K Children",
+              "url": "https://leetcode.com/problems/maximum-candies-allocated-to-k-children/"
+            },
+            {
+              "t": "lc",
+              "label": "Find K Closest Elements",
+              "url": "https://leetcode.com/problems/find-k-closest-elements/"
+            },
+            {
+              "t": "lc",
+              "label": "Find K-th Smallest Pair Distance",
+              "url": "https://leetcode.com/problems/find-k-th-smallest-pair-distance/"
             }
           ]
         },
@@ -2179,11 +2299,6 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "Merge K Sorted Lists",
-              "url": "https://leetcode.com/problems/merge-k-sorted-lists/"
-            },
-            {
-              "t": "lc",
               "label": "K Closest Points To Origin",
               "url": "https://leetcode.com/problems/k-closest-points-to-origin/"
             },
@@ -2196,11 +2311,6 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Furthest Building You Can Reach",
               "url": "https://leetcode.com/problems/furthest-building-you-can-reach/"
-            },
-            {
-              "t": "lc",
-              "label": "Kth Smallest Element In A Sorted Matrix",
-              "url": "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
             },
             {
               "t": "lc",
@@ -2682,24 +2792,6 @@ window.TECH_TRACK = {
       "tasks": [
         {
           "id": "tech-w8-dsa-1",
-          "category": "DSA",
-          "title": "Binary search on answer",
-          "detail": "Koko Eating Bananas, Capacity to Ship Packages",
-          "links": [
-            {
-              "t": "lc",
-              "label": "Koko Eating Bananas",
-              "url": "https://leetcode.com/problems/koko-eating-bananas/"
-            },
-            {
-              "t": "lc",
-              "label": "Capacity to Ship",
-              "url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/"
-            }
-          ]
-        },
-        {
-          "id": "tech-w8-dsa-2",
           "category": "DSA",
           "title": "Sliding window hard",
           "detail": "Minimum Window Substring, Sliding Window Maximum",
