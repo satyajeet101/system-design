@@ -556,11 +556,6 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "Smallest Range Covering Elements From K Lists",
-              "url": "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
-            },
-            {
-              "t": "lc",
               "label": "Substring With Concatenation Of All Words",
               "url": "https://leetcode.com/problems/substring-with-concatenation-of-all-words/"
             }
@@ -901,11 +896,6 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Odd Even Linked List",
               "url": "https://leetcode.com/problems/odd-even-linked-list/"
-            },
-            {
-              "t": "lc",
-              "label": "Merge K Sorted Lists",
-              "url": "https://leetcode.com/problems/merge-k-sorted-lists/"
             },
             {
               "t": "lc",
@@ -1304,13 +1294,6 @@ window.TECH_TRACK = {
         {
           "id": "tech-w3-dsa-4",
           "category": "DSA",
-          "title": "Binary trees and BSTs",
-          "detail": "DFS traversals, BFS, depth, diameter, LCA, validation, serialization, and reconstruction.",
-          "links": []
-        },
-        {
-          "id": "tech-w3-dsa-5",
-          "category": "DSA",
           "title": "Tries",
           "detail": "Prefix search, wildcard matching, autocomplete, and memory tradeoffs.",
           "links": []
@@ -1334,7 +1317,7 @@ window.TECH_TRACK = {
     {
       "number": 4,
       "theme": "Binary search, recursion & behavioral patterns",
-      "outcome": "Cover binary search, heaps, graphs, topological sort, union-find and shortest paths (about 18 problems). Learn behavioral patterns, then close Month 1 with a review, a mock, and a conflict story.",
+      "outcome": "Cover binary search. Learn behavioral patterns, then close Month 1 with a review, a mock, and a conflict story.",
       "resources": [
         {
           "label": "Visualgo — Binary Search",
@@ -1439,11 +1422,6 @@ window.TECH_TRACK = {
             },
             {
               "t": "lc",
-              "label": "Kth Smallest Element In A Sorted Matrix",
-              "url": "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
-            },
-            {
-              "t": "lc",
               "label": "Koko Eating Bananas",
               "url": "https://leetcode.com/problems/koko-eating-bananas/"
             },
@@ -1501,11 +1479,6 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "Maximum Candies Allocated to K Children",
               "url": "https://leetcode.com/problems/maximum-candies-allocated-to-k-children/"
-            },
-            {
-              "t": "lc",
-              "label": "Find K Closest Elements",
-              "url": "https://leetcode.com/problems/find-k-closest-elements/"
             },
             {
               "t": "lc",
@@ -1584,13 +1557,6 @@ window.TECH_TRACK = {
         {
           "id": "tech-w4-dsa-4",
           "category": "DSA",
-          "title": "Heaps and priority queues",
-          "detail": "Top-K, k-way merge, streaming median, scheduling, and custom comparators.",
-          "links": []
-        },
-        {
-          "id": "tech-w4-dsa-5",
-          "category": "DSA",
           "title": "Graph representation and traversal",
           "detail": "Adjacency lists/matrices, BFS, DFS, connected components, bipartite testing, and cycle detection.",
           "links": []
@@ -1607,13 +1573,6 @@ window.TECH_TRACK = {
           "category": "DSA",
           "title": "Shortest paths and MST",
           "detail": "Dijkstra, Bellman-Ford, Floyd-Warshall, Prim, Kruskal, and selection criteria.",
-          "links": []
-        },
-        {
-          "id": "tech-w4-dsa-8",
-          "category": "DSA",
-          "title": "Solve 18 graph/heap problems",
-          "detail": "Practice identifying graph models hidden inside word problems.",
           "links": []
         },
         {
@@ -1634,7 +1593,7 @@ window.TECH_TRACK = {
     },
     {
       "number": 5,
-      "theme": "DP, Trees, DFS/BFS & machine coding setup",
+      "theme": "DP, Trees, BFS & machine coding setup",
       "outcome": "Start dynamic programming and tree/DFS patterns (about 16 DP problems). Set up your machine-coding template and build a Parking Lot in 90 minutes. Learn the system-design framework and scalability basics with a URL shortener.",
       "resources": [
         {
@@ -1836,99 +1795,6 @@ window.TECH_TRACK = {
           ]
         },
         {
-          "id": "tech-w5-dsa-2",
-          "category": "DSA",
-          "title": "DFS",
-          "detail": "Max Depth of Binary Tree, Same Tree, Invert Binary Tree",
-          "links": [
-            {
-              "t": "lc",
-              "label": "Max Depth",
-              "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
-            },
-            {
-              "t": "lc",
-              "label": "Same Tree",
-              "url": "https://leetcode.com/problems/same-tree/"
-            },
-            {
-              "t": "lc",
-              "label": "Invert Tree",
-              "url": "https://leetcode.com/problems/invert-binary-tree/"
-            },
-            {
-              "t": "lc",
-              "label": "Course Schedule II",
-              "url": "https://leetcode.com/problems/course-schedule-ii/"
-            },
-            {
-              "t": "lc",
-              "label": "Decode String",
-              "url": "https://leetcode.com/problems/decode-string/"
-            },
-            {
-              "t": "lc",
-              "label": "Number Of Provinces",
-              "url": "https://leetcode.com/problems/number-of-provinces/"
-            },
-            {
-              "t": "lc",
-              "label": "Shortest Bridge",
-              "url": "https://leetcode.com/problems/shortest-bridge/"
-            },
-            {
-              "t": "lc",
-              "label": "All Paths From Source To Target",
-              "url": "https://leetcode.com/problems/all-paths-from-source-to-target/"
-            },
-            {
-              "t": "lc",
-              "label": "Surrounded Regions",
-              "url": "https://leetcode.com/problems/surrounded-regions/"
-            },
-            {
-              "t": "lc",
-              "label": "House Robber III",
-              "url": "https://leetcode.com/problems/house-robber-iii/"
-            },
-            {
-              "t": "lc",
-              "label": "Critical Connections In A Network",
-              "url": "https://leetcode.com/problems/critical-connections-in-a-network/"
-            },
-            {
-              "t": "lc",
-              "label": "Remove Invalid Parentheses",
-              "url": "https://leetcode.com/problems/remove-invalid-parentheses/"
-            },
-            {
-              "t": "lc",
-              "label": "Concatenated Words",
-              "url": "https://leetcode.com/problems/concatenated-words/"
-            },
-            {
-              "t": "lc",
-              "label": "Making A Large Island",
-              "url": "https://leetcode.com/problems/making-a-large-island/"
-            },
-            {
-              "t": "lc",
-              "label": "Contain Virus",
-              "url": "https://leetcode.com/problems/contain-virus/"
-            },
-            {
-              "t": "lc",
-              "label": "24 Game",
-              "url": "https://leetcode.com/problems/24-game/"
-            },
-            {
-              "t": "lc",
-              "label": "Remove Boxes",
-              "url": "https://leetcode.com/problems/remove-boxes/"
-            }
-          ]
-        },
-        {
           "id": "tech-w5-machine-coding-1",
           "category": "Machine Coding",
           "title": "Setup",
@@ -1955,7 +1821,7 @@ window.TECH_TRACK = {
           ]
         },
         {
-          "id": "tech-w5-dsa-3",
+          "id": "tech-w5-dsa-2",
           "category": "DSA",
           "title": "Dynamic programming foundations",
           "detail": "State, transition, base cases, memoization, tabulation, and space optimization.",
@@ -2289,6 +2155,31 @@ window.TECH_TRACK = {
           "links": [
             {
               "t": "lc",
+              "label": "Smallest Range Covering Elements From K Lists",
+              "url": "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/"
+            },
+            {
+              "t": "lc",
+              "label": "Kth Smallest Element In A Sorted Matrix",
+              "url": "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/"
+            },
+            {
+              "t": "lc",
+              "label": "Find Median from Stream",
+              "url": "https://leetcode.com/problems/find-median-from-data-stream/"
+            },
+            {
+              "t": "lc",
+              "label": "Merge K Sorted Lists",
+              "url": "https://leetcode.com/problems/merge-k-sorted-lists/"
+            },
+            {
+              "t": "lc",
+              "label": "Find K Closest Elements",
+              "url": "https://leetcode.com/problems/find-k-closest-elements/"
+            },
+            {
+              "t": "lc",
               "label": "Kth Largest",
               "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/"
             },
@@ -2346,6 +2237,61 @@ window.TECH_TRACK = {
               "t": "lc",
               "label": "K Th Smallest Prime Fraction",
               "url": "https://leetcode.com/problems/k-th-smallest-prime-fraction/"
+            },
+            {
+              "t": "lc",
+              "label": "Sort Characters By Frequency",
+              "url": "https://leetcode.com/problems/sort-characters-by-frequency/"
+            },
+            {
+              "t": "lc",
+              "label": "Relative Ranks",
+              "url": "https://leetcode.com/problems/relative-ranks/"
+            },
+            {
+              "t": "lc",
+              "label": "Kth Largest Element in a Stream",
+              "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/"
+            },
+            {
+              "t": "lc",
+              "label": "Last Stone Weight",
+              "url": "https://leetcode.com/problems/last-stone-weight/"
+            },
+            {
+              "t": "lc",
+              "label": "Take Gifts From the Richest Pile",
+              "url": "https://leetcode.com/problems/take-gifts-from-the-richest-pile/"
+            },
+            {
+              "t": "lc",
+              "label": "Finding MK Average",
+              "url": "https://leetcode.com/problems/finding-mk-average/"
+            },
+            {
+              "t": "lc",
+              "label": "Find K Pairs with Smallest Sums",
+              "url": "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/"
+            },
+            {
+              "t": "lc",
+              "label": "Maximum Average Pass Ratio",
+              "url": "https://leetcode.com/problems/maximum-average-pass-ratio/"
+            },
+            {
+              "t": "lc",
+              "label": "Single-Threaded CPU",
+              "url": "https://leetcode.com/problems/single-threaded-cpu/"
+            },
+            {
+              "t": "lc",
+              "label": "The Number of the Smallest Unoccupied Chair",
+              "url": "https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/"
+            },
+            {
+              "t": "lc",
+              "label": "Meeting Rooms III",
+              "url": "https://leetcode.com/problems/meeting-rooms-iii/"
             }
           ]
         },
@@ -2616,6 +2562,91 @@ window.TECH_TRACK = {
           "title": "DFS",
           "detail": "Clone Graph, Course Schedule, Pacific Atlantic Water Flow",
           "links": [
+            {
+              "t": "lc",
+              "label": "Max Depth",
+              "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+            },
+            {
+              "t": "lc",
+              "label": "Same Tree",
+              "url": "https://leetcode.com/problems/same-tree/"
+            },
+            {
+              "t": "lc",
+              "label": "Invert Tree",
+              "url": "https://leetcode.com/problems/invert-binary-tree/"
+            },
+            {
+              "t": "lc",
+              "label": "Course Schedule II",
+              "url": "https://leetcode.com/problems/course-schedule-ii/"
+            },
+            {
+              "t": "lc",
+              "label": "Decode String",
+              "url": "https://leetcode.com/problems/decode-string/"
+            },
+            {
+              "t": "lc",
+              "label": "Number Of Provinces",
+              "url": "https://leetcode.com/problems/number-of-provinces/"
+            },
+            {
+              "t": "lc",
+              "label": "Shortest Bridge",
+              "url": "https://leetcode.com/problems/shortest-bridge/"
+            },
+            {
+              "t": "lc",
+              "label": "All Paths From Source To Target",
+              "url": "https://leetcode.com/problems/all-paths-from-source-to-target/"
+            },
+            {
+              "t": "lc",
+              "label": "Surrounded Regions",
+              "url": "https://leetcode.com/problems/surrounded-regions/"
+            },
+            {
+              "t": "lc",
+              "label": "House Robber III",
+              "url": "https://leetcode.com/problems/house-robber-iii/"
+            },
+            {
+              "t": "lc",
+              "label": "Critical Connections In A Network",
+              "url": "https://leetcode.com/problems/critical-connections-in-a-network/"
+            },
+            {
+              "t": "lc",
+              "label": "Remove Invalid Parentheses",
+              "url": "https://leetcode.com/problems/remove-invalid-parentheses/"
+            },
+            {
+              "t": "lc",
+              "label": "Concatenated Words",
+              "url": "https://leetcode.com/problems/concatenated-words/"
+            },
+            {
+              "t": "lc",
+              "label": "Making A Large Island",
+              "url": "https://leetcode.com/problems/making-a-large-island/"
+            },
+            {
+              "t": "lc",
+              "label": "Contain Virus",
+              "url": "https://leetcode.com/problems/contain-virus/"
+            },
+            {
+              "t": "lc",
+              "label": "24 Game",
+              "url": "https://leetcode.com/problems/24-game/"
+            },
+            {
+              "t": "lc",
+              "label": "Remove Boxes",
+              "url": "https://leetcode.com/problems/remove-boxes/"
+            },
             {
               "t": "lc",
               "label": "Clone Graph",
@@ -3701,13 +3732,7 @@ window.TECH_TRACK = {
           "category": "DSA",
           "title": "Must-know cold",
           "detail": "LRU Cache #146 — solve in under 25 min without hints. Also Find Median from Data Stream",
-          "links": [
-            {
-              "t": "lc",
-              "label": "Find Median from Stream",
-              "url": "https://leetcode.com/problems/find-median-from-data-stream/"
-            }
-          ]
+          "links": []
         },
         {
           "id": "tech-w14-machine-coding-1",
